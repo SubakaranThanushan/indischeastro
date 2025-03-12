@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Etoile1 from "../../public/image/commentaire/etoile1.png";
 import Etoile2 from "../../public/image/commentaire/etoile2.png";
@@ -9,13 +9,7 @@ import Google from "../../public/image/commentaire/google.png";
 
 function CardsService(props) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [mapEtoiles, setMapEtoiles] = useState([
-    Etoile1,
-    Etoile2,
-    Etoile3,
-    Etoile4,
-    Etoile5,
-  ]);
+  const [mapEtoiles] = useState([Etoile1, Etoile2, Etoile3, Etoile4, Etoile5]);
 
   return (
     <div className="w-90 inline-block">

@@ -1,3 +1,3 @@
-function Footer() {
-  return <footer>Footer</footer>;
-}
+// function Footer() {
+//   return <footer>Footer</footer>;
+// }

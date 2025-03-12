@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 // import Head from "next/head";
-import Script from "next/script";
 //importer la base de donnée
 import { supabase } from "@/lib/supabaseClient";
 // Immages
@@ -10,7 +9,7 @@ import { supabase } from "@/lib/supabaseClient";
 import Profil from "../public/image/profile_home/image.png";
 import World from "../public/image/ilustration/astro.jpg";
 import CardsService from "./Components/CardsService";
-import FinisherHeaderComponent from "./Components/FinisherHeaderComponent";
+// import FinisherHeaderComponent from "./Components/FinisherHeaderComponent";
 import ContacteNotif from "./Components/ContacteNotif";
 import AutoScrollingComponent from "./Components/AutoScrollingComponent";
 // interface Services {

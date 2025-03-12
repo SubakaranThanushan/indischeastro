@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import CardsAvisGoogls from "./CardsAvisGoogle";
-import Icons from "../../public/image/profile_home/commentaire.jpg";
 import { supabase } from "@/lib/supabaseClient";
 function AutoScrollingComponent() {
   const contenaireRef = useRef<HTMLDivElement>(null);

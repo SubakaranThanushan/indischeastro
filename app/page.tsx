@@ -150,11 +150,11 @@ export default function Home() {
         {/* Service */}
         <ContacteNotif />
 
-        <div className="flex flex-col ">
+        <div className="flex flex-col  items-center  ">
           <h2 className=" mt-7 text-3xl font-bold text-black text-center place-content-center">
             SerUnsere Dienstleistungenvice
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full px-4 ">
             {services.map((service) => (
               <CardsService
                 key={service.id}
@@ -165,6 +165,14 @@ export default function Home() {
               />
             ))}
           </div>
+        </div>
+
+        {/* Commentaire */}
+        <div className="md:flex justify-center  ">
+          <h2 className="text-3xl font-bold text-black text-center place-content-center">
+            Ce que disent nos clients
+          </h2>
+          <AutoScrollingComponent />
         </div>
 
         {/* Presentation Profil */}
@@ -219,14 +227,6 @@ export default function Home() {
               alt="Suthakar Parameswaran, maître en astrologie védique"
             />
           </div>
-        </div>
-
-        {/* Commentaire */}
-        <div className="md:flex justify-center  ">
-          <h2 className="text-3xl font-bold text-black text-center place-content-center">
-            Ce que disent nos clients
-          </h2>
-          <AutoScrollingComponent />
         </div>
 
         <div>

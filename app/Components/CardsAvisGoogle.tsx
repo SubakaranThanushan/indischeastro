@@ -38,7 +38,14 @@ function CardsService(props) {
           </div>
           <div className="flex">
             {mapEtoiles.map((etoile, i) => (
-              <Image className="w-3" key={i} src={etoile} alt={etoile} />
+              <Image
+                className="w-3"
+                key={i}
+                src={etoile.src}
+                alt={`Etoile ${i + 1}`}
+                width={10}
+                height={10}
+              />
             ))}
           </div>
         </div>

@@ -22,6 +22,16 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/Components/AnimatedComposent.js",
+    "app/Components/AutoScrollingComponent.jsx",
+    "app/instruments",
+    "lib/supabaseClient.js",
+    "app/instruments"
+  ],
   "exclude": ["node_modules"]
 }

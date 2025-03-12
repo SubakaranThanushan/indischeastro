@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  /* .btn-navigation {
+    @apply text-white p-1 rounded-sm  hover:bg-white hover:drop-shadow-2xl;
+  } */
+}

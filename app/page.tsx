@@ -1,101 +1,248 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-
+// import Head from "next/head";
+import Script from "next/script";
+//importer la base de donnée
+import { supabase } from "@/lib/supabaseClient";
+// Immages
+// import Logo from "../public/image/logo_nav/cita-logo.png";
+import Profil from "../public/image/profile_home/image.png";
+import World from "../public/image/ilustration/astro.jpg";
+import CardsService from "./Components/CardsService";
+import FinisherHeaderComponent from "./Components/FinisherHeaderComponent";
+import ContacteNotif from "./Components/ContacteNotif";
+import AutoScrollingComponent from "./Components/AutoScrollingComponent";
+// interface Services {
+//   id: number;
+//   images: string;
+//   nom: string;
+//   description: string;
+//   // Ajoutez d'autres champs selon votre table
+// }
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [screenSize, setScreenSize] = useState("");
+  const [services, setServices] = useState([]);
+  // const [fermeture, setFermeture] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  useEffect(() => {
+    async function fetchServices() {
+      const { data, error } = await supabase
+        .from("services") // Nom de la table
+        .select("*"); // Récupère toutes les colonnes
+
+      if (error) {
+        console.error("Erreur lors de la récupération des services :", error);
+      } else {
+        setServices(data);
+      }
+    }
+
+    fetchServices();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(getScreenSize(window.innerWidth));
+    };
+
+    // handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  function getScreenSize(width: number) {
+    if (width < 640) return "xs";
+    if (width < 768) return "sm";
+    if (width < 1024) return "md";
+    if (width < 1280) return "lg";
+    if (width < 1536) return "xl";
+    return "2xl";
+  }
+  function alterte() {
+    alert("toto");
+  }
+
+  return (
+    <>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+          Vedische und Indische Astrologie Beratung in der Schweiz |
+          indischeastro
+        </title>
+        <meta
+          name="description"
+          content="Professionelle Vedische und Indische Astrologie Beratung in der Schweiz. Lösungen für Partner Horoskop, karmische Blockaden, Chakra Energie Arbeit und mehr. Jetzt Termin buchen!"
+        />
+        <meta
+          name="keywords"
+          content="Indische Astrologie Beratung, Vedische Astrologie Beratung, Astrologie, Lebensberatung, Zukunftsberatung, Partner Horoskop, Partner Horoskop Analyse, Geberts Horoskop, Schicksal, Karma, Chakra Energie Arbeit, Heilbehandlung, Kundalini Energie, Marma Punkent, Sexuelle Blockaden, Karmische Blockaden, Sexuelle Unlust, Familie Trennung, Magie, Schwarze Magie, Familien Aufstellung, karmische Beziehung, Unfähigkeit loszulassen, Emotionale Abhängigkeit, karmische Blockaden lösen, Schweiz, Swiss, Zürich, Switzerland, Sternzeichen, Sonne, Mond, Aszendent, Stier, Steinbock, Zwillinge, Skorpion, Löwe, Jungfrau, Waage, Schütze, Wassermann, Fisch, Jahreshoroskop, Monatshoroskop"
+        />
+      </head>
+      {/* <Script src="/finisher-header.js" strategy="afterInteractive" />
+      <FinisherHeaderComponent /> */}
+
+      <div className="flex flex-col h-auto w-full ">
+        {/* <div className="flex flex-col gap-4 bg-[#F9F4F1] ">
+          <div className="flex justify-center mt-20">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={Logo}
+              alt="Logo Suthakar Parameswaran - Astrologie Védique"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+
+          <div className="flex flex-col justify-center items-center text-center gap-6">
+            <h1 className="text-4xl font-bold ">
+              Vedische Astrologie-Beratungen mit Suthakar Parameswaran –
+              Persönliche Begleitung für Ihr Leben
+            </h1>
+            <h2 className="text-2xl font-bold text-zinc-600">
+              Vedische und Indische Astrologie Beratung in der Schweiz
+            </h2>
+            <div className="flex gap-2 items-center">
+              <h3 className="font-bold text-zinc-600"></h3>
+              <button
+                onClick={() => alterte()}
+                type="button"
+                className="cursor-pointer p-5  font-medium text-white bg-[#ff6e54] hover:bg-red-700 rounded-lg text-center"
+              >
+                Vereinbaren Sie noch heute einen Termin!
+              </button>
+            </div>
+            <br />
+          </div>
+        </div> */}
+
+        {/* Bienvenue de aux utiolistauer Introduction */}
+
+        <div className="grid md:grid-cols-2 bg-black h-auto ">
+          <div className="h-auto">
+            <Image
+              className="h-full w-full object-contain transition-all duration-300 rounded-lg  hover:grayscale-0"
+              src={World}
+              alt="Astrology"
+            />
+          </div>
+          <div className="flex flex-col justify-center pl-9 pr-6 text-white">
+            <div className="flex flex-col justify-center items-center text-center gap-6">
+              <h1 className="text-4xl font-bold ">
+                Vedische Astrologie-Beratungen mit Suthakar Parameswaran –
+                Persönliche Begleitung für Ihr Leben
+              </h1>
+              <h2 className="text-2xl font-bold text-zinc-600">
+                Vedische und Indische Astrologie Beratung in der Schweiz
+              </h2>
+              <div className="flex gap-2 items-center">
+                <h3 className="font-bold text-zinc-600"></h3>
+                <button
+                  onClick={() => alterte()}
+                  type="button"
+                  className="cursor-pointer p-5  font-medium text-white bg-[#ff6e54] hover:bg-red-700 rounded-lg text-center"
+                >
+                  Vereinbaren Sie noch heute einen Termin!
+                </button>
+              </div>
+              <br />
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        {/* Service */}
+        <ContacteNotif />
+
+        <div className="flex flex-col ">
+          <h2 className=" mt-7 text-3xl font-bold text-black text-center place-content-center">
+            SerUnsere Dienstleistungenvice
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full px-4">
+            {services.map((service) => (
+              <CardsService
+                key={service.id}
+                images={service.image}
+                nom={service.nom}
+                description={service.description}
+                alt={service.alt}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Presentation Profil */}
+        <div className="grid md:grid-cols-2  bg-black  w-auto ">
+          <div className="flex flex-col justify-center pl-9 pr-6">
+            <h2 className="flex justify-center text-2xl text-[#ff6e54] p-5">
+              Qui est Suthakar Parameswaran ?
+            </h2>
+            <p className="text-white">
+              Suthakar Parameswaran ist nicht nur ein außergewöhnlicher
+              Wissenshüter, sondern auch ein herausragender Experte mit einer
+              beeindruckenden akademischen Laufbahn. Sein Wissen wurde ihm nicht
+              nur durch eine traditionsreiche Weitergabe vermittelt, sondern
+              auch durch eine Vielzahl renommierter Diplome und spezialisierten
+              Ausbildungen vertieft.{" "}
+            </p>
+
+            <ul className="text-[#ff6e54] p-5">
+              <li>
+                🏆 Eine einzigartige Kombination aus überliefertem Wissen und
+                moderner Expertise
+              </li>
+              <li>
+                📜 Zertifiziert durch zahlreiche renommierte Institutionen
+              </li>
+              <li>
+                🔬 Präzise Analyse und tiefgehendes Verständnis seiner Disziplin
+              </li>
+            </ul>
+
+            <p className="text-white">
+              Seine Mission? Sie mit außergewöhnlichen Erkenntnissen zu
+              bereichern, Ihnen wertvolle Perspektiven zu eröffnen und Sie auf
+              Ihrem Weg zu Erfolg und Erfüllung zu begleiten.
+            </p>
+
+            <div className="flex  md:justify-end justify-center pt-6 pr-6 ">
+              <button
+                onClick={() => alterte()}
+                type="button"
+                className="cursor-pointer mb-3 px-6 py-3.5 text-base font-medium text-white bg-[#ff6e54] hover:bg-red-700 rounded-lg text-center"
+              >
+                Savoir plus
+              </button>
+            </div>
+          </div>
+
+          <div className="place-content-center flex items-center">
+            <Image
+              className="h-50 w-50  rounded-full object-cover"
+              src={Profil}
+              alt="Suthakar Parameswaran, maître en astrologie védique"
+            />
+          </div>
+        </div>
+
+        {/* Commentaire */}
+        <div className="md:flex justify-center  ">
+          <h2 className="text-3xl font-bold text-black text-center place-content-center">
+            Ce que disent nos clients
+          </h2>
+          <AutoScrollingComponent />
+        </div>
+
+        <div>
+          <h3>Comment contacter ?</h3>
+          <div className="grid grid-cols-2 place-items-center gap-4">
+            <div>1</div>
+            <div>2sdf</div>
+          </div>
+        </div>
+
+        <div>
+          <p className="text-xl">Taille de l écran :</p>
+          <p className="text-2xl font-bold text-blue-400">{screenSize}</p>
+        </div>
+      </div>
+    </>
   );
 }

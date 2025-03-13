@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./style/globals.css";
 import "./style/nav.css";
 import Navigation from "./Components/Navigation";
-// import Btn_num from "./Components/Btn_num";
+import Btn_num from "./Components/Btn_num";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <Navigation />
         {children}
-        {/* <Btn_num /> */}
+        <Btn_num />
       </body>
     </html>
   );

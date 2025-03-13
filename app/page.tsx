@@ -22,6 +22,7 @@ import AutoScrollingComponent from "./Components/AutoScrollingComponent";
 export default function Home() {
   const [screenSize, setScreenSize] = useState("");
   const [services, setServices] = useState([]);
+  // const [servicesVoir, setServicesVoir] = useState(false);
   // const [fermeture, setFermeture] = useState(false);
 
   useEffect(() => {
@@ -150,11 +151,11 @@ export default function Home() {
         {/* Service */}
         <ContacteNotif />
 
-        <div className="flex flex-col  items-center  ">
+        <div className="flex flex-col  items-center w-full  ">
           <h2 className=" mt-7 text-3xl font-bold text-black text-center place-content-center">
             SerUnsere Dienstleistungenvice
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full px-4 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full px-4 max-w-screen-lg  ">
             {services.map((service) => (
               <CardsService
                 key={service.id}
@@ -165,6 +166,7 @@ export default function Home() {
               />
             ))}
           </div>
+          <button className="bg-amber-300"> Vois plus</button>
         </div>
 
         {/* Commentaire */}
@@ -176,8 +178,8 @@ export default function Home() {
         </div>
 
         {/* Presentation Profil */}
-        <div className="grid md:grid-cols-2  bg-black  w-auto ">
-          <div className="flex flex-col justify-center pl-9 pr-6">
+        <div className="grid md:grid-cols-2   bg-black  w-auto ">
+          <div className="flex flex-col items-center pl-9 pr-6 max-w-screen-lg">
             <h2 className="flex justify-center text-2xl text-[#ff6e54] p-5">
               Qui est Suthakar Parameswaran ?
             </h2>
@@ -220,7 +222,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="place-content-center flex items-center">
+          <div className=" flex items-center">
             <Image
               className="h-50 w-50  rounded-full object-cover"
               src={Profil}

@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/instruments",
-    "lib/supabaseClient.ts"
+    "lib/supabaseClient.ts",
+    "app/Contacte"
   ],
 
   "exclude": ["node_modules"]

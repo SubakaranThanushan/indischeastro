@@ -8,15 +8,15 @@ function Btn_num() {
   const handleClick = async () => {
     if (navigator.userAgent.includes("WhatsApp")) {
       // WhatsApp is installed
-      window.open(`whatsapp://send?phone=33664759583`);
+      window.open(`whatsapp://send?phone=41792613331`);
     } else {
       // WhatsApp is not installed, open WhatsApp Web
-      window.open("https://wa.me/33664759583", "_blank");
+      window.open("https://wa.me/41792613331", "_blank");
     }
   };
 
   function fn_appel(): void {
-    window.location.href = "tel:+33664759583";
+    window.location.href = "tel:+41792613331";
   }
   return (
     <div className="grid grid-cols-2">

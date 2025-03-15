@@ -47,9 +47,9 @@ export default function ServiceDetail() {
       const trimmed = sentence.trim();
       if (trimmed.endsWith("?")) {
         return (
-          <p key={index} className="font-semibold text-xl text-gray-900 mt-4">
+          <h2 key={index} className="font-semibold text-xl text-gray-900 mt-4">
             {trimmed}
-          </p>
+          </h2>
         );
       } else {
         return (
@@ -65,18 +65,41 @@ export default function ServiceDetail() {
     <>
       {/* 🚀 Balises META pour SEO */}
       <Head>
-        <title>{service.nom} | Mon Site</title>
+        <title>{service.nom} | Astrologische Beratung & Energiearbeit</title>
         <meta
           name="description"
-          content={service.metaDesc || "Découvrez plus sur ce service."}
+          content={
+            service.metaDesc || "Entdecken Sie mehr über diesen Service."
+          }
         />
         <meta property="og:title" content={service.nom} />
         <meta
           property="og:description"
-          content={service.metaDesc || "Découvrez plus sur ce service."}
+          content={
+            service.metaDesc || "Entdecken Sie mehr über diesen Service."
+          }
         />
         <meta property="og:image" content={service.image} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`https://www.indischeastro.fr/service/${id}`}
+        />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.nom,
+            description: service.metaDesc,
+            category: service.categorie || "Astrologie",
+            image: service.image,
+            provider: {
+              "@type": "Organization",
+              name: "IndischeAstro",
+              url: "https://www.indischeastro.fr",
+            },
+          })}
+        </script>
       </Head>
 
       <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-100 p-8">

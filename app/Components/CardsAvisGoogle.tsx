@@ -13,43 +13,53 @@ function CardsService(props) {
 
   return (
     <div className="w-90 inline-block">
-      <div className="   bg-zinc-100 shadow-xl p-6 m-6 w-full text-wrap rounded-2xl">
+      <div className="bg-zinc-100 shadow-xl p-6 m-6 w-full text-wrap rounded-2xl">
         <div className="flex flex-col gap-2">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <Image
                 src={props.urlImage}
-                alt={props.name}
+                alt={`Profilbild von ${props.name}`}
+                title={`${props.name} Bewertung`}
                 className="w-10 h-10 rounded-full object-cover"
                 width={140}
                 height={140}
+                loading="lazy"
               />
-              <h1 className="text-xl hover:text-red-700 space-x-3.5">
+              <h2 className="text-xl hover:text-red-700 space-x-3.5">
                 <strong>{props.name}</strong>
-              </h1>
+              </h2>
             </div>
 
-            <Image src={Google} alt="Etoile" className="h-10 w-10" />
-            {/* <div className="flex">
-              {mapEtoiles.map((etoile, i) => (
-                <Image className="w-3" key={i} src={etoile} alt={etoile} />
-              ))}
-            </div> */}
+            <Image
+              src={Google}
+              alt="Google Bewertung"
+              title="Google Bewertung"
+              className="h-10 w-10"
+              width={40}
+              height={40}
+              loading="lazy"
+            />
           </div>
-          <div className="flex">
+
+          <div className="flex" aria-label="5-Sterne Bewertung">
             {mapEtoiles.map((etoile, i) => (
               <Image
                 className="w-3"
                 key={i}
                 src={etoile.src}
-                alt={`Etoile ${i + 1}`}
+                alt={`Bewertung Stern ${i + 1}`}
+                title="Sterne Bewertung"
                 width={10}
                 height={10}
+                loading="lazy"
               />
             ))}
           </div>
         </div>
-        <div className="space-x-2">
+
+        {/* Avis Texte */}
+        <div className="space-x-2 mt-4">
           <p className="text-red-700 text-7xl">
             <strong>❝</strong>
           </p>
@@ -65,11 +75,13 @@ function CardsService(props) {
           </p>
         </div>
 
+        {/* Bouton Lire la suite */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="text-gray-500 cursor-pointer mt-2"
+          aria-label={isExpanded ? "Weniger anzeigen" : "Mehr lesen"}
         >
-          {isExpanded ? "Moins" : "Lire la suite"}
+          {isExpanded ? "Weniger anzeigen" : "Mehr lesen"}
         </button>
       </div>
     </div>

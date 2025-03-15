@@ -6,11 +6,12 @@ import { supabase } from "@/lib/supabaseClient";
 function AutoScrollingComponent() {
   const contenaireRef = useRef<HTMLDivElement>(null);
   const [comment, setComment] = useState([]);
+
   useEffect(() => {
     async function extractionCommentaire() {
       const { data, error } = await supabase.from("commentaire").select("*");
       if (error) {
-        console.error("Erreur de récuperation de la base de donéne");
+        console.error("Erreur de récupération de la base de données");
       } else {
         setComment(data);
       }
@@ -20,7 +21,7 @@ function AutoScrollingComponent() {
 
   useEffect(() => {
     const contenaire = contenaireRef.current;
-    let scrollInterval: NodeJS.Timeout;
+    let scrollInterval;
 
     if (contenaire) {
       const startScrolling = () => {
@@ -47,35 +48,45 @@ function AutoScrollingComponent() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-white">
+    <section className="w-full overflow-hidden bg-white py-8">
+      <h2 className="text-center text-2xl font-bold mb-4">
+        Kundenbewertungen bei Google
+      </h2>
+
       <div
         ref={contenaireRef}
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
         }}
-        className="w-full overflow-x-scroll whitespace-nowrap "
+        aria-label="Liste der Kundenbewertungen"
+        role="list"
+        className="w-full overflow-x-scroll whitespace-nowrap"
       >
         <div className="inline-block space-x-20">
           {comment.map((i) => (
-            <CardsAvisGoogls
-              key={i.id}
-              urlImage={i.image}
-              name={i.nom}
-              description={i.explication}
-            />
+            <div role="listitem" key={i.id}>
+              <CardsAvisGoogls
+                urlImage={i.image}
+                name={i.nom}
+                description={i.explication}
+              />
+            </div>
           ))}
-
-          {/* <p className="inline-block w-[300px] mr-5">Contenu 1</p>
-          <p className="inline-block w-[300px] mr-5">Contenu 2</p>
-          <p className="inline-block w-[300px] mr-5">Contenu 3</p>
-          <p className="inline-block w-[300px] mr-5">Contenu 4</p>
-          <p className="inline-block w-[300px] mr-5">Contenu 5</p>
-          <p className="inline-block w-[300px] mr-5">Contenu 6</p> */}
-          {/* <div className="inline-block w-[300px]"></div> */}
         </div>
       </div>
-    </div>
+
+      <div className="text-center mt-4">
+        <a
+          href="https://www.google.com/maps/place/YourGooglePageLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline"
+        >
+          Weitere Bewertungen auf Google ansehen
+        </a>
+      </div>
+    </section>
   );
 }
 

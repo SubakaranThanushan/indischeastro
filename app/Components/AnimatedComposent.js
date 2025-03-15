@@ -1,16 +1,20 @@
-"use client"; // Si tu es sur Next.js 13+ (App Router)
+"use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const AnimatedComponent = ({ children }) => {
+const AnimatedComponent = ({
+  children,
+  id = "animated-section",
+  ariaLabel,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const element = document.getElementById("animated-element");
-      if (element) {
-        const rect = element.getBoundingClientRect();
+      if (elementRef.current) {
+        const rect = elementRef.current.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.75) {
           setIsVisible(true);
         }
@@ -18,7 +22,7 @@ const AnimatedComponent = ({ children }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Vérifier au chargement
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -26,15 +30,21 @@ const AnimatedComponent = ({ children }) => {
   }, []);
 
   return (
-    <motion.div
-      id="animated-element"
-      initial={{ opacity: 0, x: -100 }} // Départ invisible, décalé à gauche
-      animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }} // Animation vers la droite
-      transition={{ duration: 0.5, ease: "easeOut" }} // Durée et effet
-      className="p-6 bg-white shadow-lg rounded-lg"
+    <section
+      id={id}
+      ref={elementRef}
+      aria-label={ariaLabel || "Animierte Sektion"}
+      aria-hidden={!isVisible}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="p-6 bg-white shadow-lg rounded-lg"
+      >
+        {children}
+      </motion.div>
+    </section>
   );
 };
 

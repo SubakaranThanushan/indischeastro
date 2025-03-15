@@ -13,6 +13,7 @@ import scorpio from "@/public/image/signeAstro/icons8-scorpio-96.png";
 import taurus from "@/public/image/signeAstro/icons8-taurus-96.png";
 import virgo from "@/public/image/signeAstro/icons8-virgo-96.png";
 import Image from "next/image";
+
 function AutoScrollingComponent() {
   const contenaireRef = useRef<HTMLDivElement>(null);
 
@@ -45,31 +46,108 @@ function AutoScrollingComponent() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-white">
+    <section className="w-full overflow-hidden bg-white py-8">
+      <h2 className="text-center text-2xl font-bold mb-4">
+        Tierkreiszeichen – Vedische Astrologie
+      </h2>
+
       <div
         ref={contenaireRef}
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
         }}
-        className="w-full overflow-x-scroll whitespace-nowrap "
+        aria-label="Liste der Tierkreiszeichen"
+        className="w-full overflow-x-scroll whitespace-nowrap"
       >
         <div className="inline-block space-x-20">
-          <Image className="inline-block " src={aquarius} alt="teste" />
-          <Image className="inline-block " src={aries} alt="teste" />
-          <Image className="inline-block " src={cancer} alt="teste" />
-          <Image className="inline-block " src={capricorn} alt="teste" />
-          <Image className="inline-block " src={gemini} alt="teste" />
-          <Image className="inline-block " src={leo} alt="teste" />
-          <Image className="inline-block " src={pisces} alt="teste" />
-          <Image className="inline-block " src={libra} alt="teste" />
-          <Image className="inline-block" src={sagittarius} alt="teste" />
-          <Image className="inline-block " src={scorpio} alt="teste" />
-          <Image className="inline-block " src={taurus} alt="teste" />
-          <Image className="inline-block " src={virgo} alt="teste" />
+          <Image
+            className="inline-block"
+            src={aquarius}
+            alt="Wassermann - Aquarius Zeichen"
+            title="Wassermann - Aquarius Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={aries}
+            alt="Widder - Aries Zeichen"
+            title="Widder - Aries Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={cancer}
+            alt="Krebs - Cancer Zeichen"
+            title="Krebs - Cancer Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={capricorn}
+            alt="Steinbock - Capricorn Zeichen"
+            title="Steinbock - Capricorn Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={gemini}
+            alt="Zwillinge - Gemini Zeichen"
+            title="Zwillinge - Gemini Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={leo}
+            alt="Löwe - Leo Zeichen"
+            title="Löwe - Leo Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={libra}
+            alt="Waage - Libra Zeichen"
+            title="Waage - Libra Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={pisces}
+            alt="Fische - Pisces Zeichen"
+            title="Fische - Pisces Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={sagittarius}
+            alt="Schütze - Sagittarius Zeichen"
+            title="Schütze - Sagittarius Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={scorpio}
+            alt="Skorpion - Scorpio Zeichen"
+            title="Skorpion - Scorpio Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={taurus}
+            alt="Stier - Taurus Zeichen"
+            title="Stier - Taurus Zeichen"
+            loading="lazy"
+          />
+          <Image
+            className="inline-block"
+            src={virgo}
+            alt="Jungfrau - Virgo Zeichen"
+            title="Jungfrau - Virgo Zeichen"
+            loading="lazy"
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

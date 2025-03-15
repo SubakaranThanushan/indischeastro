@@ -4,6 +4,7 @@ import Image from "next/image";
 import Logo from "../../public/image/logo_nav/cita-logo.png";
 
 import { useState } from "react";
+
 function Navigation() {
   const [visible, setVisible] = useState(false);
   return (
@@ -11,28 +12,46 @@ function Navigation() {
       <Image
         className="h-15 w-auto ml-6"
         src={Logo}
-        alt="Logo Suthakar Parameswaran - Astrologie Védique"
+        alt="Logo Indische Astrologie Beratung Zürich - Suthakar Parameswaran"
+        title="Indische Astrologie Beratung & Vedische Horoskop Zürich"
       />
-      <button className=" lg:hidden p-4" onClick={() => setVisible(!visible)}>
+      <button
+        aria-label="Menü öffnen"
+        className="lg:hidden p-4"
+        onClick={() => setVisible(!visible)}
+      >
         ☰
       </button>
       <nav
+        role="navigation"
         className={`menu menu-3 pr-10 ${visible ? "block" : "hidden"} lg:flex`}
       >
         <ul className="flex gap-5 flex-wrap">
-          <li className="">
-            <Link href="/">HOME</Link>
-          </li>
-
           <li>
-            <Link href="/">VIDEOS</Link>
+            <Link href="/" title="Zur Startseite - Astrologie Beratung Zürich">
+              HOME
+            </Link>
           </li>
           <li>
-            <Link href="/ServicePrice">PREISE</Link>
+            <Link href="/" title="Videos über Astrologie & Beratung">
+              VIDEOS
+            </Link>
           </li>
-
           <li>
-            <Link href="/Contacte">KONTAKT</Link>
+            <Link
+              href="/ServicePrice"
+              title="Preise unserer astrologischen Dienstleistungen"
+            >
+              PREISE
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/Contacte"
+              title="Kontaktieren Sie uns für astrologische Beratung"
+            >
+              KONTAKT
+            </Link>
           </li>
         </ul>
       </nav>

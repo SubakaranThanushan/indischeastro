@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import CardsAvisGoogls from "./CardsAvisGoogle";
 import { supabase } from "@/lib/supabaseClient";
+
 function AutoScrollingComponent() {
   const contenaireRef = useRef<HTMLDivElement>(null);
   const [comment, setComment] = useState([]);

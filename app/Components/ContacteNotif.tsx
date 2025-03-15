@@ -7,7 +7,7 @@ function ContacteNotif() {
     // >
     <div
       id="toast-simple"
-      className="flex items-center w-full p-4 space-x-4 rtl:space-x-reverse text-white divide-x rtl:divide-x-reverse divide-gray-200 shadow-gray-700 rounded-b-lg  shadow-lg  bg-blue-900"
+      className="flex items-center w-full p-4 space-x-4 rtl:space-x-reverse text-white divide-x rtl:divide-x-reverse divide-gray-200 shadow-gray-700 rounded-b-lg  shadow-lg  bg-[#260C56]"
       role="alert"
     >
       <svg

@@ -5,6 +5,7 @@ import "./style/globals.css";
 import "./style/nav.css";
 import Navigation from "./Components/Navigation";
 import Btn_num from "./Components/Btn_num";
+import Footer from "./Components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de-CH" className="bg-white">
+    <html lang="de-CH" className="bg-[#181A1B]">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navigation />
         {children}
         <Btn_num />
+        <Footer />
       </body>
     </html>
   );

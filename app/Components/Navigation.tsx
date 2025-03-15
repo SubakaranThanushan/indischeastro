@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../public/image/logo_nav/logo_seul.png";
+import Logo from "../../public/image/logo_nav/cita-logo.png";
 
 import { useState } from "react";
 function Navigation() {
@@ -23,26 +23,16 @@ function Navigation() {
           <li className="">
             <Link href="/">HOME</Link>
           </li>
-          <li>
-            <Link href="/">ÜBER MICH</Link>
-          </li>
-          <li>
-            <Link href="/">BLOGS</Link>
-          </li>
-          <li>
-            <Link href="/">DIENSTLEISTUGEN</Link>
-          </li>
+
           <li>
             <Link href="/">VIDEOS</Link>
           </li>
           <li>
-            <Link href="/">PREISE</Link>
+            <Link href="/ServicePrice">PREISE</Link>
           </li>
+
           <li>
-            <Link href="/">F&A</Link>
-          </li>
-          <li>
-            <Link href="/">KONTAKT</Link>
+            <Link href="/Contacte">KONTAKT</Link>
           </li>
         </ul>
       </nav>

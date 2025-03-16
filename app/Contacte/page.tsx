@@ -4,7 +4,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { BsFillSendCheckFill } from "react-icons/bs";
 import emailjs from "@emailjs/browser";
-import Head from "next/head";
+// import Head from "next/head";
 
 function Contacte() {
   const email = useRef(null);
@@ -30,59 +30,54 @@ function Contacte() {
   return (
     <>
       {/* 🚀 SEO optimisé */}
-      <Head>
-        <title>
-          Kontaktieren Sie uns | Astrologische Beratung & Energiearbeit in
-          Zürich
-        </title>
-        <meta
-          name="description"
-          content="Kontaktieren Sie uns per Formular. Wir antworten innerhalb von 4 Stunden. Professionelle astrologische Beratung in Zürich & der Schweiz."
-        />
-        <meta
-          name="keywords"
-          content="Kontakt, Astrologische Beratung, Energiearbeit, Horoskop, Partnerhoroskop, Geburtshoroskop, Zürich, Schweiz"
-        />
-        <meta name="author" content="indischeastro, Suthakar Parameswaran" />
 
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Kontaktieren Sie uns | Astrologische Beratung & Energiearbeit in Zürich"
-        />
-        <meta
-          property="og:description"
-          content="Kontaktieren Sie uns per Formular. Wir antworten innerhalb von 4 Stunden. Professionelle astrologische Beratung in Zürich & der Schweiz."
-        />
+      <title>
+        Kontaktieren Sie uns | Astrologische Beratung & Energiearbeit in Zürich
+      </title>
+      <meta
+        name="description"
+        content="Kontaktieren Sie uns per Formular. Wir antworten innerhalb von 4 Stunden. Professionelle astrologische Beratung in Zürich & der Schweiz."
+      />
+      <meta
+        name="keywords"
+        content="Kontakt, Astrologische Beratung, Energiearbeit, Horoskop, Partnerhoroskop, Geburtshoroskop, Zürich, Schweiz"
+      />
+      <meta name="author" content="indischeastro, Suthakar Parameswaran" />
 
-        <meta
-          property="og:url"
-          content="https://www.indischeastro.fr/Contacte"
-        />
-        <meta property="og:type" content="website" />
+      {/* Open Graph */}
+      <meta
+        property="og:title"
+        content="Kontaktieren Sie uns | Astrologische Beratung & Energiearbeit in Zürich"
+      />
+      <meta
+        property="og:description"
+        content="Kontaktieren Sie uns per Formular. Wir antworten innerhalb von 4 Stunden. Professionelle astrologische Beratung in Zürich & der Schweiz."
+      />
 
-        {/* Canonical */}
-        <link rel="canonical" href="https://www.indischeastro.fr/Contacte" />
+      <meta property="og:url" content="https://www.indischeastro.fr/Contacte" />
+      <meta property="og:type" content="website" />
 
-        {/* JSON-LD */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            name: "Kontakt",
-            description:
-              "Kontaktieren Sie uns für eine astrologische Beratung in Zürich.",
-            url: "https://www.indischeastro.fr/Contacte",
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+41 123 456 789",
-              contactType: "customer support",
-              areaServed: ["CH"],
-              availableLanguage: ["German", "French", "English"],
-            },
-          })}
-        </script>
-      </Head>
+      {/* Canonical */}
+      <link rel="canonical" href="https://www.indischeastro.fr/Contacte" />
+
+      {/* JSON-LD */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Kontakt",
+          description:
+            "Kontaktieren Sie uns für eine astrologische Beratung in Zürich.",
+          url: "https://www.indischeastro.fr/Contacte",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+41 123 456 789",
+            contactType: "customer support",
+            areaServed: ["CH"],
+            availableLanguage: ["German", "French", "English"],
+          },
+        })}
+      </script>
 
       <div className="h-screen overflow-hidden flex flex-col">
         <div className="flex justify-center">

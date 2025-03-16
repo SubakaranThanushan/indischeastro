@@ -1,5 +1,3 @@
-// "use client"; // Pas besoin côté layout sauf si interactions côté client
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./style/globals.css";
@@ -7,8 +5,6 @@ import "./style/nav.css";
 import Navigation from "./Components/Navigation";
 import Btn_num from "./Components/Btn_num";
 import Footer from "./Components/Footer";
-import { DefaultSeo } from "next-seo";
-import SEO from "../next-seo.config";
 
 // Fonts
 const geistSans = Geist({
@@ -66,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de-CH" role="document" className="bg-[#181A1B]">
+    <html lang="de-CH" className="bg-[#181A1B]">
       <head>
         {/* Balise Schema.org JSON-LD */}
         <script
@@ -106,7 +102,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <DefaultSeo {...SEO} />
         <header>
           <Navigation />
         </header>

@@ -7,6 +7,8 @@ import "./style/nav.css";
 import Navigation from "./Components/Navigation";
 import Btn_num from "./Components/Btn_num";
 import Footer from "./Components/Footer";
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 // Fonts
 const geistSans = Geist({
@@ -104,6 +106,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <DefaultSeo {...SEO} />
         <header>
           <Navigation />
         </header>

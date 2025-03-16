@@ -83,6 +83,26 @@ function CardsService(props) {
         >
           {isExpanded ? "Weniger anzeigen" : "Mehr lesen"}
         </button>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Review",
+              reviewRating: {
+                "@type": "Rating",
+                ratingValue: "5",
+                bestRating: "5",
+              },
+              author: {
+                "@type": "Person",
+                name: props.name,
+              },
+              reviewBody: props.description,
+            }),
+          }}
+        />
       </div>
     </div>
   );

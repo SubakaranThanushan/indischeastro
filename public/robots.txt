@@ -1,2 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://www.indischeastro.fr
+
+# Sitemaps
+Sitemap: https://www.indischeastro.fr/sitemap.xml

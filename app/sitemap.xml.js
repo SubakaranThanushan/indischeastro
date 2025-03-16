@@ -13,7 +13,7 @@ export async function getServerSideProps(ctx) {
     loc: url, // URL de la page
     lastmod: new Date().toISOString(), // Date de dernière modification
     changefreq: "daily", // Fréquence de mise à jour (daily, weekly, etc.)
-    priority: 0.7, // Priorité (entre 0.1 et 1.0)
+    priority: 1, // Priorité (entre 0.1 et 1.0)
   }));
 
   // Retournez les données du sitemap

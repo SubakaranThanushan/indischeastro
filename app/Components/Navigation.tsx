@@ -14,6 +14,10 @@ function Navigation() {
         src={Logo}
         alt="Logo Indische Astrologie Beratung Zürich - Suthakar Parameswaran"
         title="Indische Astrologie Beratung & Vedische Horoskop Zürich"
+        width={500}
+        height={300}
+        loading="lazy"
+        placeholder="blur"
       />
       <button
         aria-label="Menü öffnen"

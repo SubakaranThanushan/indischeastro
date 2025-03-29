@@ -23,19 +23,27 @@ import {
 
 export default function Home() {
   const [services, setServices] = useState([]);
-  const [api, setApi] = useState(null); // État pour stocker l'API du carrousel
+  const [api, setApi] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Récupérer les services depuis Supabase
   useEffect(() => {
-    async function fetchServices() {
-      const { data, error } = await supabase.from("services").select("*");
+    const fetchServices = async () => {
+      try {
+        const { data, error } = await supabase.from("services").select("*");
 
-      if (error) {
-        console.error("Erreur lors de la récupération des services :", error);
-      } else {
-        setServices(data);
+        if (error) {
+          console.error("Erreur lors de la récupération des services :", error);
+          return;
+        }
+
+        setServices(data || []);
+      } catch (err) {
+        console.error("Erreur inattendue :", err);
+      } finally {
+        setLoading(false);
       }
-    }
+    };
 
     fetchServices();
   }, []);
@@ -48,27 +56,29 @@ export default function Home() {
   // Fonction pour passer à la prochaine slide
   const nextSlide = useCallback(() => {
     if (api) {
-      const totalSlides = api.scrollSnapList().length; // Nombre total de slides
-      const currentSlide = api.selectedScrollSnap(); // Index de la slide actuelle
+      const totalSlides = api.scrollSnapList().length;
+      const currentSlide = api.selectedScrollSnap();
 
-      // Si c'est la dernière slide, revenir au début
       if (currentSlide === totalSlides - 1) {
-        api.scrollTo(0); // Revenir à la première slide
+        api.scrollTo(0);
       } else {
-        api.scrollNext(); // Passer à la slide suivante
+        api.scrollNext();
       }
     }
   }, [api]);
 
-  // Définir un intervalle pour changer de slide toutes les 2 secondes
+  // Définir un intervalle pour changer de slide
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide(); // Appeler la fonction nextSlide toutes les 2 secondes
-    }, 10000); // 2000 ms = 2 secondes
+      nextSlide();
+    }, 10000);
 
-    // Nettoyer l'intervalle lorsque le composant est démonté
     return () => clearInterval(interval);
   }, [nextSlide]);
+
+  if (loading) {
+    return <div>Chargement...</div>;
+  }
 
   return (
     <>
@@ -86,8 +96,40 @@ export default function Home() {
           name="keywords"
           content="Indische Astrologie Beratung, Vedische Astrologie Beratung, Astrologie, Lebensberatung, Zukunftsberatung, Partner Horoskop, Partner Horoskop Analyse, Geberts Horoskop, Schicksal, Karma, Chakra Energie Arbeit, Heilbehandlung, Kundalini Energie, Marma Punkent, Sexuelle Blockaden, Karmische Blockaden, Sexuelle Unlust, Familie Trennung, Magie, Schwarze Magie, Familien Aufstellung, karmische Beziehung, Unfähigkeit loszulassen, Emotionale Abhängigkeit, karmische Blockaden lösen, Schweiz, Swiss, Zürich, Switzerland, Sternzeichen, Sonne, Mond, Aszendent, Stier, Steinbock, Zwillinge, Skorpion, Löwe, Jungfrau, Waage, Schütze, Wassermann, Fisch, Jahreshoroskop, Monatshoroskop"
         />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.indischeastro.fr" />
+        <meta
+          property="og:title"
+          content="Vedische und Indische Astrologie Beratung in der Schweiz | indischeastro"
+        />
+        <meta
+          property="og:description"
+          content="Professionelle Vedische und Indische Astrologie Beratung in der Schweiz. Lösungen für Partner Horoskop, karmische Blockaden, Chakra Energie Arbeit und mehr. Jetzt Termin buchen!"
+        />
+        <meta
+          property="og:image"
+          content="https://www.indischeastro.fr/image/header/image.jpg"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.indischeastro.fr" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Indische Astro",
+            url: "https://www.indischeastro.fr",
+            description:
+              "Professionelle Vedische und Indische Astrologie Beratung in der Schweiz.",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                "https://www.indischeastro.fr/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          })}
+        </script>
       </Head>
-
+      {/* Le reste de votre JSX reste inchangé */}
       <div className="flex flex-col h-auto w-full">
         {/* Carrousel avec défilement automatique */}
         <Carousel setApi={setApi}>
@@ -97,15 +139,14 @@ export default function Home() {
                 {/* Conteneur de l'image */}
                 <div className="h-auto flex justify-center items-center p-4">
                   <div className="relative w-full h-[500px]">
-                    {" "}
-                    {/* Taille fixe */}
                     <Image
                       src={Profil}
                       alt="Astrology"
-                      layout="fill" // Remplit le conteneur parent
-                      objectFit="cover" // Recadre l'image pour remplir le conteneur
+                      layout="fill"
+                      objectFit="cover"
                       className="rounded-lg transition-all duration-300 hover:grayscale-0"
-                      style={{ objectPosition: "center" }} // Centre l'image
+                      style={{ objectPosition: "center" }}
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -139,15 +180,13 @@ export default function Home() {
                 {/* Conteneur de l'image */}
                 <div className="h-auto flex justify-center items-center p-4">
                   <div className="relative w-full h-[500px]">
-                    {" "}
-                    {/* Taille fixe */}
                     <Image
                       src={World}
                       alt="Astrology"
-                      layout="fill" // Remplit le conteneur parent
-                      objectFit="cover" // Recadre l'image pour remplir le conteneur
+                      layout="fill"
+                      objectFit="cover"
                       className="rounded-lg transition-all duration-300 hover:grayscale-0"
-                      style={{ objectPosition: "center" }} // Centre l'image
+                      style={{ objectPosition: "center" }}
                     />
                   </div>
                 </div>
@@ -227,13 +266,11 @@ export default function Home() {
 
           <div className="flex items-center justify-center p-4">
             <div className="relative w-64 h-64">
-              {" "}
-              {/* Taille fixe pour le conteneur */}
               <Image
                 src={Profil2}
                 alt="Suthakar Parameswaran, maître en astrologie védique"
-                layout="fill" // Remplit le conteneur parent
-                objectFit="cover" // Couvre tout l'espace du conteneur
+                layout="fill"
+                objectFit="cover"
                 className="rounded-full"
               />
             </div>
@@ -270,20 +307,12 @@ export default function Home() {
         <div>
           <h1 className="font-boldn text-3xl mt-4">Ou nous voir et comment </h1>
           <div className="bg-black text-white relative min-h-[400px]">
-            {" "}
-            {/* Conteneur principal avec hauteur minimale */}
-            {/* Carte en arrière-plan */}
-            {/* Contenu par-dessus la carte */}
             <div className="relative z-10 p-6">
-              {" "}
-              {/* Contenu avec z-index supérieur */}
               <h3 className="text-3xl font-bold text-center">
                 Comment contacter ?
               </h3>
               <div className="flex justify-center items-center gap-8 mt-6">
                 <div className="text-center bg-black bg-opacity-75 p-4 rounded-lg">
-                  {" "}
-                  {/* Fond semi-transparent */}
                   <h4 className="text-xl">Réseaux sociaux</h4>
                   <p>Suivez-nous sur :</p>
                   <div className="flex justify-center items-center gap-4 text-5xl mt-4">
@@ -298,8 +327,6 @@ export default function Home() {
                 </div>
 
                 <div className="bg-black bg-opacity-75 p-4 rounded-lg">
-                  {" "}
-                  {/* Fond semi-transparent */}
                   <p className="font-bold text-center">
                     <strong>Zwinglistrasse 37, 8004 Zürich, Switzerland</strong>
                   </p>

@@ -223,3 +223,17 @@
     @apply bg-background text-foreground;
   }
 }
+/* Animation pour les détails */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary::after {
+  content: '▼';
+  transition: transform 0.3s ease;
+}
+details[open] > summary::after {
+  transform: rotate(180deg);
+}

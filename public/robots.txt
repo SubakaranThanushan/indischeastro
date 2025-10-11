@@ -2,8 +2,14 @@
 User-agent: *
 Allow: /
 
+# *
+User-agent: *
+Disallow: /admin
+Disallow: /private
+
 # Host
-Host: https://www.indischeastro.fr
+Host: https://www.indischeastro.ch
 
 # Sitemaps
-Sitemap: https://www.indischeastro.fr/sitemap.xml
+Sitemap: https://www.indischeastro.ch/sitemap.xml
+Sitemap: https://www.indischeastro.ch/sitemap-0.xml

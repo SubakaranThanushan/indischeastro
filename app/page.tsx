@@ -68,13 +68,14 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  // Données statiques de test
+  // Données statiques de test avec deux types de prix
   const staticServices = [
     {
       id: 1,
       nom: "Partner-Horoskop-Analyse",
       description: "Tiefe Einblicke in Ihre Beziehungsdynamiken und astrologische Kompatibilität",
-      price: "180",
+      price_presentiel: "150",
+      price_online: "100",
       time: "90",
       images: "/image/services/partner-horoskop.jpg"
     },
@@ -82,7 +83,8 @@ export default function Home() {
       id: 2,
       nom: "Geburts-Horoskop",
       description: "Detaillierte Analyse Ihrer Lebensaufgabe, Talente und Herausforderungen",
-      price: "150",
+      price_presentiel: "150",
+      price_online: "100",
       time: "60",
       images: "/image/services/geburts-horoskop.jpg"
     },
@@ -90,7 +92,8 @@ export default function Home() {
       id: 3,
       nom: "Astrologische Partnerberatung",
       description: "Kombination von astrologischem Wissen mit modernen Beziehungsansätzen",
-      price: "160",
+      price_presentiel: "150",
+      price_online: "100",
       time: "75",
       images: "/image/services/partnerberatung.jpg"
     },
@@ -98,7 +101,8 @@ export default function Home() {
       id: 4,
       nom: "Kundalini-Energiearbeit",
       description: "Aktivierung Ihrer ureigenen Lebenskraft für tiefgreifende Transformation",
-      price: "170",
+      price_presentiel: "150",
+      price_online: "100",
       time: "90",
       images: "/image/services/kundalini.jpg"
     },
@@ -106,7 +110,8 @@ export default function Home() {
       id: 5,
       nom: "Marmapunkt-Behandlung",
       description: "Ayurvedische Heilkunst mit 107 vitalen Energiepunkten",
-      price: "140",
+      price_presentiel: "150",
+      price_online: "100",
       time: "60",
       images: "/image/services/marmapunkt.jpg"
     },
@@ -114,7 +119,8 @@ export default function Home() {
       id: 6,
       nom: "Heilende Energie-Mudras",
       description: "Spezielle Handhaltungen für Energiefluss und Harmonisierung",
-      price: "120",
+      price_presentiel: "150",
+      price_online: "100",
       time: "45",
       images: "/image/services/mudras.jpg"
     },
@@ -122,7 +128,8 @@ export default function Home() {
       id: 7,
       nom: "Reiki-Behandlung",
       description: "Japanische Heilenergie für körperliche und emotionale Heilung",
-      price: "110",
+      price_presentiel: "150",
+      price_online: "100",
       time: "45",
       images: "/image/services/reiki.jpg"
     },
@@ -130,64 +137,33 @@ export default function Home() {
       id: 8,
       nom: "Kostenloser Chakra-Test",
       description: "Umfassende Analyse Ihrer sieben Hauptenergiezentren",
-      price: "0",
+      price_presentiel: "0",
+      price_online: "0",
       time: "30",
       images: "/image/services/chakra-test.jpg"
     },
     {
       id: 9,
-      nom: "Ayurveda-Kopfmassage",
-      description: "Traditionelle indische Kopfmassage zur Tiefenentspannung",
-      price: "90",
-      time: "45",
-      images: "/image/services/kopfmassage.jpg"
-    },
-    {
-      id: 10,
-      nom: "Öl-Kopfguss (Shirodhara)",
-      description: "Tiefenentspannungstechnik des Ayurveda für meditativen Zustand",
-      price: "130",
-      time: "60",
-      images: "/image/services/shirodhara.jpg"
-    },
-    {
-      id: 11,
-      nom: "Ayurveda-Ganzkörpermassage",
-      description: "Umfassende Ölmassage für alle Körpersysteme",
-      price: "190",
-      time: "90",
-      images: "/image/services/ganzkoerpermassage.jpg"
-    },
-    {
-      id: 12,
-      nom: "Relax-Massage",
-      description: "Sanfte Berührung für besondere Zuwendung und Entspannung",
-      price: "100",
-      time: "50",
-      images: "/image/services/relax-massage.jpg"
-    },
-    {
-      id: 13,
       nom: "Aura-Heilung und Reinigung",
       description: "Arbeit mit Ihrem feinstofflichen Energiekörper",
-      price: "150",
+      price_presentiel: "150",
+      price_online: "100",
       time: "60",
       images: "/image/services/aura-heilung.jpg"
     },
     {
-      id: 14,
+      id: 10,
       nom: "Vedische Astrologie-Beratung",
       description: "Präzise Wissenschaft der Zeit mit karmischen Mustern",
-      price: "160",
+      price_presentiel: "150",
+      price_online: "100",
       time: "75",
       images: "/image/services/vedische-astrologie.jpg"
     }
   ];
 
   // Utiliser les données statiques si Supabase ne retourne rien
-  // const displayServices = services.length > 0 ? services : staticServices;
   const displayServices = services.length > 0 ? services : staticServices;
-
 
   // Afficher seulement 4 services au début, ou tous si showAllServices est true
   const visibleServices = showAllServices ? displayServices : displayServices.slice(0, 4);
@@ -213,87 +189,187 @@ export default function Home() {
       
       <main className="flex flex-col h-auto w-full">
         {/* Hero Section avec ARIA */}
-        <section aria-label="Hauptbereich der Vedischen Astrologie Beratung">
-          <Carousel setApi={setApi}>
-            <CarouselContent>
-              <CarouselItem>
-                <div className="grid md:grid-cols-2 bg-amber-600 h-auto">
-                  <div className="h-auto flex justify-center items-center p-4">
-                    <div className="relative w-full h-[500px]">
-                      <Image
-                        src={Profil}
-                        alt="Vedische Astrologie Beratung mit Suthakar Parameswaran in Zürich - Professionelle Lebensberatung"
-                        fill
-                        className="rounded-lg transition-all duration-300 hover:grayscale-0 object-cover"
-                        priority
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center pl-9 pr-6 text-white">
-                    <div className="flex flex-col justify-center items-center text-center gap-6">
-                      <h1 className="text-4xl font-bold">
-                        Vedische Astrologie-Beratungen mit Suthakar Parameswaran –
-                        Persönliche Begleitung für Ihr Leben
-                      </h1>
-                      <h2 className="text-2xl font-bold text-zinc-600">
-                        Vedische und Indische Astrologie Beratung in der Schweiz
-                      </h2>
-                      <div className="flex gap-2 items-center">
-                        <button
-                          onClick={() => alterte()}
-                          type="button"
-                          aria-label="Termin für Vedische Astrologie Beratung vereinbaren"
-                          className="cursor-pointer p-5 font-medium text-white bg-[#ff6e54] hover:bg-red-700 rounded-lg text-center transition-colors duration-300"
-                        >
-                          Vereinbaren Sie noch heute einen Termin!
-                        </button>
-                      </div>
-                      <br />
-                    </div>
-                  </div>
+<section aria-label="Hauptbereich der Vedischen Astrologie Beratung">
+  <Carousel setApi={setApi}>
+    <CarouselContent>
+      <CarouselItem>
+        <div className="grid md:grid-cols-2 bg-gradient-to-br from-amber-600 to-amber-700 min-h-[600px] relative overflow-hidden">
+          {/* Éléments décoratifs */}
+          <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"></div>
+          
+          <div className="flex justify-center items-center p-4 md:p-8 relative z-10">
+            <div className="relative w-full max-w-md h-[400px] md:h-[500px]">
+              <Image
+                src={Profil}
+                alt="Vedische Astrologie Beratung mit Suthakar Parameswaran in Zürich - Professionelle Lebensberatung"
+                fill
+                className="rounded-lg transition-all duration-300 hover:grayscale-0 object-cover shadow-2xl"
+                priority
+              />
+            </div>
+          </div>
+          
+          <div className="flex flex-col justify-center p-6 md:p-8 text-white relative z-10">
+            <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
+              {/* Badge des options de consultation */}
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mb-4">
+                <div className="bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/30">
+                  <span className="font-semibold text-sm md:text-base">🏠 Vor Ort: 100 CHF</span>
                 </div>
-              </CarouselItem>
+                <div className="bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/30">
+                  <span className="font-semibold text-sm md:text-base">💻 Online: 150 CHF</span>
+                </div>
+              </div>
 
-              <CarouselItem>
-                <div className="grid md:grid-cols-2 bg-amber-600 h-auto">
-                  <div className="h-auto flex justify-center items-center p-4">
-                    <div className="relative w-full h-[500px]">
-                      <Image
-                        src={World}
-                        alt="Indische Astrologie Beratung in Zürich - Spirituelle Lebensführung und Zukunftsplanung"
-                        fill
-                        className="rounded-lg transition-all duration-300 hover:grayscale-0 object-cover"
-                        priority
-                      />
+              <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+                Vedische Astrologie-Beratungen 
+                <span className="block text-amber-200 mt-1 md:mt-2 text-xl md:text-3xl">mit Suthakar Parameswaran</span>
+              </h1>
+              
+              <h2 className="text-lg md:text-2xl font-bold text-amber-100">
+                Persönliche Begleitung für Ihr Leben
+              </h2>
+
+              {/* Section d'information sur les formats */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20 w-full max-w-md">
+                <h3 className="text-base md:text-lg font-semibold mb-3 text-amber-100">Wählen Sie Ihr Format:</h3>
+                <div className="space-y-3 text-left">
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-xs md:text-sm">🏠</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-sm md:text-base">Vor Ort Beratung</p>
+                      <p className="text-xs md:text-sm text-amber-100">100 CHF - Persönliche Betreuung in Zürich</p>
                     </div>
                   </div>
-                  <div className="flex flex-col justify-center pl-9 pr-6 text-white">
-                    <div className="flex flex-col justify-center items-center text-center gap-6">
-                      <h1 className="text-4xl font-bold">
-                        Vedische Astrologie-Beratungen mit Suthakar Parameswaran –
-                        Persönliche Begleitung für Ihr Leben
-                      </h1>
-                      <h2 className="text-2xl font-bold text-zinc-600">
-                        Vedische und Indische Astrologie Beratung in der Schweiz
-                      </h2>
-                      <div className="flex gap-2 items-center">
-                        <button
-                          onClick={() => alterte()}
-                          type="button"
-                          aria-label="Jetzt Termin für Astrologie Beratung buchen"
-                          className="cursor-pointer p-5 font-medium text-white bg-[#ff6e54] hover:bg-red-700 rounded-lg text-center transition-colors duration-300"
-                        >
-                          Vereinbaren Sie noch heute einen Termin!
-                        </button>
-                      </div>
-                      <br />
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-xs md:text-sm">💻</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-sm md:text-base">Online Beratung</p>
+                      <p className="text-xs md:text-sm text-amber-100">150 CHF - Bequem von zu Hause</p>
                     </div>
                   </div>
                 </div>
-              </CarouselItem>
-            </CarouselContent>
-          </Carousel>
-        </section>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center mt-4 w-full max-w-md">
+                <button
+                  onClick={() => window.location.href = '/Contacte'}
+                  type="button"
+                  aria-label="Termin für Vedische Astrologie Beratung vereinbaren"
+                  className="cursor-pointer px-6 py-3 md:px-8 md:py-4 font-semibold text-white bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] hover:from-red-600 hover:to-red-700 rounded-lg md:rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full sm:w-auto text-sm md:text-base"
+                >
+                  Jetzt Termin vereinbaren!
+                </button>
+                <button
+                  onClick={() => window.location.href = '/ServicePrice'}
+                  type="button"
+                  aria-label="Mehr über unsere Dienstleistungen erfahren"
+                  className="cursor-pointer px-4 py-2 md:px-6 md:py-3 font-medium text-white border-2 border-white/50 hover:border-white rounded-lg text-center transition-all duration-300 hover:bg-white/10 w-full sm:w-auto text-sm md:text-base"
+                >
+                  Dienstleistungen entdecken
+                </button>
+              </div>
+              
+              {/* Note importante */}
+              <p className="text-amber-200 text-xs md:text-sm mt-3 md:mt-4 text-center">
+                ✅ Beide Formate bieten dieselbe hohe Qualität der Beratung
+              </p>
+            </div>
+          </div>
+        </div>
+      </CarouselItem>
+
+      <CarouselItem>
+        <div className="grid md:grid-cols-2 bg-gradient-to-br from-purple-600 to-purple-800 min-h-[600px] relative overflow-hidden">
+          {/* Éléments décoratifs */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl"></div>
+          
+          <div className="flex justify-center items-center p-4 md:p-8 relative z-10">
+            <div className="relative w-full max-w-md h-[400px] md:h-[500px]">
+              <Image
+                src={World}
+                alt="Indische Astrologie Beratung in Zürich - Spirituelle Lebensführung und Zukunftsplanung"
+                fill
+                className="rounded-lg transition-all duration-300 hover:grayscale-0 object-cover shadow-2xl"
+                priority
+              />
+            </div>
+          </div>
+          
+          <div className="flex flex-col justify-center p-6 md:p-8 text-white relative z-10">
+            <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
+              {/* Badge promotionnel */}
+              <div className="bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-2 md:px-6 md:py-3 rounded-full shadow-lg">
+                <span className="font-bold text-white text-sm md:text-base">✨ Flexible Beratungsformate verfügbar</span>
+              </div>
+
+              <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+                Vedische & Indische Astrologie
+                <span className="block text-purple-200 mt-1 md:mt-2 text-xl md:text-3xl">in der Schweiz</span>
+              </h1>
+              
+              <h2 className="text-lg md:text-2xl font-bold text-purple-100">
+                Traditionelles Wissen meets moderne Technologie
+              </h2>
+
+              {/* Avantages des deux formats */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full max-w-2xl">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                  <div className="text-xl md:text-2xl mb-2">🏠</div>
+                  <h4 className="font-semibold mb-2 text-sm md:text-base">Vor Ort in Zürich</h4>
+                  <p className="text-xs md:text-sm text-purple-100">100 CHF</p>
+                  <ul className="text-xs text-purple-200 mt-2 space-y-1">
+                    <li>• Persönliche Atmosphäre</li>
+                    <li>• Direkter Energieaustausch</li>
+                    <li>• Traditionelle Rituale</li>
+                  </ul>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20">
+                  <div className="text-xl md:text-2xl mb-2">💻</div>
+                  <h4 className="font-semibold mb-2 text-sm md:text-base">Online Beratung</h4>
+                  <p className="text-xs md:text-sm text-purple-100">150 CHF</p>
+                  <ul className="text-xs text-purple-200 mt-2 space-y-1">
+                    <li>• Bequem von überall</li>
+                    <li>• Zeitersparnis</li>
+                    <li>• Moderne Technologie</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center mt-4 w-full max-w-md">
+                <button
+                  onClick={() => window.location.href = '/Contacte'}
+                  type="button"
+                  aria-label="Jetzt Termin für Astrologie Beratung buchen"
+                  className="cursor-pointer px-6 py-3 md:px-8 md:py-4 font-semibold text-white bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] hover:from-red-600 hover:to-red-700 rounded-lg md:rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full sm:w-auto text-sm md:text-base"
+                >
+                  Kostenlose Erstberatung
+                </button>
+                <div className="text-center">
+                  <p className="text-purple-200 text-sm md:text-base">📞 +41 76 123 45 67</p>
+                  <p className="text-purple-200 text-xs md:text-sm">Mo-Fr: 9:00-18:00</p>
+                </div>
+              </div>
+
+              {/* Garantie */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 w-full max-w-md">
+                <p className="text-purple-200 text-xs md:text-sm text-center">
+                  🎯 <strong>Garantiert:</strong> Dieselbe intensive Beratungsqualität in beiden Formaten
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </CarouselItem>
+    </CarouselContent>
+  </Carousel>
+</section>
         
         {/* Service */}
         <ContacteNotif />
@@ -377,13 +453,13 @@ export default function Home() {
                 <div className="relative h-32 bg-gradient-to-r from-purple-50 to-blue-50">
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-blue-100">
                     <span className="text-2xl">
-                      {service.price === "0" ? "🎁" : "✨"}
+                      {service.price_presentiel === "0" ? "🎁" : "✨"}
                     </span>
                   </div>
                   <div className={`absolute top-3 right-3 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg ${
-                    service.price === "0" ? "bg-green-500" : "bg-[#ff6e54]"
+                    service.price_presentiel === "0" ? "bg-green-500" : "bg-[#ff6e54]"
                   }`}>
-                    {service.price === "0" ? "KOSTENLOS" : `${service.price} CHF`}
+                    {service.price_presentiel === "0" ? "KOSTENLOS" : `ab ${service.price_online} CHF`}
                   </div>
                 </div>
 
@@ -397,6 +473,22 @@ export default function Home() {
                     {service.description}
                   </p>
 
+                  {/* Prix pour les deux formats */}
+                  <div className="space-y-2 mb-3">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">Vor Ort:</span>
+                      <span className="font-semibold text-[#260C56]">
+                        {service.price_presentiel === "0" ? "Kostenlos" : `${service.price_presentiel} CHF`}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-gray-600">Online (Video-Call):</span>
+                      <span className="font-semibold text-[#260C56]">
+                        {service.price_online === "0" ? "Kostenlos" : `${service.price_online} CHF`}
+                      </span>
+                    </div>
+                  </div>
+
                   {/* Informations basiques */}
                   <div className="flex justify-between items-center pt-2 border-t border-gray-100">
                     <span className="text-xs text-gray-500 flex items-center gap-1">
@@ -409,7 +501,7 @@ export default function Home() {
                         window.location.href = `/Contacte?service=${encodeURIComponent(service.nom)}`;
                       }}
                     >
-                      {service.price === "0" ? "Jetzt testen" : "Termin buchen"}
+                      {service.price_presentiel === "0" ? "Jetzt testen" : "Termin buchen"}
                       <span className="text-lg">›</span>
                     </button>
                   </div>
@@ -578,7 +670,7 @@ export default function Home() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
-            onClick={() => window.location.href = '/vlog'}
+            onClick={() => window.location.href = '/blog'}
             className="bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 shadow-lg hover:scale-105"
           >
             Blog entdecken
@@ -732,7 +824,7 @@ export default function Home() {
           </summary>
           <div className="px-6 pb-6" itemScope itemType="https://schema.org/Answer">
             <p itemProp="text" className="text-gray-700">
-              Eine Erstberatung dauert in der Regel 90 Minuten und kostet CHF 180. Folgeberatungen (60 Minuten) kosten CHF 120. Pakete für umfassende Analysen (Partnerschaft, Karriere, spirituelle Entwicklung) sind ebenfalls verfügbar. Alle Preise inklusive detaillierte Aufzeichnung und schriftliche Zusammenfassung.
+              Eine Beratung dauert in der Regel 60-90 Minuten. Vor Ort in unserer Praxis in Zürich kostet eine Sitzung 100 CHF, Online-Beratungen per Video-Call kosten 150 CHF. Pakete für umfassende Analysen (Partnerschaft, Karriere, spirituelle Entwicklung) sind ebenfalls verfügbar.
             </p>
           </div>
         </details>
@@ -746,7 +838,7 @@ export default function Home() {
           </summary>
           <div className="px-6 pb-6" itemScope itemType="https://schema.org/Answer">
             <p itemProp="text" className="text-gray-700">
-              Ja, wir bieten sowohl persönliche Beratungen in unserer Praxis in Zürich als auch professionelle Online-Beratungen per Video-Call an. Die Qualität der Online-Beratungen ist identisch mit den Präsenzterminen. Wir beraten Kunden in der ganzen Schweiz und international per Zoom, Skype oder WhatsApp Video.
+              Ja, wir bieten sowohl persönliche Beratungen in unserer Praxis in Zürich (100 CHF) als auch professionelle Online-Beratungen per Video-Call (150 CHF) an. Die Qualität der Online-Beratungen ist identisch mit den Präsenzterminen. Wir beraten Kunden in der ganzen Schweiz und international per Zoom, Skype oder WhatsApp Video.
             </p>
           </div>
         </details>

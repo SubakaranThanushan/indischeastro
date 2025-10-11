@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "app/instruments",
     "lib/supabaseClient.ts",
-    "app/Contacte",
+    "app/contact",
     "app/services/[id].js"
   ],
 

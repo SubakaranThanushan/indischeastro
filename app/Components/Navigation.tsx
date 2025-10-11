@@ -51,7 +51,7 @@ function Navigation() {
           </li>
           <li>
             <Link
-              href="/Contacte"
+              href="/contact"
               title="Kontaktieren Sie uns für astrologische Beratung"
             >
               KONTAKT

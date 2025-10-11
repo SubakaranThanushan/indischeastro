@@ -237,3 +237,156 @@ details > summary::after {
 details[open] > summary::after {
   transform: rotate(180deg);
 }
+/* ANIMATIONS BÂTONS/LIGNES */
+@keyframes move-lines {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(360deg);
+  }
+}
+
+@keyframes float-diagonal {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(50%, 50%) rotate(135deg) scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+@keyframes slide-lines {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-15deg);
+  }
+}
+
+@keyframes pulse-bars {
+  0%, 100% {
+    height: 20%;
+    opacity: 0.4;
+  }
+  50% {
+    height: 80%;
+    opacity: 0.8;
+  }
+}
+
+@keyframes wave-move {
+  0% {
+    transform: translateX(-100%) scaleY(1);
+  }
+  50% {
+    transform: translateX(0%) scaleY(1.5);
+  }
+  100% {
+    transform: translateX(100%) scaleY(1);
+  }
+}
+
+/* CLASSES D'ANIMATION BÂTONS */
+.animate-move-lines {
+  animation: move-lines 20s linear infinite;
+}
+
+.animate-float-diagonal {
+  animation: float-diagonal 15s ease-in-out infinite;
+}
+
+.animate-slide-lines {
+  animation: slide-lines 12s linear infinite;
+}
+
+.animate-pulse-bars {
+  animation: pulse-bars 3s ease-in-out infinite;
+}
+
+.animate-wave-move {
+  animation: wave-move 8s ease-in-out infinite;
+}
+
+/* Pattern de lignes animées */
+.moving-lines-pattern {
+  background: 
+    linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.1) 50%);
+  background-size: 50px 50px;
+}
+/* Nouvelles animations pour la page Über Mich */
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg) scale(0.9);
+  }
+}
+
+@keyframes gradient-rotate {
+  0% {
+    transform: rotate(0deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.05);
+  }
+}
+
+@keyframes move-slow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-float-3d {
+  animation: float-3d 6s ease-in-out infinite;
+}
+
+.animate-gradient-rotate {
+  animation: gradient-rotate 10s linear infinite;
+}
+
+.animate-move-slow {
+  animation: move-slow 20s linear infinite;
+}
+
+/* Smooth transitions pour les éléments */
+.transition-all {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Animation pour le bouton WhatsApp */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Effet d'ombre amélioré */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}

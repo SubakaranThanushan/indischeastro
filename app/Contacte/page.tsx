@@ -97,6 +97,10 @@ function Contacte() {
                 <FaSquareInstagram />
               </div>
             </div>
+            +41 79 261 33 31
+            <div>
+              <h4>Öffnungszeiten</h4>
+              </div>  14.00 bis 20.00 Uhr
           </div>
 
           <div className="flex flex-col items-center justify-start min-h-screen p-6 bg-gray-100">

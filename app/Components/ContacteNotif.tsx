@@ -29,6 +29,9 @@ function ContacteNotif() {
           </a>
         </address>
         <p>
+          +41 79 261 33 31
+        </p>
+        <p>
           <time dateTime="14:00">14.00</time> bis{" "}
           <time dateTime="20:00">20.00 Uhr</time>
         </p>

@@ -37,8 +37,8 @@ function Navigation() {
             </Link>
           </li>
           <li>
-            <Link href="/" title="Videos über Astrologie & Beratung">
-              VIDEOS
+            <Link href="/vlog" title="Videos über Astrologie & Beratung">
+              Article
             </Link>
           </li>
           <li>

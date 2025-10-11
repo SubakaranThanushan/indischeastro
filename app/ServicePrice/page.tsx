@@ -392,7 +392,8 @@ export default function ServicePrice() {
              itemType="https://schema.org/ItemList">
           {filteredServices.map((service, index) => (
             <div key={service.id} className="relative" itemScope itemType="https://schema.org/ListItem">
-              <meta itemProp="position" content={index + 1} />
+              <meta itemProp="position" content={(index + 1).toString()} />
+
               {service.popular && (
                 <div className="absolute -top-2 -right-2 z-10">
                   <div className="bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">

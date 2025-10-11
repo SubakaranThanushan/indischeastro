@@ -452,15 +452,9 @@ export default function ServicePrice() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button 
                   onClick={() => {
-                    window.location.href = '/Contacte';
+                    window.location.href = '/contact';
                     // Tracking
-                    if (typeof gtag !== 'undefined') {
-                      gtag('event', 'conversion', {
-                        'send_to': 'AW-YOUR_CONVERSION_ID',
-                        'event_category': 'Servicepage',
-                        'event_label': 'CTA_Klick'
-                      });
-                    }
+                    
                   }}
                   className="bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 shadow-lg hover:scale-105 flex items-center gap-2"
                   aria-label="Jetzt Termin für Vedische Astrologie Beratung vereinbaren"

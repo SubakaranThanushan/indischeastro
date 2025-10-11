@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../public/image/logo_nav/cita-logo.png";
+import Logo from "../../public/image/header/Adobe Express - file.png";
 
 import { useState } from "react";
 
@@ -10,15 +10,15 @@ function Navigation() {
   return (
     <header className="z-50 flex flex-wrap justify-between items-center sticky top-0 w-full bg-zinc-100 text-black shadow-lg rounded-b-lg">
       <Image
-        className="h-15 w-auto ml-6"
-        src={Logo}
-        alt="Logo Indische Astrologie Beratung Zürich - Suthakar Parameswaran"
-        title="Indische Astrologie Beratung & Vedische Horoskop Zürich"
-        width={500}
-        height={300}
-        loading="lazy"
-        placeholder="blur"
-      />
+  className="h-20 w-auto ml-6"
+  src={Logo}
+  alt="Logo Indische Astrologie Beratung Zürich - Suthakar Parameswaran"
+  title="Indische Astrologie Beratung & Vedische Horoskop Zürich"
+  width={500}
+  height={300}
+  loading="lazy"
+  placeholder="blur"
+/>
       <button
         aria-label="Menü öffnen"
         className="lg:hidden p-4"
@@ -34,6 +34,11 @@ function Navigation() {
           <li>
             <Link href="/" title="Zur Startseite - Astrologie Beratung Zürich">
               HOME
+            </Link>
+          </li>
+          <li>
+            <Link href="/ubermich" title="Über Mich - Vedischer Astrologe Zürich">
+              Uber mich
             </Link>
           </li>
           <li>

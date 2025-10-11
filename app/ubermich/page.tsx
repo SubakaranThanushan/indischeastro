@@ -117,13 +117,7 @@ export default function UberMich() {
                     </div>
                   </div>
 
-                  {/* TV Badge */}
-                  <div className="absolute -top-4 -left-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg">
-                    <div className="flex items-center gap-2 text-sm">
-                      <span>📺</span>
-                      <span>Schweiz 5 TV</span>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>

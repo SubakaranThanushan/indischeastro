@@ -1,3 +1,4 @@
+"use client";
 // components/Footer.tsx
 'use client';
 
@@ -6,14 +7,6 @@ import { useState } from 'react';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Ici tu peux ajouter la logique pour l'inscription à la newsletter
-    console.log('Email submitted:', email);
-    setEmail('');
-    alert('Vielen Dank für Ihre Anmeldung!');
-  };
 
   const services = [
     { name: 'Vedische Astrologie', href: '/services#vedische-astrologie' },
@@ -24,18 +17,41 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { name: 'Über Mich', href: '/ueber-mich' },
-    { name: 'Dienstleistungen', href: '/services' },
+    { name: 'Über Mich', href: '/ubermich' },
+    { name: 'Dienstleistungen', href: '/ServicePrice' },
     { name: 'Preise', href: '/ServicePrice' },
     { name: 'Kontakt', href: '/contact' },
-    { name: 'Datenschutz', href: '/datenschutz' },
-    { name: 'Impressum', href: '/impressum' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   const contactInfo = [
-    { icon: '📧', text: 'info@vedische-astrologie.ch', href: 'mailto:info@vedische-astrologie.ch' },
-    { icon: '📞', text: '+41 76 123 45 67', href: 'tel:+41761234567' },
-    { icon: '🏠', text: 'Zürich, Schweiz', href: 'https://maps.google.com/?q=Zürich' },
+    { 
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      ), 
+      text: 'info@vedische-astrologie.ch', 
+      href: 'mailto:info@vedische-astrologie.ch' 
+    },
+    { 
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+        </svg>
+      ), 
+      text: '+41 76 123 45 67', 
+      href: 'tel:+41761234567' 
+    },
+    { 
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+      ), 
+      text: 'Zürich, Schweiz', 
+      href: 'https://maps.google.com/?q=Zürich' 
+    },
   ];
 
   return (
@@ -72,7 +88,7 @@ export default function Footer() {
                   className="w-10 h-10 bg-white/10 hover:bg-[#ff6e54] rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
                   aria-label={social.name}
                 >
-                  <span className="text-lg">{social.icon}</span>
+                  {social.icon}
                 </a>
               ))}
             </div>
@@ -87,13 +103,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.name}>
-                  <Link 
-                    href={service.href}
+                  <a 
+                    
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 bg-gray-500 rounded-full group-hover:bg-[#ff6e54] transition-colors"></span>
                     {service.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -135,36 +151,10 @@ export default function Footer() {
                   href={contact.href}
                   className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
                 >
-                  <span className="text-lg group-hover:scale-110 transition-transform">{contact.icon}</span>
+                  <span className="w-5 h-5 group-hover:scale-110 transition-transform">{contact.icon}</span>
                   <span className="group-hover:translate-x-1 transition-transform">{contact.text}</span>
                 </a>
               ))}
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-              <h4 className="font-semibold mb-3 text-white">Newsletter</h4>
-              <p className="text-gray-300 text-sm mb-3">
-                Erhalten Sie spirituelle Insights und spezielle Angebote.
-              </p>
-              <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                <div className="relative">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Ihre E-Mail-Adresse"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#ff6e54] transition-colors"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#ff6e54] to-orange-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                >
-                  Anmelden
-                </button>
-              </form>
             </div>
           </div>
         </div>
@@ -179,15 +169,6 @@ export default function Footer() {
             </div>
             
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-              <Link href="/datenschutz" className="hover:text-white transition-colors">
-                Datenschutz
-              </Link>
-              <Link href="/impressum" className="hover:text-white transition-colors">
-                Impressum
-              </Link>
-              <Link href="/agb" className="hover:text-white transition-colors">
-                AGB
-              </Link>
               <div className="flex items-center gap-2 text-green-400">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span>Jetzt erreichbar</span>
@@ -196,14 +177,37 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
     </footer>
   );
 }
 
 const socialLinks = [
-  { name: 'Facebook', icon: '📘', href: 'https://facebook.com' },
-  { name: 'Instagram', icon: '📷', href: 'https://instagram.com' },
-  { name: 'YouTube', icon: '📺', href: 'https://youtube.com' },
-  { name: 'LinkedIn', icon: '💼', href: 'https://linkedin.com' },
+  { 
+    name: 'Facebook', 
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    ), 
+    href: 'https://facebook.com' 
+  },
+  { 
+    name: 'Instagram', 
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.24 14.815 3.75 13.664 3.75 12.367s.49-2.448 1.376-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.886.875 1.376 2.026 1.376 3.323s-.49 2.448-1.376 3.323c-.875.808-2.026 1.297-3.323 1.297z"/>
+      </svg>
+    ), 
+    href: 'https://www.instagram.com/cittarastro/' 
+  },
+  { 
+    name: 'YouTube', 
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+    ), 
+    href: 'https://www.youtube.com/@1000suthakar' 
+  },
+  
 ];

@@ -134,7 +134,7 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "ProfessionalService",
-                  "@id": "https://www.indischeastro.ch/#service",
+                  "@id": "https://www.indischeastro.ch",
                   "name": "IndischeAstro - Vedische Astrologie Beratung",
                   "url": "https://www.indischeastro.ch",
                   "telephone": "+41-76-123-45-67",
@@ -239,10 +239,9 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Person",
-                  "@id": "https://www.indischeastro.ch/#person",
+                  "@id": "https://www.indischeastro.ch",
                   "name": "Suthakar Parameswaran",
                   "url": "https://www.indischeastro.ch",
-                  "image": "https://www.indischeastro.ch/images/suthakar-parameswaran.jpg",
                   "jobTitle": "Vedischer Astrologe und Heiler",
                   "description": "Experte für Vedische Astrologie, Karma Analyse, Partner Horoskop und spirituelle Heilung mit über 20 Jahren Erfahrung.",
                   "knowsAbout": [
@@ -265,23 +264,23 @@ export default function RootLayout({
                     "name": "IndischeAstro"
                   },
                   "worksFor": {
-                    "@id": "https://www.indischeastro.ch/#service"
+                    "@id": "https://www.indischeastro.ch"
                   }
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://www.indischeastro.ch/#website",
+                  "@id": "https://www.indischeastro.ch",
                   "url": "https://www.indischeastro.ch",
                   "name": "IndischeAstro - Vedische Astrologie",
                   "description": "Professionelle Vedische Astrologie Beratung in Zürich für Partner Horoskop, Karma Analyse und spirituelle Heilung.",
                   "publisher": {
-                    "@id": "https://www.indischeastro.ch/#service"
+                    "@id": "https://www.indischeastro.ch"
                   },
                   "inLanguage": "de-CH"
                 },
                 {
                   "@type": "BreadcrumbList",
-                  "@id": "https://www.indischeastro.ch/#breadcrumb",
+                  "@id": "https://www.indischeastro.ch",
                   "itemListElement": [
                     {
                       "@type": "ListItem",
@@ -317,11 +316,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         
-        {/* Balises de sécurité et performance */}
-        <meta name="theme-color" content="#260C56" />
-        <meta name="msapplication-TileColor" content="#260C56" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}

@@ -340,10 +340,6 @@ export default function Contact() {
                     <span className="text-lg">🌍</span>
                     <span>Online Beratung verfügbar für gesamte Schweiz und Deutschland</span>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <span className="text-lg">📞</span>
-                    <span>Telefonische Beratung: +41 79 261 33 31</span>
-                  </li>
                 </ul>
               </div>
 
@@ -563,53 +559,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* CTA Section optimisée */}
-        <div className="bg-gradient-to-r from-[#260C56] to-[#4c1d95] text-white py-16">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Bereit für Ihre persönliche Vedische Astrologie Beratung?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Vereinbaren Sie noch heute Ihren Termin und starten Sie Ihre Reise zu mehr Klarheit und innerem Frieden 
-              mit professioneller Vedischer Astrologie.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="tel:+41792613331" 
-                className="bg-[#ff6e54] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#ff5a40] transition-colors flex items-center justify-center gap-2 text-lg"
-                onClick={() => {
-                  if (typeof window !== 'undefined' && (window as any).gtag) {
-                    (window as any).gtag('event', 'conversion', {
-                      'send_to': 'AW-YOUR_CONVERSION_ID',
-                      'event_category': 'Phone_Call',
-                      'event_label': 'Contact_Page_Call'
-                    });
-                  }
-                }}
-              >
-                <MdPhone size={20} />
-                Jetzt anrufen: +41 79 261 33 31
-              </a>
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-[#260C56] transition-colors text-lg"
-              >
-                📝 Terminformular ausfüllen
-              </button>
-            </div>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-blue-200">
-              <div className="flex items-center justify-center gap-2">
-                <span>✅ Kostenlose Erstberatung</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <span>⚡ Schnelle Terminvergabe</span>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <span>🎯 Professionelle Vedische Astrologie</span>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </>
   );

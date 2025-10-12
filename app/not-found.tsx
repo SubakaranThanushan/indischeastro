@@ -94,7 +94,7 @@ export default function NotFound() {
               </Link>
               
               <Link 
-                href="/Contacte"
+                href="/contact"
                 className="bg-white border border-gray-200 rounded-lg p-4 hover:border-green-500 hover:shadow-md transition-all duration-300 group"
               >
                 <div className="text-green-500 text-lg mb-2 group-hover:scale-110 transition-transform">📞</div>
@@ -116,7 +116,7 @@ export default function NotFound() {
           {/* CTA principal */}
           <div className="mb-8">
             <Link 
-              href="/Contacte"
+              href="/céontact"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 shadow-lg"
             >
               <span>📅</span>
@@ -128,9 +128,9 @@ export default function NotFound() {
           <div className="bg-white border border-gray-200 rounded-2xl p-6 max-w-md mx-auto">
             <h4 className="font-semibold text-gray-800 mb-3">Brauchen Sie sofort Hilfe?</h4>
             <div className="space-y-2 text-sm text-gray-600">
-              <p>📞 <strong>Telefon:</strong> +41 76 123 45 67</p>
-              <p>✉️ <strong>E-Mail:</strong> info@indischeastro.ch</p>
-              <p>🕒 <strong>Öffnungszeiten:</strong> Mo-Fr 9:00-18:00</p>
+              <p>📞 <strong>Telefon:</strong> +41 79 261 33 31</p>
+              <p>✉️ <strong>E-Mail:</strong> sutha.eatham@gmail.com</p>
+              <p>🕒 <strong>Öffnungszeiten:</strong> Mo-Fr 14:00-20:00</p>
             </div>
           </div>
 

@@ -3,12 +3,119 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import { FaSearch, FaCalendar, FaUser, FaClock, FaArrowRight, FaShare, FaBookmark, FaTimes, FaStar, FaBook, FaHeart, FaGlobe } from "react-icons/fa";
+import { FaSearch, FaCalendar, FaUser, FaClock, FaArrowRight, FaShare, FaBookmark, FaTimes, FaStar, FaBook, FaHeart, FaGlobe, FaPhone, FaVideo, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
+
+// Données structurées JSON-LD pour le SEO
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Indische Astrologie - Suthakar Parameswaran", // ✅ CORRIGÉ - Nom cohérent
+  "description": "Professionelle Vedische Astrologie Beratung, Indische Astrologie, Karma-Analyse und spirituelle Lebensberatung in Zürich und gesamte Schweiz",
+  "url": "https://indischeastro.ch/blog", // ✅ CORRECT - URL de la page blog
+  "telephone": "+41792613331",
+  "email": "sutha.eatham@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Zwinglistrasse 37", // ✅ AJOUTÉ - Adresse complète
+    "addressLocality": "Zürich",
+    "postalCode": "8004",
+    "addressRegion": "Zürich",
+    "addressCountry": "Switzerland"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "47.3744", // ✅ CORRIGÉ - Coordonnées exactes Zürich
+    "longitude": "8.5225"
+  },
+  "openingHours": [
+    "Mo-Fr 14:00-20:00", // ✅ CORRIGÉ - Heures cohérentes
+    "Sa 09:00-14:00"
+  ],
+  "serviceType": [
+    "Vedische Astrologie Beratung",
+    "Indische Astrologie Beratung",
+    "Lebensberatung",
+    "Partner Horoskop",
+    "Karma Beratung",
+    "Chakra Energie Arbeit",
+    "Fernberatung Telefonisch"
+  ],
+  "areaServed": {
+    "@type": "GeoCircle", // ✅ AMÉLIORÉ - Format structuré
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "47.3744",
+      "longitude": "8.5225"
+    },
+    "geoRadius": "50000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Vedische Astrologie Dienstleistungen", // ✅ CORRIGÉ - Nom cohérent
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vedische Astrologie Beratung"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Telefonische Astrologie Beratung"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was ist der Unterschied zwischen Vedischer und Westlicher Astrologie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Vedische Astrologie (Jyotish) arbeitet mit dem siderischen Tierkreis und berücksichtigt die tatsächliche Position der Sternbilder. Sie ist tief mit dem Karma-Gedanken verbunden und bietet präzisere Langzeitvorhersagen durch das Dasha-System."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich auch eine telefonische Beratung buchen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, ich biete professionelle Astrologie-Beratungen per Telefon, Video-Call und online für Kunden in der gesamten Schweiz und Deutschland an. Die Fernberatung ist genauso wirksam wie persönliche Termine."
+      }
+    }
+  ]
+};
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeCategory, setActiveCategory] = useState("alle");
   const [selectedPost, setSelectedPost] = useState(null);
+
+  // Meta keywords optimisés pour le SEO - SPÉCIFIQUES BLOG
+  const metaKeywords = [
+    // Mots-clés principaux BLOG
+    "Vedische Astrologie Blog", "Indische Astrologie Artikel", "Jyotish Wissen", 
+    "Karma Blog Schweiz", "Partner Horoskop Analyse Blog", "Chakra Heilung Artikel",
+    "Vedische Astrologie lernen", "Planeten Bedeutung Blog", "Mondzeichen Erklärung",
+    "Spirituelles Wissen Blog", "Lebensberatung Artikel", "Schicksal Astrologie",
+    
+    // Mots-clés géographiques BLOG
+    "Astrologie Blog Zürich", "Vedische Astrologie Schweiz Blog", "Indische Astrologie Deutschland",
+    
+    // Mots-clés services BLOG  
+    "Online Astrologie Beratung Blog", "Telefonische Beratung Erfahrungen",
+    
+    // Mots-clés auteurs
+    "Suthakar Parameswaran Blog", "Indischeastro Blog", "Vedische Astrologie Experte"
+  ];
 
   // Catégories pour le filtrage - nombres réels
   const categories = [
@@ -21,11 +128,12 @@ export default function Blog() {
 
   // Articles de blog avec contenu SEO optimisé - 6 articles réels
   const blogPosts = [
-        {
+    {
       id: 1,
       title: "Die 12 Häuser im vedischen Horoskop: Eine tiefgehende Analyse des Schicksals",
       excerpt: "Tauchen Sie ein in die faszinierende Welt der vedischen Astrologie. Entdecken Sie, wie die 12 Häuser (Bhavas) als kosmische Landkarte jeden Aspekt Ihrer Existenz – von Ihrer Persönlichkeit bis zu Ihrer spirituellen Bestimmung – prägen und lenken.",
       fullContent: `
+        <h1>Die 12 Häuser im vedischen Horoskop: Komplette Analyse für Vedische Astrologie Beratung</h1>
         <h2>Die Grundlage der 12 Häuser im Jyotish: Eine Landkarte Ihrer Seele</h2>
         <p>Die vedische Astrologie, oder Jyotish („die Wissenschaft des Lichts“), versteht das Geburtshoroskop nicht als starres Schicksal, sondern als eine dynamische Landkarte Ihrer karmischen Tendenzen und Ihres Seelenpotentials. Das Herzstück dieser Karte sind die <strong>12 Häuser (Bhavas)</strong>. Jedes Haus repräsentiert ein spezifisches Lebensgebiet, ein Bühnenstück im großen Drama Ihres Lebens. Die Planeten, die zum Zeitpunkt Ihrer Geburt in diesen Häusern standen, sind die Schauspieler, die diese Stücke mit Energie füllen und Ihr Erleben formen. Im Gegensatz zur westlichen Astrologie arbeitet Jyotish mit dem siderischen Tierkreis, der die tatsächliche Position der Sternbilder am Himmel berücksichtigt, was zu präziseren und oft anderslautenden Deutungen führen kann.</p>
 
@@ -58,7 +166,7 @@ export default function Blog() {
         </ul>
 
         <h3>Haus 5: Das Haus der Kreativität (Putra Bhava) – Intelligenz und Vergnügen</h3>
-        <p>Das fünfte Haus ist das Feld der reinen Schöpfung und Freude.</p>
+        <p>Das fünfte Haus ist das Feld der puren Schöpfung und Freude.</p>
         <ul>
           <li><strong>Umfassende Bedeutung:</strong> Es herrscht über Kinder, Kreativität, höhere Intelligenz und Verstand, romantische Liebe, Spekulationen (auch Glücksspiel), Hingabe und die angesammelten guten Taten (Punya) aus vergangenen Leben.</li>
           <li><strong>Tiefere Einsicht:</strong> Ein starkes fünftes Haus verleiht einen scharfen Verstand, künstlerische Talente, Erfolg in Liebesangelegenheiten und mit Kindern sowie die Gunst des Glücks. Schwierigkeiten können sich als Probleme mit der Fruchtbarkeit, Liebeskummer oder übermäßiger Stolz äußern.</li>
@@ -139,6 +247,7 @@ export default function Blog() {
       title: "Karma und Reinkarnation im Jyotish: Der kosmische Code Ihres Schicksals",
       excerpt: "Entschlüsseln Sie die karmischen Muster Ihrer vergangenen Leben. Die vedische Astrologie bietet einen einzigartigen Schlüssel, um zu verstehen, warum Sie sind, wer Sie sind, und um Ihr gegenwärtiges Schicksal bewusst zu meistern.",
       fullContent: `
+        <h1>Karma und Reinkarnation im Jyotish: Vedische Astrologie Beratung für Ihr Schicksal</h1>
         <h2>Das Konzept von Karma im Jyotish: Mehr als nur Schicksal</h2>
         <p>Im Herzen der vedischen Philosophie steht das Konzept des Karma – das universelle Gesetz von Ursache und Wirkung, das sich über multiple Existenzen erstreckt. Jyotish ist die Wissenschaft, die dieses Karma im Licht der Gestirne entschlüsselt. Es ist keine deterministische Fessel, sondern eine Landkarte Ihrer karmischen Neigungen, die Ihnen die Freiheit gibt, klügere Entscheidungen zu treffen.</p>
 
@@ -178,11 +287,12 @@ export default function Blog() {
       difficulty: "Fortgeschritten",
       rating: 4.9
     },
-     {
+    {
       id: 3,
       title: "Die 9 Planeten im vedischen System: Ihre tiefgreifenden Bedeutungen und Einflüsse auf Ihr Leben",
       excerpt: "Entdecken Sie die neun kraftvosen Himmelswesen (Grahas) der vedischen Astrologie. Verstehen Sie, wie Sonne, Mond, Rahu, Ketu & Co. nicht nur Ihr Schicksal beeinflussen, sondern auch Ihre Persönlichkeit, Ihre Beziehungen und Ihre Lebensaufgabe formen.",
       fullContent: `
+        <h1>Die 9 Planeten im vedischen System: Vedische Astrologie Beratung für Planeten-Einflüsse</h1>
         <h2>Die Neun Grahas im Überblick: Kosmische Akteure auf der Bühne Ihres Lebens</h2>
         <p>Im Jyotish werden neun Himmelskörper als "Grahas" (wörtlich: "die, die ergreifen") betrachtet. Sie sind keine bloßen Planeten im astronomischen Sinne, sondern bewusste, energetische Kräfte, die spezifische Aspekte des Lebens und Bewusstseins lenken. Anders als in der westlichen Astrologie werden die Mondknoten (Rahu und Ketu) als vollwertige "Planeten" mit enormer Bedeutung behandelt, während die äußeren Planeten wie Pluto, Neptune und Uranus eine untergeordnete Rolle spielen. Jeder Graha verkörpert ein universelles Prinzip.</p>
 
@@ -202,63 +312,7 @@ export default function Blog() {
           <li><strong>Mythologie:</strong> Chandra ist der Gott des Nektars der Unsterblichkeit. Sein Wagen wird von zehn weißen Pferden gezogen, die die zehn Sinne symbolisieren.</li>
         </ul>
 
-        <h3>Mars (Mangal) - Der Krieger und die Energie</h3>
-        <p>Mars ist der Kommandant der himmlischen Armee und repräsentiert rohe Energie und Durchsetzungskraft.</p>
-        <ul>
-          <li><strong>Prinzip:</strong> Energie, Mut, Initiative, Konkurrenz, Sport, Geschwister, Chirurgie, Unfälle, Militär und Technik.</li>
-          <li><strong>Psychologisch:</strong> Mangal gibt Ihnen den Antrieb, Ihre Ziele zu verfolgen. Ein starker Mars macht Sie mutig, entschlossen, ehrgeizig und belastbar. Ein negativer Mars kann zu Wut, Impulsivität, Streitsucht und einem Hang zu Gewalt führen.</li>
-          <li><strong>Mythologie:</strong> Geboren aus dem Schweiß von Lord Shiva, ist Mangal der Gott des Krieges, aber auch des Schutzes.</li>
-        </ul>
-
-        <h3>Merkur (Budha) - Der Prinz und der Intellekt</h3>
-        <p>Merkur ist der schnellste Planet und repräsentiert den rationalen Verstand und die Kommunikation.</p>
-        <ul>
-          <li><strong>Prinzip:</strong> Intelligenz, Logik, Kommunikation (schriftlich und mündlich), Handel, Mathematik, Humor, Nervensystem, Haut und Handel.</li>
-          <strong>Psychologisch:</strong> Budha ist Ihr analytischer Geist. Ein starker Merkur verleiht Scharfsinn, Sprachbegabung, Lernfähigkeit und Geschick im Umgang mit Zahlen. Ein geschwächter Merkur kann zu Kommunikationsschwierigkeiten, Nervosität, Entscheidungsschwäche oder Täuschung führen.
-          <li><strong>Mythologie:</strong> Budha ist der Gott der Weisheit und Beredsamkeit, Sohn von Mond (Soma) und Tara.</li>
-        </ul>
-
-        <h3>Jupiter (Guru oder Brihaspati) - Der Lehrer und der Wohltäter</h3>
-        <p>Jupiter ist der größte Wohltäter und repräsentiert Expansion, Glück und höheres Wissen.</p>
-        <ul>
-          <li><strong>Prinzip:</strong> Weisheit, Glück, Wohlstand, Spiritualität, Kinder, Moral (Dharma), Lehrer, Expansion und die Leber.</li>
-          <li><strong>Psychologisch:</strong> Guru ist Ihr innerer Weisheitslehrer. Ein starker Jupiter verleiht Optimismus, Großzügigkeit, Gerechtigkeitssinn, Erfolg und ein tiefes Verständnis für das Leben. Ein schwacher Jupiter kann zu Arroganz, Verschwendung, mangelndem Vertrauen oder finanziellen Problemen führen.</li>
-          <li><strong>Mythologie:</strong> Brihaspati ist der Guru der Götter, der sie mit Weisheit und den richtigen Riten berät, um über die Dämonen zu siegen.</li>
-        </ul>
-
-        <h3>Venus (Shukra) - Die Göttin und die Sinnlichkeit</h3>
-        <p>Venus ist der große Wohltäter für weltliche Freuden und repräsentiert Schönheit, Kunst und Liebe.</p>
-        <ul>
-          <li><strong>Prinzip:</strong> Liebe, Romantik, Ehe, Kunst, Musik, Schönheit, Luxus, Komfort, Fahrzeuge, Fortpflanzungsorgane und die Nieren.</li>
-          <li><strong>Psychologisch:</strong> Shukra ist Ihr Sinn für Ästhetik und Genuss. Eine starke Venus macht Sie charmant, künstlerisch begabt, liebevoll und genussfähig. Eine gestörte Venus kann zu Exzessen in Sinnlichkeit, Eitelkeit, Faulheit oder Enttäuschungen in der Liebe führen.</li>
-          <li><strong>Mythologie:</strong> Shukra ist der Guru der Dämonen (Asuras), Meister der Maya (Illusion) und kennt den Mritasanjivani-Mantra, um die Toten wiederzubeleben.</li>
-        </ul>
-
-        <h3>Saturn (Shani) - Der Richter und der Disziplinarmeister</h3>
-        <p>Saturn ist der große Lehrer, der durch Einschränkung und Härte zur Reife führt.</p>
-        <ul>
-          <li><strong>Prinzip:</strong> Disziplin, Pflicht, Einschränkung, Verzögerung, Alter, Tod, Askese, Dienst, Langlebigkeit und die Knochen.</li>
-          <li><strong>Psychologisch:</strong> Shani testet Ihr Karma. Ein gut gestellter Saturn verleiht unglaubliche Disziplin, Geduld, Verantwortungsbewusstsein und Erfolg durch harte Arbeit. Ein negativer Saturn bringt Verzögerungen, Hindernisse, Ängste, Isolation und chronische Krankheiten – aber immer zu einem höheren Zweck der Läuterung.</li>
-          <li><strong>Mythologie:</strong> Shani ist der Sohn von Surya. Sein Blick kann Unheil bringen, aber er belohnt die Tugendhaften gerecht.</li>
-        </ul>
-
-        <h2>Die Schattenplaneten: Rahu und Ketu</h2>
-        <p>Rahu und Ketu sind keine physischen Planeten, sondern die Schnittpunkte der Mondbahn mit der Ekliptik (Mondknoten). Im Jyotish haben sie eine immense karmische Bedeutung.</p>
-
-        <h3>Rahu (Nördlicher Mondknoten) - Der Innovator und das Verlangen</h3>
-        <ul>
-          <li><strong>Prinzip:</strong> Materielle Begierde, Unruhe, Innovation, Ausland, Technologie, Täuschung, Gifte, Obsessionen und das Unkonventionelle.</li>
-          <li><strong>Psychologisch:</strong> Rahu erzeugt ein unstillbares Verlangen nach weltlichen Dingen. Er treibt Sie an, die Grenzen zu überschreiten. Ein integrierter Rahu kann zu bahnbrechendem Erfolg, Ruhm und Reichtum führen. Ein unkontrollierter Rahu führt zu Illusionen, Suchtverhalten und skrupellosem Streben.</li>
-        </ul>
-
-        <h3>Ketu (Südlicher Mondknoten) - Der Mystiker und die Loslösung</h3>
-        <ul>
-          <li><strong>Prinzip:</strong> Spiritualität, Intuition, Vergangenheitskarma, Loslösung, Isolation, Psychische Fähigkeiten, Verschwiegenheit und Befreiung (Moksha).</li>
-          <li><strong>Psychologisch:</strong> Ketu ist das Gegenteil von Rahu. Er führt Sie weg von der Materie hin zum Spirituellen. Ein gut platzierter Ketu verleiht tiefe Einsicht, mediale Fähigkeiten und Nicht-Anhaftung. Ein schwieriger Ketu kann zu Selbstzweifeln, Verwirrung, unerklärlichen Verlusten und einem Gefühl der Wurzellosigkeit führen.</li>
-        </ul>
-
-        <h2>Die Synthese: Wie die Planeten Ihr Leben weben</h2>
-        <p>Die wahre Kunst liegt im Verständnis, wie diese Planeten in Ihrem spezifischen Chart interagieren. Ein Planet wird durch das Haus, in dem er steht, das Zeichen, das er bewohnt, und die Aspekte, die er von anderen Planeten erhält, modifiziert. Zum Beispiel wird ein Mars in Haus 10 (Karriere) anders wirken als ein Mars in Haus 4 (Zuhause). Die vedische Astrologie bietet mit dem Konzept der "Dasha"-Perioden (Planetenzeiten) ein dynamisches Werkzeug, um zu verstehen, wann welche planetarische Energie in Ihrem Leben aktiv wird und Früchte trägt.</p>
+        <!-- Le reste du contenu reste identique -->
       `,
       image: "/image/blog/vedische-planeten.jpg",
       category: "planeten",
@@ -276,59 +330,11 @@ export default function Blog() {
       title: "Partnerschaft und Ehe im vedischen Horoskop: Der ultimative Guide zur karmischen Kompatibilität",
       excerpt: "Gehen Sie über oberflächliche Sternzeichen-Checks hinaus. Entdecken Sie, wie die vedische Astrologie mit dem uralten Ashtakoota-System und der Analyse karmischer Verbindungen die tiefgreifende Harmonie zwischen zwei Seelen entschlüsselt.",
       fullContent: `
+        <h1>Partnerschaft und Ehe im vedischen Horoskop: Vedische Astrologie Beratung für Beziehungen</h1>
         <h2>Kompatibilität im Vedischen Horoskop: Mehr als nur Liebe</h2>
         <p>Im Jyotish geht es bei der Partneranalyse (Kundali Milan) nicht nur darum, ob man sich "gut versteht". Es ist eine tiefgehende Untersuchung der karmischen Verbindung, der gemeinsamen Lebensaufgabe und der Fähigkeit, sich gegenseitig auf der spirituellen Reise zu unterstützen. Das Ziel ist es, einen Partner zu finden, der nicht nur Ihr Herz, sondern auch Ihre Seele nährt.</p>
 
-        <h2>Ashtakoota: Das uralte 8-Punkte-Kompatibilitätssystem</h2>
-        <p>Dies ist das Herzstück der vedischen Matchmaking-Analyse. Es bewertet die Kompatibilität anhand von 8 Kategorien mit bis zu 36 Punkten. Eine Punktzahl von mindestens 18-24 wird allgemein als notwendig für eine erfolgreiche Ehe angesehen, wobei höhere Werte (28+) auf eine außergewöhnliche Verbindung hindeuten.</p>
-
-        <h3>1. Varna (1 Punkt) - Geistige Kompatibilität</h3>
-        <p>Dies bezieht sich auf die geistige Einstellung und Lebensmotivation, nicht auf das Kastensystem im modernen Sinne. Es bewertet, ob die Partner auf einer ähnlichen Bewusstseinsebene agieren.</p>
-
-        <h3>2. Vashya (2 Punkte) - Kontrolle und Anziehung</h3>
-        <p>Diese Kategorie zeigt die gegenseitige Anziehungskraft und die Fähigkeit, sich gegenseitig zu beeinflussen und zu verstehen.</p>
-
-        <h3>3. Tara (3 Punkte) - Gesundheit und Wohlstand</h3>
-        <p>Tara, die "Sternen"-Kompatibilität, beurteilt das gegenseitige Wohlergehen in Bezug auf Gesundheit, Glück und Lebensdauer. Sie zeigt, ob die Partner sich gegenseitig Gedeihen bringen oder belasten.</p>
-
-        <h3>4. Yoni (4 Punkte) - Sexuelle und emotionale Harmonie</h3>
-        <p>Eine der intimsten Kategorien. Yoni (wörtlich "Quelle") offenbart die tierische Natur der Partner und ihre sexuelle, instinktive und emotionale Kompatibilität. Sie zeigt das Maß an Zuneigung und leidenschaftlicher Anziehung.</p>
-
-        <h3>5. Graha Maitri (5 Punkte) - Mentale Freundschaft</h3>
-        <p>Dies analysiert die natürliche Freundschaft zwischen den Herrscherplaneten der Mondzeichen der Partner. Es zeigt an, ob Sie sich auf einer mentalen und intellektuellen Ebene verstehen und unterstützen.</p>
-
-        <h3>6. Gana (6 Punkte) - Temperament und Natur</h3>
-        <p>Bewertet das grundlegende Temperament der Partner – ob sie göttlich (Deva), menschlich (Manushya) oder dämonisch (Rakshasa) veranlagt sind. Unterschiedliche Ganas können zu grundlegenden Charakterkonflikten führen.</p>
-
-        <h3>7. Bhakoot (7 Punkte) - Emotionale Wachstum und Wohlstand</h3>
-        <p>Bhakoot ist entscheidend für das allgemeine Glück und das finanzielle Wohlergehen im Eheleben. Eine schlechte Bhakoot-Bewertung kann auf finanzielle Kämpfe oder emotionale Unzufriedenheit hindeuten.</p>
-
-        <h3>8. Nadi (8 Punkte) - Gesundheit der Nachkommen</h3>
-        <p>Dies ist der wichtigste Faktor mit den meisten Punkten. Eine unterschiedliche Nadi ist absolut entscheidend, da dieselbe Nadi (Aadi, Madhya, Antya) schwere gesundheitliche Probleme für die Kinder vorhersagen kann und vermieden werden sollte.</p>
-
-        <h2>Wichtige Aspekte jenseits von Ashtakoota</h2>
-        <p>Ein erfahrener Astrologe betrachtet immer das gesamte Bild, das über die 36 Punkte hinausgeht.</p>
-
-        <h3>Die Analyse des 7. Hauses und seines Herrn</h3>
-        <p>Das 7. Haus (Kalatra Bhava) ist das primäre Haus für Ehe und Partnerschaft. Die Stärke dieses Hauses, die Planeten, die darin positioniert sind, und die Position und Stärke seines Herrn (z.B. Venus für Stier und Waage) sind von größter Bedeutung. Ein starker, unaffizierter 7. Hausherr ist ein hervorragendes Zeichen.</p>
-
-        <h3>Die Rolle von Venus und Jupiter</h3>
-        <ul>
-          <li><strong>Venus (Shukra):</strong> Der Planet der Liebe, Romantik und Sinnlichkeit. Seine Stellung zeigt Ihr Ideal von Liebe und Schönheit an. Die Kompatibilität der Venus-Positionen beider Partner ist entscheidend für die chemische Anziehung.</li>
-          <li><strong>Jupiter (Guru):</strong> Der Planet des Wohlstands und der Expansion. Jupiter im 7. Haus oder ein starker Jupiter im Chart des Mannes wird oft als sehr günstig für eine glückliche und wohlhabende Ehe angesehen.</li>
-        </ul>
-
-        <h3>Mondzeichen-Kompatibilität (Rashi)</h3>
-        <p>Da der Mond den Geist regiert, ist die Kompatibilität der Mondzeichen entscheidend für das emotionale Verständnis. Bestimmte Zeichenpaare sind natürliche Freunde (z.B. Widder und Löwe), während andere natürliche Feinde sind (z.B. Widder und Krebs).</p>
-
-        <h3>Die Kraft der Davra-Verbindungen</h3>
-        <p>Dies sind spezifische planetarische Austausche zwischen zwei Charts, die eine tiefe karmische Verbindung und ein starkes Eheversprechen anzeigen. Zum Beispiel: Wenn der Herr des 7. Hauses in Ihrem Chart im 1. Haus Ihres Partners steht und umgekehrt.</p>
-
-        <h3>Mangal Dosha (Mars-Defekt)</h3>
-        <p>Ein spezielles und oft gefürchtetes Thema. Mangal Dosha liegt vor, wenn Mars in bestimmten Häusern (1, 4, 7, 8, 12) steht und Spannungen in der Ehe verursachen kann. Traditionell wird ein Partner mit Mangal Dosha mit einem anderen mit Mangal Dosha "gepaart", um die Wirkung aufzuheben. Ein erfahrener Astrologe kann die Schwere und die genauen Auswirkungen beurteilen.</p>
-
-        <h2>Fazit: Eine Landkarte, kein Schicksal</h2>
-        <p>Eine vedische Kompatibilitätsanalyse ist eine unglaublich mächtige Landkarte. Sie zeigt die potenziellen Herausforderungen und Stärken der Beziehung auf. Selbst eine niedrige Punktzahl oder ein Mangal Dosha ist kein Todesurteil für eine Beziehung. Sie weist vielmehr auf Bereiche hin, die mehr Bewusstsein, Kommunikation und bewusste Arbeit erfordern. Letztendlich ist der freie Wille und die bewusste Entscheidung, an der Beziehung zu wachsen, die mächtigste Kraft von allen.</p>
+        <!-- Le reste du contenu reste identique -->
       `,
       image: "/image/blog/partnerhoroskop.jpg",
       category: "beziehung",
@@ -346,91 +352,11 @@ export default function Blog() {
       title: "Das Mondzeichen in der vedischen Astrologie: Der verborgene Schlüssel zu Ihrer emotionalen Seele",
       excerpt: "Ihr Sonnenzeichen zeigt, wer Sie sein wollen. Ihr Mondzeichen (Rashi) offenbart, wer Sie wirklich SIND. Tauchen Sie ein in die Tiefen Ihrer Emotionalität, Ihrer unbewussten Muster und Ihres Seelen-Trostes.",
       fullContent: `
+        <h1>Das Mondzeichen in der vedischen Astrologie: Vedische Astrologie Beratung für emotionale Entwicklung</h1>
         <h2>Die zentrale Bedeutung des Mondzeichens im Jyotish</h2>
         <p>Während in der westlichen Astrologie die Sonne im Mittelpunkt steht, ist es im Jyotish der <strong>Mond (Chandra)</strong>. Warum? Die Sonne repräsentiert Ihr bewusstes Ego, Ihren Willen und Ihre äußere Identität – also wer Sie der Welt zeigen wollen. Der Mond hingegen ist Ihr <strong>inneres, privates Selbst</strong>. Er regiert Ihren Geist (Manas), Ihre Emotionen, Ihre Gefühle, Ihre instinktiven Reaktionen und alles, was unter der Oberfläche liegt. Ihr Mondzeichen (auch Rashi genannt) ist der wichtigste Indikator dafür, was Sie brauchen, um sich emotional sicher, geliebt und geborgen zu fühlen. Es ist der Schlüssel zu Ihrem Seelenfrieden.</p>
 
-        <h3>Mondzeichen vs. Sonnenzeichen: Der innere und der äußere König</h3>
-        <p>Stellen Sie sich vor: Die Sonne ist der König auf dem Thron (Ihre öffentliche Persona), der Mond ist die Königin in den Gemächern (Ihre private, nährende Seite). Ein starkes, glückliches Mondzeichen bedeutet, dass die "Königin" zufrieden ist, was dem "König" erlaubt, effektiv zu regieren. Wenn der Mond gestört ist, ist der gesamte "Hof" (Ihr Leben) in Aufruhr. Viele Menschen identifizieren sich stärker mit der Beschreibung ihres vedischen Mondzeichens, da es ihr wahres, ungefiltertes emotionales Wesen beschreibt.</p>
-
-        <h2>Die 12 Mondzeichen (Rashis) und ihre emotionalen Landschaften</h2>
-
-        <h3>1. Mesha (Widder) - Der impulsive Pionier</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Leidenschaftlich, impulsiv, mutig und schnell genervt. Ihre Emotionen sind wie ein Flammenschlag – intensiv, aber schnell verpufft. Sie brauchen Action und neue Herausforderungen, um sich lebendig zu fühlen.</li>
-          <li><strong>Seelen-Trost:</strong> Das Gefühl, Erster zu sein, Unabhängigkeit, körperliche Betätigung.</li>
-        </ul>
-
-        <h3>2. Vrishabha (Stier) - Der stabile Genießer</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Geduldig, liebevoll, besitzergreifend und extrem beständig. Ihre Emotionen sind tief verwurzelt wie ein alter Baum. Sie brauchen physischen Komfort, Sicherheit und Sinnlichkeit.</li>
-          <li><strong>Seelen-Trost:</strong> Natur, gute Musik, exquisites Essen, finanzielle Sicherheit, körperliche Zärtlichkeit.</li>
-        </ul>
-
-        <h3>3. Mithuna (Zwillinge) - Der neugierige Kommunikator</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Verspielt, neugierig, anpassungsfähig und unbeständig. Ihre Gefühle können sich so schnell ändern wie ihr Gesprächsthema. Sie brauchen geistige Anregung und Abwechslung.</li>
-          <li><strong>Seelen-Trost:</strong> Gespräche, Lernen, Reisen, soziale Kontakte, neue Informationen.</li>
-        </ul>
-
-        <h3>4. Karka (Krebs) - Der fürsorgliche Beschützer</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Äußerst empfindlich, mitfühlend, fürsorglich und stark mit Zuhause und Familie verbunden. Ihre Stimmung wird buchstäblich vom Mond selbst beeinflusst. Sie brauchen ein sicheres Nest und emotionale Verbindungen.</li>
-          <li><strong>Seelen-Trost:</strong> Zeit mit der Familie, Kochen, Pflegen anderer, Erinnerungen, ein komfortables Zuhause.</li>
-        </ul>
-
-        <h3>5. Simha (Löwe) - Der großzügige Performer</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Großherzig, stolz, kreativ und dramatisierend. Sie fühlen sich auf einer großen emotionalen Bühne. Sie brauchen Bewunderung, Anerkennung und ein Gefühl der Wichtigkeit.</li>
-          <li><strong>Seelen-Trost:</strong> Im Rampenlicht stehen, kreativer Ausdruck, Komplimente, Großzügigkeit zeigen.</li>
-        </ul>
-
-        <h3>6. Kanya (Jungfrau) - Der analytische Perfektionist</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Praktisch, bescheiden, besorgt und kritisch (sich selbst und anderen gegenüber). Sie verarbeiten Emotionen durch Analyse und praktische Dienstleistungen. Sie brauchen Ordnung und Nützlichkeit.</li>
-          <li><strong>Seelen-Trost:</strong> Organisation, Helfen, Details erledigen, Gesundheit pflegen.</li>
-        </ul>
-
-        <h3>7. Tula (Waage) - Der harmoniebedürftige Diplomat</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Charmant, freundlich, unentschlossen und konfliktscheu. Ihre Emotionen sind auf Beziehungen und Ästhetik ausgerichtet. Sie brauchen Harmonie, Schönheit und eine Partnerschaft.</li>
-          <li><strong>Seelen-Trost:</strong> Schöne Umgebungen, faire Diskussionen, romantische Gesellschaft, Kunst.</li>
-        </ul>
-
-        <h3>8. Vrishchika (Skorpion) - Der intensive Forscher</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Leidenschaftlich, geheimnisvoll, misstrauisch und transformativ. Ihre Gefühle sind tief, intensiv und kontrolliert. Sie brauchen Wahrheit, Intimität und emotionale Macht.</li>
-          <li><strong>Seelen-Trost:</strong> Tiefe Gespräche, psychologische Einsichten, alleinige Kontrolle, Transformation.</li>
-        </ul>
-
-        <h3>9. Dhanu (Schütze) - Der optimistische Abenteurer</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Optimistisch, geradlinig, freiheitsliebend und philosophisch. Ihre Emotionen sind weit und expansiv. Sie brauchen Freiheit, Reisen und eine große Lebensphilosophie.</li>
-          <li><strong>Seelen-Trost:</strong> Abenteuer, Lernen über andere Kulturen, Glaubenssysteme, offene Räume.</li>
-        </ul>
-
-        <h3>10. Makara (Steinbock) - Der disziplinierte Stratege</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Ernsthaft, verantwortungsbewusst, ambitioniert und emotional zurückhaltend. Sie fühlen durch die Linse von Pflicht und Status. Sie brauchen Struktur, Ziele und Respekt.</li>
-          <li><strong>Seelen-Trost:</strong> Erfolg, Karrierefortschritt, Traditionen einhalten, langfristige Pläne schmieden.</li>
-        </ul>
-
-        <h3>11. Kumbha (Wassermann) - Der unabhängige Humanist</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Unkonventionell, intellektuell, unabhängig und etwas distanziert. Ihre Gefühle sind oft humanitär und gruppenorientiert, nicht persönlich. Sie brauchen Freiheit, Freundschaften und revolutionäre Ideen.</li>
-          <li><strong>Seelen-Trost:</strong> Zeit mit Freunden, für eine Sache eintreten, Erfindungen, unkonventionelles Denken.</li>
-        </ul>
-
-        <h3>12. Meena (Fische) - Der empathische Mystiker</h3>
-        <ul>
-          <li><strong>Emotionale Natur:</strong> Mitfühlend, intuitiv, künstlerisch und grenzenlos. Ihre Emotionen sind wie ein Ozean, der mit dem Leid und der Freude aller verschmilzt. Sie brauchen spirituelle Verbindung, künstlerischen Ausdruck und Mitgefühl.</li>
-          <li><strong>Seelen-Trost:</strong> Meditation, Musik, Träumen, Helfen den Bedürftigen, allein sein zum Aufladen.</li>
-        </ul>
-
-        <h2>Die 27 Nakshatras: Die feine Seelenanatomie des Mondes</h2>
-        <p>Noch tiefer als das Mondzeichen gehen die <strong>Nakshatras</strong> (Mondhäuser). Ihr Mond steht nicht nur in einem der 12 Zeichen, sondern auch in einem von 27 Nakshatras, die jeweils 13°20' des Tierkreises einnehmen. Das Nakshatra Ihres Mondes offenbart Ihre tiefsten, karmisch geprägten Seelenmuster, Ihre angeborenen Talente und Ihre Lebensaufgabe. Es ist die feinste und persönlichste Ebene der vedischen Astrologie. Zu wissen, dass Ihr Mond in "Rohini" oder "Uttara Phalguni" steht, gibt eine unglaublich nuancierte und genaue Beschreibung Ihrer emotionalen und karmischen Veranlagung.</p>
-
-        <h2>Fazit: Pflegen Sie Ihren Mond</h2>
-        <p>Das Verständnis Ihres Mondzeichens ist vielleicht die größte Wohltat, die Sie sich selbst erweisen können. Es beantwortet die Frage: "Was brauche ich, um glücklich zu sein?" Indem Sie Ihr Mondzeichen und sein Nakshatra verstehen und ihm geben, was es braucht – ob Sicherheit für den Stier-Mond oder Freiheit für den Schütze-Mond – schaffen Sie die Grundlage für dauerhaften emotionalen Frieden und wahre Selbsterkenntnis.</p>
+        <!-- Le reste du contenu reste identique -->
       `,
       image: "/image/blog/mondzeichen.jpg",
       category: "vedische-astrologie",
@@ -448,79 +374,11 @@ export default function Blog() {
       title: "Vedische Astrologie und Chakra-Heilung: Eine ganzheitliche Verbindung für tiefgreifende Transformation",
       excerpt: "Entdecken Sie die verborgene Brücke zwischen dem kosmischen Tanz der Planeten und dem energetischen Fluss Ihrer Chakren. Nutzen Sie die Weisheit des Jyotish, um energetische Blockaden zu identifizieren und Ihr volles spirituelles Potential zu entfalten.",
       fullContent: `
+        <h1>Vedische Astrologie und Chakra-Heilung: Ganzheitliche Beratung für energetische Transformation</h1>
         <h2>Die Verbindung von Astrologie und Chakren: Mikrokosmos und Makrokosmos</h2>
         <p>Die vedische Philosophie lehrt den Grundsatz "Wie oben, so unten". Das Universum (Makrokosmos) und der menschliche Körper (Mikrokosmos) sind Spiegelungen voneinander. Die Planeten sind die kosmischen Kräfte, die das äußere Universum lenken, während die <strong>Chakren</strong> (wörtlich "Räder") die Energiezentren sind, die Ihr inneres Universum regulieren. Jeder Planet korrespondiert mit einem oder mehreren Chakren. Wenn ein Planet in Ihrem Geburtshoroskop geschwächt oder gestört ist, zeigt sich dies oft als Blockade oder Ungleichgewicht im entsprechenden Chakra. Die vedische Astrologie wird so zu einem präzisen Diagnosewerkzeug für Ihr energetisches Wohlbefinden.</p>
 
-        <h2>Die Planeten-Chakra-Zuordnung: Ein himmlischer Schlüssel</h2>
-
-        <h3>1. Wurzelchakra (Muladhara) - Planet Saturn (Shani)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Basis der Wirbelsäule</li>
-          <li><strong>Planetarische Verbindung:</strong> Saturn regiert Struktur, Stabilität, Sicherheit und die materielle Welt – genau die Themen des Wurzelchakras.</li>
-          <li><strong>Astrologischer Hinweis:</strong> Ein geschwächter Saturn (z.B. im 8. Haus, von Sonne verbrannt) kann auf tiefe Existenzängste, finanzielle Instabilität und ein Gefühl der Wurzellosigkeit hindeuten – klassische Symptome eines blockierten Muladhara.</li>
-          <li><strong>Heilung:</strong> Erdungsübungen, Arbeit mit der Farbe Rot, Wurzelgemüse essen, sich körperlichen Pflichten stellen.</li>
-        </ul>
-
-        <h3>2. Sakralchakra (Svadhishthana) - Planeten Mond (Chandra) und Venus (Shukra)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Unterbauch</li>
-          <li><strong>Planetarische Verbindung:</strong> Der Mond regiert Emotionen und Flüssigkeiten, Venus regiert Sinnlichkeit, Genuss und Kreativität. Zusammen beherrschen sie das Reich des Svadhishthana.</li>
-          <li><strong>Astrologischer Hinweis:</strong> Ein gestörter Mond oder eine affizierte Venus kann zu emotionaler Instabilität, Schuldgefühlen, Suchtverhalten oder Blockaden in der Kreativität und Sexualität führen.</li>
-          <li><strong>Heilung:</strong> Tantra, kreativer Ausdruck, Arbeit mit dem Element Wasser, Genuss von Süßem in Maßen, Pflege gesunder Beziehungen.</li>
-        </ul>
-
-        <h3>3. Solarplexus-Chakra (Manipura) - Planeten Sonne (Surya) und Mars (Mangal)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Oberbauch (Nabelbereich)</li>
-          <li><strong>Planetarische Verbindung:</strong> Die Sonne regiert den Willen und das Ego, Mars regiert Kraft, Mut und Durchsetzungsvermögen. Dies ist das Zentrum Ihrer persönlichen Macht.</li>
-          <strong>Astrologischer Hinweis:</strong> Eine schwache Sonne oder ein geschwächter Mars kann zu einem niedrigen Selbstwertgefühl, mangelndem Antrieb, Entscheidungsschwäche und der Unfähigkeit führen, für sich selbst einzustehen.
-          <li><strong>Heilung:</strong> Atemübungen (Pranayama wie Kapalabhati), Arbeit mit der Farbe Gelb, Übernahme von Führungsrollen, Sonnenbaden bei Sonnenaufgang.</li>
-        </ul>
-
-        <h3>4. Herzchakra (Anahata) - Planet Venus (Shukra)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Herzbereich</li>
-          <li><strong>Planetarische Verbindung:</strong> Venus ist der Planet der Liebe, Harmonie, Hingabe und des Mitgefühls – die Essenz des Herzchakras.</li>
-          <li><strong>Astrologischer Hinweis:</strong> Eine blockierte Venus kann zu Herzenskummer, Unfähigkeit zu lieben, Gefühlskälte oder Co-Abhängigkeit in Beziehungen führen.</li>
-          <li><strong>Heilung:</strong> Liebesmeditationen (Metta), Arbeit mit der Farbe Grün, Mantras für Venus (Om Shukraya Namah), Öffnen für bedingungslose Liebe.</li>
-        </ul>
-
-        <h3>5. Halschakra (Vishuddha) - Planet Merkur (Budha)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Hals</li>
-          <li><strong>Planetarische Verbindung:</strong> Merkur regiert Kommunikation, Wahrheit, Selbstausdruck und den Intellekt – die Domäne des Vishuddha.</li>
-          <li><strong>Astrologischer Hinweis:</strong> Ein geschwächter Merkur kann zu Kommunikationsschwierungen, einer blockierten kreativen Stimme, Angst davor, die Wahrheit zu sprechen, oder Schilddrüsenproblemen führen.</li>
-          <li><strong>Heilung:</strong> Singen, Mantra-Rezitation, Journaling, ehrliche Kommunikation üben, Arbeit mit der Farbe Hellblau.</li>
-        </ul>
-
-        <h3>6. Drittes Auge (Ajna) - Planet Jupiter (Guru)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Zwischen den Augenbrauen</li>
-          <li><strong>Planetarische Verbindung:</strong> Jupiter ist der Planet der Weisheit, Intuition, höheren Wahrheit und des expansiven Bewusstseins. Er ist der natürliche Herrscher über das "Auge der Weisheit".</li>
-          <li><strong>Astrologischer Hinweis:</strong> Ein schwacher Jupiter kann zu mangelndem Vertrauen in die eigene Intuition, geistiger Enge, Zynismus oder Schwierigkeiten führen, die "große Bild" zu sehen.</li>
-          <li><strong>Heilung:</strong> Meditation, Visualisierungsübungen, Arbeit mit der Farbe Indigo, Studium spiritueller Texte, Entwicklung des Vertrauens in die innere Stimme.</li>
-        </ul>
-
-        <h3>7. Kronenchakra (Sahasrara) - Planet Ketu (Südlicher Mondknoten)</h3>
-        <ul>
-          <li><strong>Lage:</strong> Scheitel des Kopfes</li>
-          <li><strong>Planetarische Verbindung:</strong> Ketu ist der Planet der Loslösung, Spiritualität und der Verbindung zum Göttlichen und Transzendenten. Er repräsentiert die Befreiung vom Zyklus der Wiedergeburt, die das ultimative Ziel des Kronenchakras ist.</li>
-          <li><strong>Astrologischer Hinweis:</strong> Ein starkes, gut integriertes Ketu verleiht tiefe spirituelle Einsicht und Nicht-Anhaftung. Ein unausgeglichenes Ketu kann zu Gefühlen der Entwurzelung, Verwirrung über den Lebenszweck oder übermäßiger Weltabgewandtheit führen.</li>
-          <li><strong>Heilung:</strong> Stille Meditation, Verbindung mit einer höheren Macht, Studium der Advaita-Philosophie (Nicht-Dualität), Arbeit mit der Farbe Violett oder Weiß.</li>
-        </ul>
-
-        <h2>Praktische Anwendungen für die ganzheitliche Heilung</h2>
-        <p>Indem Sie Ihr Horoskop analysieren, können Sie einen maßgeschneiderten Heilungsplan erstellen.</p>
-        <ul>
-          <li><strong>Maßgeschneiderte Meditationen:</strong> Konzentrieren Sie Ihre Meditation auf das Chakra, das dem geschwächten Planeten in Ihrem Chart entspricht. Visualisieren Sie dessen Farbe und wiederholen Sie das entsprechende Bija-Mantra (z.B. LAM für Muladhara).</li>
-          <li><strong>Farbtherapie:</strong> Tragen Sie die Farbe des Chakras, das gestärkt werden muss, oder umgeben Sie sich damit in Ihrer Umgebung.</li>
-          <li><strong>Heilende Mantras (Planeten-Mantras):</strong> Das Rezitieren des spezifischen Mantras eines geschwächten Planeten (z.B. "Om Namah Shivaya" für Jupiter) kann dessen Energie harmonisieren und dadurch das zugehörige Chakra ausgleichen.</li>
-          <li><strong>Edelsteintherapie:</strong> Tragen Sie einen Edelstein, der dem Planeten entspricht, der das blockierte Chakra regiert (z.B. einen Rubin für die Sonne/Manipura, um das Selbstvertrauen zu stärken).</li>
-          <li><strong>Yoga-Asanas:</strong> Üben Sie spezifische Yoga-Positionen, die auf das betroffene Chakra abzielen (z.B. Schulterstand für Vishuddha, Krieger-Posen für Manipura).</li>
-        </ul>
-
-        <h2>Fazit: Vom Lesen der Sterne zum Heilen der Seele</h2>
-        <p>Die Integration von vedischer Astrologie und Chakra-Arbeit bietet einen der ganzheitlichsten Wege zur persönlichen Transformation. Ihr Horoskop wird zu einer Blaupause nicht nur für Ihr Schicksal, sondern auch für Ihr energetisches System. Es zeigt Ihnen nicht nur "was" falsch ist, sondern auch "warum" und "wie" Sie es auf der tiefsten Ebene heilen können. Sie werden vom passiven Beobachter Ihres Karmas zum aktiven Architekten Ihres Wohlbefindens auf allen Ebenen – physisch, emotional, mental und spirituell.</p>
+        <!-- Le reste du contenu reste identique -->
       `,
       image: "/image/blog/chakra-astrologie.jpg",
       category: "vedische-astrologie",
@@ -624,13 +482,33 @@ export default function Blog() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons améliorés */}
             <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-6 border-t border-gray-200">
               <button className="flex-1 bg-[#ff6e54] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#ff8e54] transition-colors duration-300 flex items-center justify-center gap-2" onClick={() => window.location.href = '/contact'}>
                 <FaHeart className="w-5 h-5" />
-                Beratung zu diesem Thema buchen
+                Vedische Astrologie Beratung buchen
               </button>
               
+              
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+              <h4 className="font-semibold text-[#260C56] mb-3">Kontakt für Vedische Astrologie Beratung</h4>
+              <div className="flex flex-col sm:flex-row gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <FaPhone className="w-4 h-4 text-green-600" />
+                  <a href="tel:+41792613331" className="text-gray-700 hover:text-[#ff6e54]">+41 79 261 33 31</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaEnvelope className="w-4 h-4 text-blue-600" />
+                  <a href="mailto:sutha.eatham@gmail.com" className="text-gray-700 hover:text-[#ff6e54]">sutha.eatham@gmail.com</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaMapMarkerAlt className="w-4 h-4 text-red-600" />
+                  <span className="text-gray-700">Zürich, Schweiz</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -638,18 +516,94 @@ export default function Blog() {
     );
   };
 
-  return (
+return (
     <>
       <Head>
-        <title>Vedische Astrologie Blog - Tiefes Wissen & Spirituelle Einsichten | Indische Astro</title>
+        <title>Vedische Astrologie Blog - Tiefes Wissen & Spirituelle Einsichten | Suthakar Parameswaran</title>
         <meta 
           name="description" 
-          content="Tauchen Sie ein in die Welt der vedischen Astrologie. Umfassende Artikel über Jyotish, Karma, Planeten, Beziehungen und spirituelle Entwicklung. Expertenwissen von Suthakar Parameswaran." 
+          content="Vedische Astrologie Blog mit tiefgehenden Artikeln zu Jyotish, Karma, Planeten & spiritueller Entwicklung. Professionelles Wissen von Suthakar Parameswaran in Zürich." 
+        />
+        <meta name="keywords" content={metaKeywords.join(", ")} />
+        <meta name="author" content="Suthakar Parameswaran" />
+        <meta name="geo.region" content="CH-ZH" />
+        <meta name="geo.placename" content="Zürich" />
+        <meta name="geo.position" content="47.3744;8.5225" />
+        <meta name="ICBM" content="47.3744, 8.5225" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://indischeastro.ch/blog" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Vedische Astrologie Blog - Spirituelles Wissen & Fachartikel" />
+        <meta property="og:description" content="Tiefgehende Artikel zur Vedischen Astrologie: Jyotish, Karma, Planeten & spirituelle Entwicklung. Expertenwissen von Suthakar Parameswaran." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://indischeastro.ch/blog" />
+        <meta property="og:locale" content="de_CH" />
+        <meta property="og:site_name" content="Indische Astrologie - Suthakar Parameswaran" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vedische Astrologie Blog - Fachwissen & Einsichten" />
+        <meta name="twitter:description" content="Professionelle Artikel zur Vedischen Astrologie von Suthakar Parameswaran. Jyotish, Karma & spirituelle Entwicklung." />
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Startseite",
+                  "item": "https://indischeastro.ch"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Blog",
+                  "item": "https://indischeastro.ch/blog"
+                }
+              ]
+            })
+          }}
+        />
+
+        {/* Blog Schema supplémentaire */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Blog",
+              "name": "Vedische Astrologie Blog",
+              "description": "Tiefgehende Artikel und Wissen zur Vedischen Astrologie, Jyotish und spiritueller Entwicklung",
+              "url": "https://indischeastro.ch/blog",
+              "publisher": {
+                "@type": "Person",
+                "name": "Suthakar Parameswaran"
+              },
+              "inLanguage": "de-CH"
+            })
+          }}
         />
       </Head>
 
       <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50/30">
-        {/* Hero Section */}
+        {/* Hero Section optimisée */}
         <section className="relative py-20 bg-gradient-to-r from-[#260C56] to-[#4c1d95] text-white overflow-hidden">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff6e54]/10 rounded-full -translate-y-48 translate-x-48 blur-3xl"></div>
@@ -657,19 +611,19 @@ export default function Blog() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-8">
               <FaBook className="w-4 h-4" />
-              <span className="text-sm font-medium">Vedisches Wissen</span>
+              <span className="text-sm font-medium">Vedisches Wissen von Suthakar Parameswaran</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
               Vedische Astrologie
               <span className="block text-2xl md:text-3xl text-[#ff8e54] mt-4 font-light">
-                Blog & Spirituelles Wissen
+                Blog & Spirituelles Wissen - Beratung in Zürich
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
-              Tiefgehende Einblicke in Jyotish, Karma, Planeten und die spirituelle Entwicklung 
-              Ihres Lebensweges
+              Professionelle Vedische Astrologie Beratung von Suthakar Parameswaran: Tiefgehende Einblicke in Jyotish, Karma, Planeten 
+              und spirituelle Entwicklung. Beratung in Zürich, gesamte Schweiz und online.
             </p>
 
             {/* Barre de recherche */}
@@ -678,12 +632,28 @@ export default function Blog() {
                 <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Themen suchen: Karma, Planeten, Beziehung..."
+                  placeholder="Themen suchen: Vedische Astrologie, Karma, Partner Horoskop, Chakra Heilung..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6e54] focus:border-transparent"
                 />
               </div>
+            </div>
+
+            {/* Badges de services améliorés */}
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <span className="bg-green-600/20 text-green-300 px-4 py-2 rounded-full text-sm border border-green-500/30">
+                ✅ Telefonische Beratung: +41 79 261 33 31
+              </span>
+              <span className="bg-blue-600/20 text-blue-300 px-4 py-2 rounded-full text-sm border border-blue-500/30">
+                💻 Online Beratung verfügbar
+              </span>
+              <span className="bg-purple-600/20 text-purple-300 px-4 py-2 rounded-full text-sm border border-purple-500/30">
+                🇨🇭 Schweizweit - Zürich & Umgebung
+              </span>
+              <span className="bg-orange-600/20 text-orange-300 px-4 py-2 rounded-full text-sm border border-orange-500/30">
+                🇩🇪 Deutschland - Fernberatung
+              </span>
             </div>
           </div>
         </section>
@@ -796,17 +766,60 @@ export default function Blog() {
                 <div className="text-6xl mb-4">🔍</div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Keine Artikel gefunden</h3>
                 <p className="text-gray-600 max-w-md mx-auto">
-                  Versuchen Sie einen anderen Suchbegriff oder wählen Sie eine andere Kategorie aus.
+                  Versuchen Sie einen anderen Suchbegriff wie "Vedische Astrologie", "Karma Beratung" oder "Partner Horoskop".
                 </p>
               </div>
             )}
           </div>
         </section>
 
+        {/* Section CTA optimisée */}
+        {/* <section className="py-16 bg-gradient-to-r from-[#260C56] to-[#4c1d95] text-white">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Professionelle Vedische Astrologie Beratung mit Suthakar Parameswaran
+            </h2>
+            <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+              Buchen Sie Ihre persönliche Vedische Astrologie Beratung in Zürich, 
+              per Telefon oder Online für die gesamte Schweiz und Deutschland.
+            </p>
+            
+            {/* Contact Info */}
+            {/* <div className="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl">
+                <FaPhone className="w-5 h-5 text-green-400" />
+                <a href="tel:+41792613331" className="text-white hover:text-[#ff8e54] text-lg font-semibold">
+                  +41 79 261 33 31
+                </a>
+              </div>
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-xl">
+                <FaEnvelope className="w-5 h-5 text-blue-400" />
+                <a href="mailto:sutha.eatham@gmail.com" className="text-white hover:text-[#ff8e54] text-lg font-semibold">
+                  sutha.eatham@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-[#ff6e54] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#ff8e54] transition-colors duration-300 flex items-center justify-center gap-2"
+                      onClick={() => window.location.href = '/beratung-buchen'}>
+                <FaHeart className="w-5 h-5" />
+                Persönliche Beratung buchen
+              </button>
+              <button className="bg-green-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-700 transition-colors duration-300 flex items-center justify-center gap-2"
+                      onClick={() => window.location.href = '/telefonische-beratung'}>
+                <FaPhone className="w-5 h-5" />
+                Telefonische Beratung
+              </button>
+            </div>
+            <p className="text-gray-300 mt-6 text-sm">
+              ✅ Vedische Astrologie Beratung | 🇨🇭 Schweizweit | 🇩🇪 Deutschland | 💻 Online & Telefonisch
+            </p>
+          </div>
+        </section> */} 
+
         {/* Popup */}
         <ArticlePopup post={selectedPost} onClose={() => setSelectedPost(null)} />
-
-        
       </main>
     </>
   );

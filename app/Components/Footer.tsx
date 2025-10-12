@@ -9,19 +9,19 @@ export default function Footer() {
   const [email, setEmail] = useState('');
 
   const services = [
-    { name: 'Vedische Astrologie', href: '/services#vedische-astrologie' },
+    { name: 'Vedische Astrologie Beratung', href: '/services#vedische-astrologie' },
     { name: 'Partner Horoskop Analyse', href: '/services#partner-analyse' },
-    { name: 'Karmische Beratung', href: '/services#karmische-beratung' },
-    { name: 'Spirituelle Heilung', href: '/services#spirituelle-heilung' },
-    { name: 'Energiearbeit', href: '/services#energiearbeit' },
+    { name: 'Karmische Blockaden Lösung', href: '/services#karmische-beratung' },
+    { name: 'Chakra Energie Arbeit', href: '/services#spirituelle-heilung' },
+    { name: 'Familien Aufstellung Zürich', href: '/services#energiearbeit' },
   ];
 
   const quickLinks = [
-    { name: 'Über Mich', href: '/ubermich' },
-    { name: 'Dienstleistungen', href: '/ServicePrice' },
-    { name: 'Preise', href: '/ServicePrice' },
-    { name: 'Kontakt', href: '/contact' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Über Suthakar Parameswaran', href: '/ubermich' },
+    { name: 'Vedische Dienstleistungen', href: '/ServicePrice' },
+    { name: 'Preise & Leistungen', href: '/ServicePrice' },
+    { name: 'Kontakt & Termin', href: '/contact' },
+    { name: 'Vedisches Wissen Blog', href: '/blog' },
   ];
 
   const contactInfo = [
@@ -50,19 +50,19 @@ export default function Footer() {
         </svg>
       ), 
       text: 'Zürich, Schweiz', 
-      href: 'https://maps.google.com/?q=Zürich' 
+      href: 'https://maps.google.com/?q=Zürich,Schweiz' 
     },
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-[#260C56] to-purple-900 text-white">
+    <footer className="bg-gradient-to-br from-gray-900 via-[#260C56] to-purple-900 text-white" itemScope itemType="https://schema.org/LocalBusiness">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-6" aria-label="Vedische Astrologie Zürich - Startseite">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-[#ff6e54] to-orange-500 rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-lg">V</span>
@@ -73,9 +73,10 @@ export default function Footer() {
               </div>
             </Link>
             
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Professionelle Vedische Astrologie Beratung, Partner Horoskop Analyse 
-              und spirituelle Heilung in Zürich und online.
+            <p className="text-gray-300 mb-6 leading-relaxed" itemProp="description">
+              Professionelle Vedische Astrologie Beratung, Indische Astrologie, Partner Horoskop Analyse, 
+              Karmische Blockaden Lösung, Chakra Energie Arbeit und spirituelle Heilung in Zürich, Schweiz. 
+              Telefonische Beratung und Online-Beratung verfügbar.
             </p>
             
             <div className="flex space-x-4">
@@ -86,7 +87,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 hover:bg-[#ff6e54] rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
-                  aria-label={social.name}
+                  aria-label={`Folgen Sie uns auf ${social.name} für Vedische Astrologie Tipps`}
+                  itemProp="sameAs"
                 >
                   {social.icon}
                 </a>
@@ -98,18 +100,19 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6 text-white flex items-center gap-2">
               <span className="w-2 h-2 bg-[#ff6e54] rounded-full"></span>
-              Dienstleistungen
+              Vedische Dienstleistungen
             </h3>
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.name}>
-                  <a 
-                    
+                  <Link 
+                    href={service.href}
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                    title={`${service.name} - Vedische Astrologie Beratung Zürich`}
                   >
                     <span className="w-1.5 h-1.5 bg-gray-500 rounded-full group-hover:bg-[#ff6e54] transition-colors"></span>
                     {service.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -127,6 +130,7 @@ export default function Footer() {
                   <Link 
                     href={link.href}
                     className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                    title={`${link.name} - Vedische Astrologie Zürich`}
                   >
                     <span className="w-1.5 h-1.5 bg-gray-500 rounded-full group-hover:bg-[#ff6e54] transition-colors"></span>
                     {link.name}
@@ -137,10 +141,10 @@ export default function Footer() {
           </div>
 
           {/* Contact & Newsletter Column */}
-          <div>
+          <div itemScope itemType="https://schema.org/PostalAddress">
             <h3 className="text-lg font-semibold mb-6 text-white flex items-center gap-2">
               <span className="w-2 h-2 bg-[#ff6e54] rounded-full"></span>
-              Kontakt & Newsletter
+              Kontakt & Termin
             </h3>
             
             {/* Contact Info */}
@@ -150,11 +154,26 @@ export default function Footer() {
                   key={index}
                   href={contact.href}
                   className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+                  aria-label={`Kontaktieren Sie uns per ${contact.text.includes('@') ? 'Email' : contact.text.includes('+') ? 'Telefon' : 'Karte'}`}
                 >
                   <span className="w-5 h-5 group-hover:scale-110 transition-transform">{contact.icon}</span>
-                  <span className="group-hover:translate-x-1 transition-transform">{contact.text}</span>
+                  <span className="group-hover:translate-x-1 transition-transform" 
+                        itemProp={contact.text === 'Zürich, Schweiz' ? 'addressLocality' : contact.text.includes('@') ? 'email' : 'telephone'}>
+                    {contact.text}
+                  </span>
                 </a>
               ))}
+            </div>
+            
+            {/* Schema.org hidden data */}
+            <div style={{display: 'none'}} itemProp="address" itemType="https://schema.org/PostalAddress">
+              <span itemProp="streetAddress">Zürich</span>
+              <span itemProp="addressLocality">Zürich</span>
+              <span itemProp="addressCountry">Schweiz</span>
+            </div>
+            <div style={{display: 'none'}} itemProp="geo" itemType="https://schema.org/GeoCoordinates">
+              <meta itemProp="latitude" content="47.374448"/>
+              <meta itemProp="longitude" content="8.531434"/>
             </div>
           </div>
         </div>
@@ -165,18 +184,66 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Suthakar Parameswaran. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} Suthakar Parameswaran - Vedische Astrologie Beratung Zürich. Alle Rechte vorbehalten.
             </div>
             
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2 text-green-400">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Jetzt erreichbar</span>
+                <span>Jetzt für Vedische Astrologie Beratung erreichbar</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Structured Data JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Vedische Astrologie Beratung Zürich",
+            "description": "Professionelle Vedische Astrologie, Indische Astrologie, Partner Horoskop Analyse, Karmische Blockaden Lösung und spirituelle Heilung in Zürich",
+            "url": "https://www.indischeastro.ch",
+            "telephone": "+41-79-261-33-31",
+            "email": "sutha.eatham@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Zürich",
+              "addressCountry": "CH"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "47.374448",
+              "longitude": "8.531434"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-14:00",
+            "serviceType": [
+              "Vedische Astrologie",
+              "Indische Astrologie", 
+              "Partner Horoskop",
+              "Karma Beratung",
+              "Chakra Heilung",
+              "Energiearbeit",
+              "Familien Aufstellung",
+              "Lebensberatung",
+              "Zukunftsberatung"
+            ],
+            "provider": {
+              "@type": "Person",
+              "name": "Suthakar Parameswaran",
+              "jobTitle": "Vedischer Astrologe und Heiler",
+              "description": "Experte für Vedische Astrologie, Karma Analyse und spirituelle Heilung"
+            },
+            "sameAs": [
+              "https://www.instagram.com/cittarastro/",
+              "https://www.youtube.com/@1000suthakar"
+            ]
+          })
+        }}
+      />
     </footer>
   );
 }
@@ -209,5 +276,4 @@ const socialLinks = [
     ), 
     href: 'https://www.youtube.com/@1000suthakar' 
   },
-  
 ];

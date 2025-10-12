@@ -19,7 +19,8 @@ export default function ServicePrice() {
       time_presentiel: "60 Min",
       time_online: "30 Min",
       popular: true,
-      category: "astrologie"
+      category: "astrologie",
+      slug: "partner-horoskop-analyse"
     },
     {
       id: 2,
@@ -31,7 +32,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "60 Min",
       time_online: "30 Min",
-      category: "astrologie"
+      category: "astrologie",
+      slug: "geburts-horoskop"
     },
     {
       id: 3,
@@ -43,7 +45,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "60 Min",
       time_online: "30 Min",
-      category: "astrologie"
+      category: "astrologie",
+      slug: "astrologische-partnerberatung"
     },
     {
       id: 4,
@@ -55,7 +58,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "90 Min",
       time_online: "60 Min",
-      category: "energiearbeit"
+      category: "energiearbeit",
+      slug: "kundalini-energiearbeit"
     },
     {
       id: 5,
@@ -67,7 +71,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "90 Min",
       time_online: "60 Min",
-      category: "energiearbeit"
+      category: "energiearbeit",
+      slug: "marmapunkt-behandlung"
     },
     {
       id: 6,
@@ -79,7 +84,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "90 Min",
       time_online: "60 Min",
-      category: "energiearbeit"
+      category: "energiearbeit",
+      slug: "heilende-energie-mudras"
     },
     {
       id: 7,
@@ -91,7 +97,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "90 Min",
       time_online: "60 Min",
-      category: "energiearbeit"
+      category: "energiearbeit",
+      slug: "reiki-energiebehandlung"
     },
     {
       id: 8,
@@ -104,7 +111,8 @@ export default function ServicePrice() {
       time_presentiel: "30 Min",
       time_online: "30 Min",
       free: true,
-      category: "energiearbeit"
+      category: "energiearbeit",
+      slug: "chakra-test-gratis"
     },
     {
       id: 9,
@@ -116,7 +124,8 @@ export default function ServicePrice() {
       price_online: "100 CHF",
       time_presentiel: "90 Min",
       time_online: "60 Min",
-      category: "energiearbeit"
+      category: "energiearbeit",
+      slug: "aura-heilung-reinigung"
     },
     {
       id: 10,
@@ -129,7 +138,8 @@ export default function ServicePrice() {
       time_presentiel: "90 Min",
       time_online: "60 Min",
       popular: true,
-      category: "astrologie"
+      category: "astrologie",
+      slug: "vedische-astrologie-beratung"
     }
   ];
 
@@ -145,42 +155,139 @@ export default function ServicePrice() {
     { id: "energiearbeit", name: "Energiearbeit & Heilung", count: services.filter(s => s.category === "energiearbeit").length }
   ];
 
+  // Mots-clés OPTIMISÉS pour les services
+  const metaKeywords = [
+    // Vedische Astrologie Services
+    "Vedische Astrologie Beratung Preise", "Indische Astrologie Kosten Zürich", "Jyotish Beratung Preise Schweiz",
+    "Partner Horoskop Analyse Kosten", "Geburtshoroskop Preis Vedisch", "Karma Analyse Beratung Preise",
+    "Astrologische Partnerberatung Tarife", "Vedische Astrologie Dienstleistungen Preise",
+    
+    // Energiearbeit Services
+    "Chakra Heilung Preise Zürich", "Kundalini Energiearbeit Kosten", "Marmapunkt Behandlung Preise",
+    "Reiki Energiebehandlung Tarife", "Aura Reinigung Kosten", "Energiearbeit Preise Schweiz",
+    "Heilende Energie Mudras Preise", "Energetische Heilung Zürich",
+    
+    // Formats et durées
+    "Online Astrologie Beratung Preise", "Telefonische Beratung Kosten", "Persönliche Beratung Preise",
+    "Vedische Astrologie 60 Minuten", "Energiearbeit 90 Minuten", "Kostenlose Erstberatung Astrologie",
+    
+    // Localisation
+    "Astrologe Zürich Preise", "Vedische Astrologie Schweiz Kosten", "Indische Astrologie Deutschland Preise",
+    "Partner Horoskop Zürich Preis", "Chakra Heilung Schweiz Tarife",
+    
+    // Mots-clés spécifiques
+    "Suthakar Parameswaran Preise", "Indischeastro Dienstleistungen", "Vedische Astrologie Experte Kosten",
+    "Karmische Blockaden lösen Preise", "Spirituelle Heilung Tarife", "Lebensberatung Astrologie Kosten"
+  ];
+
+  // Schema ProfessionalService pour la page services
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Indische Astrologie - Suthakar Parameswaran",
+    "description": "Professionelle Vedische Astrologie Dienstleistungen in Zürich: Partner Horoskop, Karma Analyse, Energiearbeit & spirituelle Heilung zu fairen Preisen.",
+    "url": "https://indischeastro.ch/ServicePrice",
+    "telephone": "+41792613331",
+    "email": "sutha.eatham@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zwinglistrasse 37",
+      "addressLocality": "Zürich",
+      "postalCode": "8004",
+      "addressRegion": "Zürich",
+      "addressCountry": "Switzerland"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "47.3744",
+      "longitude": "8.5225"
+    },
+    "openingHours": [
+      "Mo-Fr 14:00-20:00",
+      "Sa 09:00-14:00"
+    ],
+    "serviceType": [
+      "Vedische Astrologie Beratung",
+      "Indische Astrologie Beratung",
+      "Partner Horoskop Analyse",
+      "Karma Beratung",
+      "Chakra Energie Arbeit",
+      "Lebensberatung",
+      "Zukunftsberatung",
+      "Energiearbeit",
+      "Spirituelle Heilung"
+    ],
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "47.3744",
+        "longitude": "8.5225"
+      },
+      "geoRadius": "50000"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Vedische Astrologie Dienstleistungen",
+      "itemListElement": services.map(service => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.nom,
+          "description": service.description,
+          "offers": {
+            "@type": "Offer",
+            "price": service.price_presentiel === "Gratis" ? "0" : service.price_presentiel.replace(" CHF", ""),
+            "priceCurrency": "CHF"
+          }
+        }
+      }))
+    }
+  };
+
   return (
     <>
       <Head>
-        <title>Vedische Astrologie Dienstleistungen & Preise | Partner Horoskop & Energiearbeit in Zürich</title>
+        <title>Vedische Astrologie Preise & Dienstleistungen | Partner Horoskop & Energiearbeit in Zürich</title>
         <meta 
           name="description" 
-          content="Professionelle Vedische Astrologie Dienstleistungen in Zürich: Partner Horoskop 150 CHF (60 Min), Online-Beratung 100 CHF (30 Min), Energiearbeit 90/60 Min. Kostenlose Erstberatung." 
+          content="✅ Vedische Astrologie Beratung: Partner Horoskop 150 CHF (60 Min), Online 100 CHF (30 Min). Energiearbeit 150 CHF (90 Min). Kostenlose Erstberatung in Zürich & online." 
         />
-        <meta 
-          name="keywords" 
-          content="Vedische Astrologie Preise, Partner Horoskop Kosten, Astrologie Beratung Zürich, Chakra Heilung Preise, Energiearbeit Schweiz, Karma Analyse Preis, Online Beratung Astrologie, Vedische Astrologie Dienstleistungen" 
-        />
-        <meta name="author" content="Suthakar Parameswaran - Vedischer Astrologe" />
-        <meta name="robots" content="index, follow" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Vedische Astrologie Dienstleistungen & Preise | Zürich" />
-        <meta property="og:description" content="Partner Horoskop 150 CHF (60 Min), Online-Beratung 100 CHF (30 Min). Professionelle Vedische Astrologie & Energiearbeit in Zürich." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.indischeastro.ch/serviceprice" />
-        <meta property="og:image" content="https://www.indischeastro.ch/og-serviceprice.jpg" />
-        <meta property="og:site_name" content="IndischeAstro - Vedische Astrologie" />
+        <meta name="keywords" content={metaKeywords.join(", ")} />
+        <meta name="author" content="Suthakar Parameswaran" />
         
         {/* Canonical */}
-        <link rel="canonical" href="https://www.indischeastro.ch/serviceprice" />
+        <link rel="canonical" href="https://indischeastro.ch/ServicePrice" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Vedische Astrologie Preise & Dienstleistungen | Fair & Transparent" />
+        <meta property="og:description" content="Partner Horoskop 150 CHF, Online-Beratung 100 CHF. Professionelle Vedische Astrologie & Energiearbeit zu fairen Preisen in Zürich." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://indischeastro.ch/ServicePrice" />
+        <meta property="og:locale" content="de_CH" />
+        <meta property="og:site_name" content="Indische Astrologie - Suthakar Parameswaran" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vedische Astrologie Preise - Fair & Transparent" />
+        <meta name="twitter:description" content="Professionelle Vedische Astrologie Dienstleistungen zu fairen Preisen. Partner Horoskop, Karma Analyse & Energiearbeit." />
         
         {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        
+        {/* Additional Schema for Service List */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ItemList",
-              "name": "Vedische Astrologie Dienstleistungen",
-              "description": "Professionelle Vedische Astrologie Beratung, Partner Horoskop Analyse und Energiearbeit in Zürich",
-              "url": "https://www.indischeastro.ch/serviceprice",
+              "name": "Vedische Astrologie Dienstleistungen Preise",
+              "description": "Komplette Preisliste für Vedische Astrologie Beratung und Energiearbeit in Zürich",
+              "url": "https://indischeastro.ch/ServicePrice",
               "numberOfItems": services.length,
               "itemListElement": services.map((service, index) => ({
                 "@type": "ListItem",
@@ -189,60 +296,16 @@ export default function ServicePrice() {
                   "@type": "Service",
                   "name": service.nom,
                   "description": service.description,
-                  "image": `https://www.indischeastro.ch${service.image}`,
+                  "image": `https://indischeastro.ch${service.image}`,
                   "offers": {
                     "@type": "Offer",
                     "price": service.price_presentiel === "Gratis" ? "0" : service.price_presentiel.replace(" CHF", ""),
                     "priceCurrency": "CHF",
-                    "availability": "https://schema.org/InStock",
-                    "validFrom": "2024-01-01"
-                  },
-                  "provider": {
-                    "@type": "Person",
-                    "name": "Suthakar Parameswaran",
-                    "jobTitle": "Vedischer Astrologe und Heiler"
-                  },
-                  "areaServed": {
-                    "@type": "City",
-                    "name": "Zürich"
+                    "availability": "https://schema.org/InStock"
                   }
                 }
               }))
-            }),
-          }}
-        />
-        
-        {/* Additional Schema for Service */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "serviceType": "Vedische Astrologie Beratung",
-              "provider": {
-                "@type": "Person",
-                "name": "Suthakar Parameswaran",
-                "description": "Experte für Vedische Astrologie, Karma Analyse und spirituelle Heilung mit über 30 Jahren Erfahrung.",
-                "url": "https://www.indischeastro.ch"
-              },
-              "areaServed": {
-                "@type": "City",
-                "name": "Zürich"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Vedische Astrologie Dienstleistungen",
-                "itemListElement": services.map(service => ({
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": service.nom,
-                    "description": service.description
-                  }
-                }))
-              }
-            }),
+            })
           }}
         />
       </Head>
@@ -259,23 +322,23 @@ export default function ServicePrice() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Startseite",
-                "item": "https://www.indischeastro.ch"
+                "item": "https://indischeastro.ch"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Dienstleistungen & Preise",
-                "item": "https://www.indischeastro.ch/serviceprice"
+                "item": "https://indischeastro.ch/ServicePrice"
               }
             ]
-          }),
+          })
         }}
       />
 
-      {/* 🌟 Contenu principal */}
+      {/* 🌟 Contenu principal OPTIMISÉ */}
       <div className="flex flex-col items-center w-full min-h-screen py-8 bg-gradient-to-br from-gray-50 to-white">
         
-        {/* ✅ En-tête avec design premium */}
+        {/* ✅ En-tête avec titres OPTIMISÉS SEO */}
         <div className="text-center max-w-6xl px-4 mb-12">
           {/* Breadcrumb Navigation */}
           <nav className="flex justify-center mb-6" aria-label="Breadcrumb">
@@ -285,23 +348,23 @@ export default function ServicePrice() {
               </li>
               <li className="flex items-center">
                 <span className="mx-2">/</span>
-                <span className="text-[#ff6e54] font-semibold">Dienstleistungen & Preise</span>
+                <span className="text-[#ff6e54] font-semibold">Vedische Astrologie Preise & Dienstleistungen</span>
               </li>
             </ol>
           </nav>
 
-          {/* Badge promotionnel */}
+          {/* Badge promotionnel OPTIMISÉ */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-6 py-3 rounded-full shadow-lg mb-6">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium uppercase tracking-wider">Flexible Beratungsformate & Dauer</span>
+            <span className="text-sm font-medium uppercase tracking-wider">Faire Preise • Flexible Formate • Kostenlose Erstberatung</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-[#260C56] mb-6 leading-tight">
-            Vedische Astrologie 
-            <span className="block text-[#ff6e54] mt-2">Dienstleistungen & Preise</span>
+            Vedische Astrologie Preise 
+            <span className="block text-[#ff6e54] mt-2">Dienstleistungen & Beratungskosten</span>
           </h1>
 
-          {/* Section des prix avec design moderne */}
+          {/* Section des prix OPTIMISÉE SEO */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-8">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100" itemScope itemType="https://schema.org/Offer">
               <div className="flex items-center gap-3 mb-3">
@@ -309,17 +372,18 @@ export default function ServicePrice() {
                   <span className="text-white text-xl">🏠</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800 text-lg">Beratung im Büro</h3>
+                  <h3 className="font-bold text-gray-800 text-lg">Persönliche Beratung in Zürich</h3>
                   <p className="text-2xl font-bold text-[#260C56]" itemProp="price" content="150">150 CHF</p>
-                  <p className="text-sm text-gray-600">(60 Minuten )</p>
+                  <p className="text-sm text-gray-600">(60 Minuten Vedische Astrologie)</p>
                   <meta itemProp="priceCurrency" content="CHF" />
+                  <meta itemProp="description" content="Persönliche Vedische Astrologie Beratung in Zürich Zentrum" />
                 </div>
               </div>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>✓ Persönliche Atmosphäre in Zürich</li>
-                <li>✓ Direkter Energieaustausch</li>
-                <li>✓ Traditionelle Rituale möglich</li>
-                <li>✓ Individuelle Betreuung</li>
+                <li>✓ Persönliche Vedische Astrologie in Zürich</li>
+                <li>✓ Direkter Energieaustausch & Rituale</li>
+                <li>✓ Individuelle karmische Analyse</li>
+                <li>✓ Traditionelle Jyotish Methoden</li>
               </ul>
             </div>
 
@@ -329,31 +393,27 @@ export default function ServicePrice() {
                   <span className="text-white text-xl">💻</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800 text-lg">Online Beratung</h3>
+                  <h3 className="font-bold text-gray-800 text-lg">Online Vedische Astrologie</h3>
                   <p className="text-2xl font-bold text-[#260C56]" itemProp="price" content="100">100 CHF</p>
-                  <p className="text-sm text-gray-600">(30 Minuten)</p>
+                  <p className="text-sm text-gray-600">(30 Minuten professionelle Beratung)</p>
                   <meta itemProp="priceCurrency" content="CHF" />
+                  <meta itemProp="description" content="Online Vedische Astrologie Beratung per Video-Call" />
                 </div>
               </div>
               <ul className="text-sm text-gray-600 space-y-1">
-                <li>✓ Bequem von zu Hause</li>
+                <li>✓ Bequeme Vedische Astrologie von zu Hause</li>
                 <li>✓ Zeit- und Kostenersparnis</li>
                 <li>✓ Moderne Video-Technologie</li>
-                <li>✓ Schweizweit verfügbar</li>
+                <li>✓ Schweizweit & Deutschland verfügbar</li>
               </ul>
             </div>
           </div>
 
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Entdecken Sie unsere umfangreichen <strong>Vedischen Astrologie Dienstleistungen</strong> und 
-            <strong> Energiearbeit</strong> in Zürich. 
-            <span className="block text-[#ff6e54] font-semibold mt-2">
-              Astrologie-Beratung: 60 Min (Präsenz) / 30 Min (Online)
-            </span>
-          </p>
+
         </div>
 
-        {/* ✅ Filtres par catégorie */}
+        {/* Le reste de votre code reste inchangé... */}
+        {/* Filtres par catégorie */}
         <div className="w-full max-w-7xl px-4 mb-8">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map(category => (
@@ -374,7 +434,7 @@ export default function ServicePrice() {
           </div>
         </div>
 
-        {/* ✅ Grid des services avec design amélioré */}
+        {/* Grid des services */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full px-4 max-w-7xl" 
              itemScope 
              itemType="https://schema.org/ItemList">
@@ -497,10 +557,6 @@ export default function ServicePrice() {
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
             <h3 className="text-2xl font-bold text-[#260C56] mb-6 text-center">Häufige Fragen zu Preisen</h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Warum unterschiedliche Dauer?</h4>
-                <p className="text-gray-600 text-sm">Astrologie-Beratungen sind online effizienter (30 Min), während Energiearbeit persönlich mehr Zeit benötigt (90 Min).</p>
-              </div>
               <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Kann ich die Dauer anpassen?</h4>
                 <p className="text-gray-600 text-sm">Ja, wir bieten auch längere Intensiv-Beratungen an. Sprechen Sie uns einfach an.</p>

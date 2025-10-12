@@ -16,7 +16,8 @@ export default function ServicePrice() {
       alt: "Partner Horoskop Analyse für Beziehungen und karmische Verbindungen",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "90 Min",
+      time_presentiel: "60 Min",
+      time_online: "30 Min",
       popular: true,
       category: "astrologie"
     },
@@ -28,7 +29,8 @@ export default function ServicePrice() {
       alt: "Persönliches Geburtshoroskop Analyse und Schicksalsdeutung",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "60 Min",
+      time_presentiel: "60 Min",
+      time_online: "30 Min",
       category: "astrologie"
     },
     {
@@ -39,7 +41,8 @@ export default function ServicePrice() {
       alt: "Astrologische Partnerberatung und Beziehungscoaching",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "75 Min",
+      time_presentiel: "60 Min",
+      time_online: "30 Min",
       category: "astrologie"
     },
     {
@@ -50,7 +53,8 @@ export default function ServicePrice() {
       alt: "Kundalini Energiearbeit und Chakren Aktivierung für Transformation",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "90 Min",
+      time_presentiel: "90 Min",
+      time_online: "60 Min",
       category: "energiearbeit"
     },
     {
@@ -61,7 +65,8 @@ export default function ServicePrice() {
       alt: "Marmapunkt Behandlung und Ayurveda Therapie für Balance",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "60 Min",
+      time_presentiel: "90 Min",
+      time_online: "60 Min",
       category: "energiearbeit"
     },
     {
@@ -72,7 +77,8 @@ export default function ServicePrice() {
       alt: "Heilende Energie Mudras und Handhaltungen für Harmonie",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "45 Min",
+      time_presentiel: "90 Min",
+      time_online: "60 Min",
       category: "energiearbeit"
     },
     {
@@ -83,7 +89,8 @@ export default function ServicePrice() {
       alt: "Reiki Energiebehandlung und Heilung für Wohlbefinden",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "60 Min",
+      time_presentiel: "90 Min",
+      time_online: "60 Min",
       category: "energiearbeit"
     },
     {
@@ -94,7 +101,8 @@ export default function ServicePrice() {
       alt: "Kostenloser Chakra Test und Energieanalyse für Ihr Wohlbefinden",
       price_presentiel: "Gratis",
       price_online: "Gratis",
-      time: "30 Min",
+      time_presentiel: "30 Min",
+      time_online: "30 Min",
       free: true,
       category: "energiearbeit"
     },
@@ -106,7 +114,8 @@ export default function ServicePrice() {
       alt: "Aura Heilung und Reinigung Energiearbeit für Schutz",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "60 Min",
+      time_presentiel: "90 Min",
+      time_online: "60 Min",
       category: "energiearbeit"
     },
     {
@@ -117,31 +126,10 @@ export default function ServicePrice() {
       alt: "Vedische Astrologie Beratung und Lebensführung in Zürich",
       price_presentiel: "150 CHF",
       price_online: "100 CHF",
-      time: "75 Min",
+      time_presentiel: "90 Min",
+      time_online: "60 Min",
       popular: true,
       category: "astrologie"
-    },
-    {
-      id: 11,
-      nom: "Ayurveda-Kopfmassage",
-      description: "Traditionelle indische Kopfmassage zur Tiefenentspannung und Energieaktivierung.",
-      image: "/image/drive-download-20250313T185750Z-001/marma.webp",
-      alt: "Ayurveda Kopfmassage Entspannung und Energiearbeit",
-      price_presentiel: "150 CHF",
-      price_online: "100 CHF",
-      time: "45 Min",
-      category: "wellness"
-    },
-    {
-      id: 12,
-      nom: "Spirituelle Lebensberatung",
-      description: "Ganzheitliche Beratung für persönliche Entwicklung und spirituelles Wachstum.",
-      image: "/image/drive-download-20250313T185750Z-001/parte.png",
-      alt: "Spirituelle Lebensberatung Entwicklung und Persönlichkeitswachstum",
-      price_presentiel: "150 CHF",
-      price_online: "100 CHF",
-      time: "60 Min",
-      category: "beratung"
     }
   ];
 
@@ -154,9 +142,7 @@ export default function ServicePrice() {
   const categories = [
     { id: "all", name: "Alle Dienstleistungen", count: services.length },
     { id: "astrologie", name: "Vedische Astrologie", count: services.filter(s => s.category === "astrologie").length },
-    { id: "energiearbeit", name: "Energiearbeit & Heilung", count: services.filter(s => s.category === "energiearbeit").length },
-    { id: "beratung", name: "Lebensberatung", count: services.filter(s => s.category === "beratung").length },
-    { id: "wellness", name: "Ayurveda & Wellness", count: services.filter(s => s.category === "wellness").length }
+    { id: "energiearbeit", name: "Energiearbeit & Heilung", count: services.filter(s => s.category === "energiearbeit").length }
   ];
 
   return (
@@ -165,7 +151,7 @@ export default function ServicePrice() {
         <title>Vedische Astrologie Dienstleistungen & Preise | Partner Horoskop & Energiearbeit in Zürich</title>
         <meta 
           name="description" 
-          content="Professionelle Vedische Astrologie Dienstleistungen in Zürich: Partner Horoskop 150 CHF, Online-Beratung 100 CHF, Chakra Heilung, Karma Analyse. Kostenlose Erstberatung." 
+          content="Professionelle Vedische Astrologie Dienstleistungen in Zürich: Partner Horoskop 150 CHF (60 Min), Online-Beratung 100 CHF (30 Min), Energiearbeit 90/60 Min. Kostenlose Erstberatung." 
         />
         <meta 
           name="keywords" 
@@ -176,7 +162,7 @@ export default function ServicePrice() {
         
         {/* Open Graph */}
         <meta property="og:title" content="Vedische Astrologie Dienstleistungen & Preise | Zürich" />
-        <meta property="og:description" content="Partner Horoskop 150 CHF, Online-Beratung 100 CHF. Professionelle Vedische Astrologie & Energiearbeit in Zürich." />
+        <meta property="og:description" content="Partner Horoskop 150 CHF (60 Min), Online-Beratung 100 CHF (30 Min). Professionelle Vedische Astrologie & Energiearbeit in Zürich." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.indischeastro.ch/serviceprice" />
         <meta property="og:image" content="https://www.indischeastro.ch/og-serviceprice.jpg" />
@@ -237,7 +223,7 @@ export default function ServicePrice() {
               "provider": {
                 "@type": "Person",
                 "name": "Suthakar Parameswaran",
-                "description": "Experte für Vedische Astrologie, Karma Analyse und spirituelle Heilung mit über 20 Jahren Erfahrung.",
+                "description": "Experte für Vedische Astrologie, Karma Analyse und spirituelle Heilung mit über 30 Jahren Erfahrung.",
                 "url": "https://www.indischeastro.ch"
               },
               "areaServed": {
@@ -307,7 +293,7 @@ export default function ServicePrice() {
           {/* Badge promotionnel */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-6 py-3 rounded-full shadow-lg mb-6">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium uppercase tracking-wider">Flexible Beratungsformate</span>
+            <span className="text-sm font-medium uppercase tracking-wider">Flexible Beratungsformate & Dauer</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-[#260C56] mb-6 leading-tight">
@@ -323,8 +309,9 @@ export default function ServicePrice() {
                   <span className="text-white text-xl">🏠</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800 text-lg">Vor Ort Beratung</h3>
+                  <h3 className="font-bold text-gray-800 text-lg">Beratung im Büro</h3>
                   <p className="text-2xl font-bold text-[#260C56]" itemProp="price" content="150">150 CHF</p>
+                  <p className="text-sm text-gray-600">(60 Minuten )</p>
                   <meta itemProp="priceCurrency" content="CHF" />
                 </div>
               </div>
@@ -344,6 +331,7 @@ export default function ServicePrice() {
                 <div>
                   <h3 className="font-bold text-gray-800 text-lg">Online Beratung</h3>
                   <p className="text-2xl font-bold text-[#260C56]" itemProp="price" content="100">100 CHF</p>
+                  <p className="text-sm text-gray-600">(30 Minuten)</p>
                   <meta itemProp="priceCurrency" content="CHF" />
                 </div>
               </div>
@@ -360,7 +348,7 @@ export default function ServicePrice() {
             Entdecken Sie unsere umfangreichen <strong>Vedischen Astrologie Dienstleistungen</strong> und 
             <strong> Energiearbeit</strong> in Zürich. 
             <span className="block text-[#ff6e54] font-semibold mt-2">
-              Garantierte gleiche Qualität in beiden Beratungsformaten!
+              Astrologie-Beratung: 60 Min (Präsenz) / 30 Min (Online)
             </span>
           </p>
         </div>
@@ -416,7 +404,8 @@ export default function ServicePrice() {
                 alt={service.alt}
                 price_presentiel={service.price_presentiel}
                 price_online={service.price_online}
-                time={service.time}
+                time_presentiel={service.time_presentiel}
+                time_online={service.time_online}
                 pricetime={true}
               />
             </div>
@@ -445,16 +434,13 @@ export default function ServicePrice() {
               </h2>
               <p className="text-gray-600 mb-6 text-lg max-w-2xl mx-auto">
                 Wählen Sie zwischen persönlicher <strong>Vedischer Astrologie Beratung</strong> in Zürich 
-                oder bequemer <strong>Online-Beratung</strong>. Starten Sie noch heute Ihre Reise zu mehr 
-                Klarheit und innerem Frieden.
+                oder bequemer <strong>Online-Beratung</strong>. Flexible Dauer je nach Service.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button 
                   onClick={() => {
                     window.location.href = '/contact';
-                    // Tracking
-                    
                   }}
                   className="bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 shadow-lg hover:scale-105 flex items-center gap-2"
                   aria-label="Jetzt Termin für Vedische Astrologie Beratung vereinbaren"
@@ -463,8 +449,8 @@ export default function ServicePrice() {
                   Jetzt Termin vereinbaren
                 </button>
                 <div className="text-center sm:text-left">
-                  <p className="text-gray-700 font-semibold">📞 +41 76 123 45 67</p>
-                  <p className="text-gray-500 text-sm">Mo-Fr: 9:00-18:00 Uhr</p>
+                  <p className="text-gray-700 font-semibold">📞 +41 79 261 33 31</p>
+                  <p className="text-gray-500 text-sm">Mo-Fr: 14:00-20:00 Uhr</p>
                 </div>
               </div>
               
@@ -472,7 +458,7 @@ export default function ServicePrice() {
               <div className="mt-6 bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200 max-w-md mx-auto">
                 <p className="text-gray-700 text-sm flex items-center justify-center gap-2">
                   <span className="text-green-500">✓</span>
-                  <strong>Garantiert:</strong> Dieselbe intensive Beratungsqualität in beiden Formaten
+                  <strong>Garantiert:</strong> Optimale Beratungsdauer für jedes Format
                 </p>
               </div>
             </div>
@@ -485,8 +471,8 @@ export default function ServicePrice() {
             <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">⏱️</span>
             </div>
-            <h3 className="font-bold text-gray-800 mb-2">Flexible Termine</h3>
-            <p className="text-gray-600 text-sm">Täglich verfügbare Termine für Ihre Vedische Astrologie Beratung</p>
+            <h3 className="font-bold text-gray-800 mb-2">Optimale Dauer</h3>
+            <p className="text-gray-600 text-sm">Jede Beratung ist perfekt auf das Format abgestimmt</p>
           </div>
           
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
@@ -494,15 +480,15 @@ export default function ServicePrice() {
               <span className="text-2xl">🎯</span>
             </div>
             <h3 className="font-bold text-gray-800 mb-2">Professionelle Qualität</h3>
-            <p className="text-gray-600 text-sm">Zertifizierte Vedische Astrologie Expertise mit 20+ Jahren Erfahrung</p>
+            <p className="text-gray-600 text-sm">Zertifizierte Vedische Astrologie Expertise mit 30+ Jahren Erfahrung</p>
           </div>
           
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100">
             <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">💫</span>
             </div>
-            <h3 className="font-bold text-gray-800 mb-2">Persönliche Betreuung</h3>
-            <p className="text-gray-600 text-sm">Individuell auf Ihre karmischen Muster abgestimmt</p>
+            <h3 className="font-bold text-gray-800 mb-2">Individuelle Betreuung</h3>
+            <p className="text-gray-600 text-sm">Maßgeschneidert auf Ihre karmischen Muster</p>
           </div>
         </div>
 
@@ -512,49 +498,17 @@ export default function ServicePrice() {
             <h3 className="text-2xl font-bold text-[#260C56] mb-6 text-center">Häufige Fragen zu Preisen</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Kann ich auch Pakete buchen?</h4>
-                <p className="text-gray-600 text-sm">Ja, wir bieten maßgeschneiderte Pakete für wiederholte Beratungen an.</p>
+                <h4 className="font-semibold text-gray-800 mb-2">Warum unterschiedliche Dauer?</h4>
+                <p className="text-gray-600 text-sm">Astrologie-Beratungen sind online effizienter (30 Min), während Energiearbeit persönlich mehr Zeit benötigt (90 Min).</p>
               </div>
               <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Gibt es Ermäßigungen?</h4>
-                <p className="text-gray-600 text-sm">Studenten und Rentier erhalten 10% Ermäßigung auf alle Dienstleistungen.</p>
+                <h4 className="font-semibold text-gray-800 mb-2">Kann ich die Dauer anpassen?</h4>
+                <p className="text-gray-600 text-sm">Ja, wir bieten auch längere Intensiv-Beratungen an. Sprechen Sie uns einfach an.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Script de tracking */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            // Tracking de la page des services
-            window.addEventListener('load', function() {
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'page_view', {
-                  'page_title': 'Dienstleistungen & Preise',
-                  'page_location': window.location.href
-                });
-              }
-              
-              // Tracking des filtrage
-              const categoryButtons = document.querySelectorAll('button[aria-label*="anzeigen"]');
-              categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                  const category = this.textContent.split(' (')[0];
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'category_filter', {
-                      'event_category': 'Servicepage',
-                      'event_label': category,
-                      'value': 1
-                    });
-                  }
-                });
-              });
-            });
-          `,
-        }}
-      />
     </>
   );
 }

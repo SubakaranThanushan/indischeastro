@@ -317,7 +317,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
               <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mb-4">
                 <div className="bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
-                  <span className="font-semibold text-sm md:text-base">🏠 Vor Ort: 150 CHF</span>
+                  <span className="font-semibold text-sm md:text-base">🏠 Persönliche Sitzung im büro : 150 CHF</span>
                 </div>
                 <div className="bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
                   <span className="font-semibold text-sm md:text-base">💻 Online: 100 CHF</span>
@@ -492,7 +492,7 @@ export default function Home() {
 
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 w-full max-w-md hover:bg-white/10 transition-all duration-300">
                 <p className="text-purple-200 text-xs md:text-sm text-center">
-                  🎯 <strong>Erfolg versprochen:</strong> Über 20 Jahre Erfahrung in Vedischer Astrologie
+                  🎯 <strong>Erfolg versprochen:</strong> Über 30 Jahre Erfahrung in Vedischer Astrologie
                 </p>
               </div>
             </div>
@@ -519,7 +519,7 @@ export default function Home() {
             </h2>
             <p itemProp="description" className="text-white text-lg leading-relaxed mb-6">
               <strong itemProp="jobTitle">Suthakar Parameswaran</strong> ist ein renommierter Experte für 
-              <strong> Vedische Astrologie, Karma Analyse und spirituelle Heilung</strong> mit über 20 Jahren Erfahrung. 
+              <strong> Vedische Astrologie, Karma Analyse und spirituelle Heilung</strong> mit über 30 Jahren Erfahrung. 
               Als zertifizierter <span itemProp="knowsAbout">Vedischer Astrologe, Reiki Grand-Master und Heiler</span> 
               vereint er uraltes vedisches Wissen mit modernen therapeutischen Ansätzen.
             </p>
@@ -579,7 +579,6 @@ export default function Home() {
         "Partner-Horoskop-Analyse",
         "Geburts-Horoskop", 
         "Astrologische Partnerberatung",
-        "Kundalini-Energiearbeit"
       ].includes(service.nom);
 
       // Durées selon le type de service
@@ -623,7 +622,7 @@ export default function Home() {
               {/* Ligne Vor Ort */}
               <div className="flex justify-between items-center text-sm">
                 <div className="flex items-center gap-2">
-                  <span className="text-gray-600">🏠 Vor Ort:</span>
+                  <span className="text-gray-600">🏠 Persönliche Sitzung im büro:</span>
                   <span className="text-xs text-gray-500">({presentielTime})</span>
                 </div>
                 <span className="font-semibold text-[#260C56]">
@@ -652,7 +651,7 @@ export default function Home() {
             {!isOnlineAvailable && (
               <div className="mb-3">
                 <span className="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full border border-amber-200">
-                  🔥 Nur vor Ort verfügbar
+                  🔥 Nur im Büro
                 </span>
               </div>
             )}
@@ -674,7 +673,7 @@ export default function Home() {
                     <span>💻 {onlineTime}</span>
                   </>
                 ) : (
-                  <span>⏱️ {presentielTime} (nur vor Ort)</span>
+                  <span>⏱️ {presentielTime} (nur im Büro)</span>
                 )}
               </div>
               <button 
@@ -729,7 +728,7 @@ export default function Home() {
             <span className="text-white text-lg">🏠</span>
           </div>
           <div>
-            <h4 className="font-bold text-lg text-[#260C56]">Vor Ort Beratung</h4>
+            <h4 className="font-bold text-lg text-[#260C56]">Persönliche Sitzung im büro.</h4>
             <p className="text-sm text-purple-600 font-semibold">150 CHF / 60 Min</p>
           </div>
         </div>

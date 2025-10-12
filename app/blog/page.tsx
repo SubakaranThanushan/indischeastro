@@ -626,14 +626,11 @@ export default function Blog() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-6 border-t border-gray-200">
-              <button className="flex-1 bg-[#ff6e54] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#ff8e54] transition-colors duration-300 flex items-center justify-center gap-2">
+              <button className="flex-1 bg-[#ff6e54] text-white px-6 py-4 rounded-xl font-semibold hover:bg-[#ff8e54] transition-colors duration-300 flex items-center justify-center gap-2" onClick={() => window.location.href = '/contact'}>
                 <FaHeart className="w-5 h-5" />
                 Beratung zu diesem Thema buchen
               </button>
-              <button className="flex-1 border-2 border-[#260C56] text-[#260C56] px-6 py-4 rounded-xl font-semibold hover:bg-[#260C56] hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                <FaBook className="w-5 h-5" />
-                Mehr Artikel lesen
-              </button>
+              
             </div>
           </div>
         </div>

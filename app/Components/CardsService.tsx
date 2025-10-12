@@ -52,6 +52,9 @@ function CardsService(props) {
   // Vérifier si le service est gratuit
   const isFree = props.price_presentiel === "Gratis" || props.price_online === "Gratis";
 
+  // Vérifier si le service a une version en ligne (seulement pour les 3 premiers services)
+  const hasOnlineService = props.id <= 3 && props.price_online && props.price_online !== "Gratis" && props.time_online;
+
   return (
     <>
       <div className="w-full p-4">
@@ -109,29 +112,31 @@ function CardsService(props) {
           {/* Prix et durée */}
           {props.pricetime && (
             <div className="space-y-3 mb-6">
-              {/* Prix pour les deux formats */}
-              <div className="grid grid-cols-2 gap-3">
+              {/* Prix pour les deux formats si disponible, sinon seulement présentiel */}
+              <div className={`grid ${hasOnlineService ? 'grid-cols-2' : 'grid-cols-1'} gap-3`}>
+                {/* Présentiel */}
                 <div className="text-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
-                  <div className="text-xs text-gray-500 mb-1">🏠 Vor Ort</div>
+                  <div className="text-xs text-gray-500 mb-1">🏠 Persönliche Sitzung</div>
                   <div className="text-lg font-bold text-[#260C56]">
                     {props.price_presentiel}
                   </div>
-                </div>
-                <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
-                  <div className="text-xs text-gray-500 mb-1">💻 Online</div>
-                  <div className="text-lg font-bold text-[#260C56]">
-                    {props.price_online}
+                  <div className="text-xs text-gray-500 mt-1">
+                    {props.time_presentiel || props.time}
                   </div>
                 </div>
-              </div>
-              
-              {/* Durée */}
-              <div className="text-center p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
-                <div className="flex items-center justify-center gap-2 text-gray-700">
-                  <span className="text-lg">⏱️</span>
-                  <span className="font-semibold text-[#260C56]">{props.time}</span>
-                  <span className="text-sm text-gray-500">Minuten</span>
-                </div>
+                
+                {/* En ligne - seulement pour les 3 premiers services */}
+                {hasOnlineService && (
+                  <div className="text-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
+                    <div className="text-xs text-gray-500 mb-1">💻 Online</div>
+                    <div className="text-lg font-bold text-[#260C56]">
+                      {props.price_online}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      {props.time_online}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -166,15 +171,17 @@ function CardsService(props) {
                   <h2 className="text-3xl font-bold bg-gradient-to-r from-[#260C56] to-[#4c1d95] bg-clip-text text-transparent mb-2">
                     {props.nom}
                   </h2>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 flex-wrap">
                     {!isFree && (
                       <>
                         <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
                           🏠 Vor Ort: {props.price_presentiel}
                         </div>
-                        <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                          💻 Online: {props.price_online}
-                        </div>
+                        {hasOnlineService && (
+                          <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                            💻 Online: {props.price_online}
+                          </div>
+                        )}
                       </>
                     )}
                     {isFree && (
@@ -222,42 +229,60 @@ function CardsService(props) {
               </div>
 
               {/* Informations pratiques */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 p-6 bg-white/80 rounded-2xl shadow-lg border border-gray-200">
+              <div className={`grid ${hasOnlineService ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4 mb-8 p-6 bg-white/80 rounded-2xl shadow-lg border border-gray-200`}>
+                {/* Présentiel */}
                 <div className="text-center p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200">
                   <div className="text-2xl mb-2">🏠</div>
                   <p className="font-semibold text-gray-600 mb-1">Vor Ort</p>
                   <p className="text-xl font-bold text-[#260C56]">
                     {props.price_presentiel}
                   </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {props.time_presentiel || props.time}
+                  </p>
                   <p className="text-xs text-gray-500 mt-1">in Zürich</p>
                 </div>
                 
-                <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
-                  <div className="text-2xl mb-2">💻</div>
-                  <p className="font-semibold text-gray-600 mb-1">Online</p>
-                  <p className="text-xl font-bold text-[#260C56]">
-                    {props.price_online}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-1">per Video-Call</p>
-                </div>
+                {/* En ligne - seulement pour les 3 premiers services */}
+                {hasOnlineService && (
+                  <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-200">
+                    <div className="text-2xl mb-2">💻</div>
+                    <p className="font-semibold text-gray-600 mb-1">Online</p>
+                    <p className="text-xl font-bold text-[#260C56]">
+                      {props.price_online}
+                    </p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      {props.time_online}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">per Video-Call</p>
+                  </div>
+                )}
                 
+                {/* Durée combinée */}
                 <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200">
                   <div className="text-2xl mb-2">⏱️</div>
                   <p className="font-semibold text-gray-600 mb-1">Dauer</p>
                   <p className="text-xl font-bold text-[#260C56]">
-                    {props.time}
+                    {hasOnlineService ? 
+                      `${props.time_presentiel || props.time} / ${props.time_online}` : 
+                      props.time_presentiel || props.time
+                    }
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">Minuten</p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {hasOnlineService ? 'Präsenz / Online' : 'Minuten'}
+                  </p>
                 </div>
               </div>
 
-              {/* Garantie */}
-              <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 mb-8 border border-amber-200">
-                <p className="text-center text-amber-800 font-semibold flex items-center justify-center gap-2">
-                  <span className="text-lg">✅</span>
-                  Garantierte gleiche Qualität in beiden Beratungsformaten
-                </p>
-              </div>
+              {/* Garantie - seulement pour les services avec online */}
+              {hasOnlineService && (
+                <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 mb-8 border border-amber-200">
+                  <p className="text-center text-amber-800 font-semibold flex items-center justify-center gap-2">
+                    <span className="text-lg">✅</span>
+                    Garantierte gleiche Qualität in beiden Beratungsformaten
+                  </p>
+                </div>
+              )}
 
               {/* Boutons d'action */}
               <div className="flex flex-col sm:flex-row gap-4">
@@ -271,7 +296,7 @@ function CardsService(props) {
                 <button
                   onClick={() => {
                     closeModal();
-                    window.location.href = `/Contacte?service=${encodeURIComponent(props.nom)}`;
+                    window.location.href = `/contact`;
                   }}
                   className="flex-1 cursor-pointer px-6 py-4 font-semibold text-white bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] hover:from-[#ff5a40] hover:to-[#ff7a40] rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
                 >

@@ -345,7 +345,7 @@ export default function UberMich() {
               </Link>
               
               <Link 
-                href="/services"
+                href="/ServicePrice"
                 className="group bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-white/20 transition-all duration-300 border border-white/30 flex items-center gap-3"
               >
                 <span>Dienstleistungen entdecken</span>
@@ -356,7 +356,7 @@ export default function UberMich() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center text-purple-200">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>📞 +41 76 123 45 67</span>
+                <span>📞 +41 79 261 33 31</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

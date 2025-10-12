@@ -82,7 +82,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Telefon</p>
-                    <p className="text-lg text-[#260C56] font-bold">+41 76 123 45 67</p>
+                    <p className="text-lg text-[#260C56] font-bold">+41 79 261 33 31</p>
                     <p className="text-sm text-gray-600">Kostenloser Rückruf auf Wunsch</p>
                   </div>
                 </div>

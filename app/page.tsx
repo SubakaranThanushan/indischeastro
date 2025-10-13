@@ -27,6 +27,7 @@ export default function Home() {
 
   // Récupérer les services depuis Supabase
   useEffect(() => {
+    console.log("test ca marche ");
     const fetchServices = async () => {
       try {
         console.log("Début du chargement des services...");
@@ -640,7 +641,7 @@ const staticServices = [
         >
           <div className="flex flex-col items-center pl-9 pr-6 max-w-screen-lg">
             <h2 className="flex justify-center text-3xl text-[#ff6e54] p-5 font-bold">
-              Über <span itemProp="name">Suthakar Parameswaran</span>
+              Über <span itemProp="name"> Suthakar Parameswaran</span>
             </h2>
             <p itemProp="description" className="text-white text-lg leading-relaxed mb-6">
               <strong itemProp="jobTitle">Suthakar Parameswaran</strong> ist ein renommierter Experte für 

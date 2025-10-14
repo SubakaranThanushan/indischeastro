@@ -65,109 +65,171 @@ export default function Home() {
   }, [nextSlide]);
 
   // Données statiques de test avec deux types de prix
-// Données statiques de test avec deux types de prix - CORRIGÉ AVEC 10 SERVICES
-const staticServices = [
-  {
-    id: 1,
-    nom: "Partner-Horoskop-Analyse",
-    description: "Tiefe Einblicke in Ihre Beziehungsdynamiken und astrologische Kompatibilität - Professionelle Partneranalyse für karmische Beziehungen und emotionale Abhängigkeit",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "90",
-    images: "/image/services/partner-horoskop.jpg",
-    schemaType: "AstrologicalService"
-  },
-  {
-    id: 2,
-    nom: "Geburts-Horoskop",
-    description: "Detaillierte Analyse Ihrer Lebensaufgabe, Talente und Herausforderungen - Vedische Geburtshoroskop Analyse mit Karma und Schicksalsdeutung",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "60",
-    images: "/image/services/geburts-horoskop.jpg",
-    schemaType: "AstrologicalService"
-  },
-  {
-    id: 3,
-    nom: "Astrologische Partnerberatung",
-    description: "Kombination von astrologischem Wissen mit modernen Beziehungsansätzen für tiefgreifende Beziehungslösungen",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "75",
-    images: "/image/services/partnerberatung.jpg",
-    schemaType: "AstrologicalService"
-  },
-  {
-    id: 4,
-    nom: "Karmische Blockaden Lösung",
-    description: "Identifikation und Auflösung karmischer Blockaden für emotionalen Befreiung und spirituelles Wachstum",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "90",
-    images: "/image/services/karmische-blockaden.jpg",
-    schemaType: "TherapeuticProcedure"
-  },
-  {
-    id: 5,
-    nom: "Kundalini-Energiearbeit",
-    description: "Aktivierung Ihrer ureigenen Lebenskraft für tiefgreifende Transformation und spirituelle Erweckung",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "90",
-    images: "/image/services/kundalini.jpg",
-    schemaType: "EnergyTherapy"
-  },
-  {
-    id: 6,
-    nom: "Marmapunkt-Behandlung",
-    description: "Ayurvedische Heilkunst mit 107 vitalen Energiepunkten für ganzheitliche Heilung und Energiefluss",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "60",
-    images: "/image/services/marmapunkt.jpg",
-    schemaType: "TherapeuticProcedure"
-  },
-  {
-    id: 7,
-    nom: "Chakra Energie Arbeit",
-    description: "Reinigung und Harmonisierung Ihrer sieben Hauptenergiezentren für Vitalität und spirituelles Wohlbefinden",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "45",
-    images: "/image/services/chakra-energie.jpg",
-    schemaType: "EnergyTherapy"
-  },
-  {
-    id: 8,
-    nom: "Familien Aufstellung",
-    description: "Systemische Aufstellung für Familienprobleme, Trennung und karmische Verstrickungen",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "75",
-    images: "/image/services/familien-aufstellung.jpg",
-    schemaType: "TherapeuticProcedure"
-  },
-  {
-    id: 9,
-    nom: "Reiki-Behandlung",
-    description: "Japanische Heilenergie für körperliche und emotionale Heilung - Reiki Grand-Master Behandlung",
-    price_presentiel: "150",
-    price_online: "100",
-    time: "45",
-    images: "/image/services/reiki.jpg",
-    schemaType: "EnergyTherapy"
-  },
-  {
-    id: 10,
-    nom: "Kostenloser Chakra-Test",
-    description: "Umfassende Analyse Ihrer sieben Hauptenergiezentren - Vedische Energie Diagnose gratis",
-    price_presentiel: "0",
-    price_online: "0",
-    time: "30",
-    images: "/image/services/chakra-test.jpg",
-    schemaType: "DiagnosticProcedure"
-  }
-];
+  const reviews = [
+    {
+      nom: "Maria Schmidt",
+      explication: "Eine außergewöhnliche Beratung! Suthakar hat mir geholfen, meine beruflichen Blockaden zu lösen. Sehr empfehlenswert!",
+      rating: 5
+    },
+    {
+      nom: "Thomas Weber",
+      explication: "Die vedische Astrologie-Beratung war lebensverändernd. Präzise Analysen und praktische Ratschläge. Vielen Dank!",
+      rating: 4
+    },
+    {
+      nom: "Sarah Müller",
+      explication: "Professionell und einfühlsam. Die Partnerhoroskop-Analyse hat mir neue Perspektiven in meiner Beziehung eröffnet.",
+      rating: 5
+    },
+    {
+      nom: "Laura Chen",
+      explication: "Exzellenter Service! Die karmische Blockaden-Lösung hat mir geholfen, alte Muster zu durchbrechen. Sehr dankbar!",
+      rating: 5
+    }
+  ];
+
+  const staticServices = [
+    {
+      id: 1,
+      nom: "Partner-Horoskop-Analyse",
+      description: "Tiefe Einblicke in Ihre Beziehungsdynamiken und astrologische Kompatibilität - Professionelle Partneranalyse für karmische Beziehungen und emotionale Abhängigkeit",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "90",
+      images: "/image/services/partner-horoskop.jpg",
+      schemaType: "AstrologicalService"
+    },
+    {
+      id: 2,
+      nom: "Geburts-Horoskop",
+      description: "Detaillierte Analyse Ihrer Lebensaufgabe, Talente und Herausforderungen - Vedische Geburtshoroskop Analyse mit Karma und Schicksalsdeutung",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "60",
+      images: "/image/services/geburts-horoskop.jpg",
+      schemaType: "AstrologicalService"
+    },
+    {
+      id: 3,
+      nom: "Astrologische Partnerberatung",
+      description: "Kombination von astrologischem Wissen mit modernen Beziehungsansätzen für tiefgreifende Beziehungslösungen",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "75",
+      images: "/image/services/partnerberatung.jpg",
+      schemaType: "AstrologicalService"
+    },
+    {
+      id: 4,
+      nom: "Karmische Blockaden Lösung",
+      description: "Identifikation und Auflösung karmischer Blockaden für emotionalen Befreiung und spirituelles Wachstum",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "90",
+      images: "/image/services/karmische-blockaden.jpg",
+      schemaType: "TherapeuticProcedure"
+    },
+    {
+      id: 5,
+      nom: "Kundalini-Energiearbeit",
+      description: "Aktivierung Ihrer ureigenen Lebenskraft für tiefgreifende Transformation und spirituelle Erweckung",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "90",
+      images: "/image/services/kundalini.jpg",
+      schemaType: "EnergyTherapy"
+    },
+    {
+      id: 6,
+      nom: "Marmapunkt-Behandlung",
+      description: "Ayurvedische Heilkunst mit 107 vitalen Energiepunkten für ganzheitliche Heilung und Energiefluss",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "60",
+      images: "/image/services/marmapunkt.jpg",
+      schemaType: "TherapeuticProcedure"
+    },
+    {
+      id: 7,
+      nom: "Chakra Energie Arbeit",
+      description: "Reinigung und Harmonisierung Ihrer sieben Hauptenergiezentren für Vitalität und spirituelles Wohlbefinden",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "45",
+      images: "/image/services/chakra-energie.jpg",
+      schemaType: "EnergyTherapy"
+    },
+    {
+      id: 8,
+      nom: "Familien Aufstellung",
+      description: "Systemische Aufstellung für Familienprobleme, Trennung und karmische Verstrickungen",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "75",
+      images: "/image/services/familien-aufstellung.jpg",
+      schemaType: "TherapeuticProcedure"
+    },
+    {
+      id: 9,
+      nom: "Reiki-Behandlung",
+      description: "Japanische Heilenergie für körperliche und emotionale Heilung - Reiki Grand-Master Behandlung",
+      price_presentiel: "150",
+      price_online: "100",
+      time: "45",
+      images: "/image/services/reiki.jpg",
+      schemaType: "EnergyTherapy"
+    },
+    {
+      id: 10,
+      nom: "Kostenloser Chakra-Test",
+      description: "Umfassende Analyse Ihrer sieben Hauptenergiezentren - Vedische Energie Diagnose gratis",
+      price_presentiel: "0",
+      price_online: "0",
+      time: "30",
+      images: "/image/services/chakra-test.jpg",
+      schemaType: "DiagnosticProcedure"
+    }
+  ];
+
+  // Structured Data corrigé
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "IndischeAstro – Vedische Astrologie Zürich",
+    "image": [
+      "https://www.indischeastro.ch/image/header/image.jpg",
+      "https://www.indischeastro.ch/image/profile_home/image.png"
+    ],
+    "url": "https://www.indischeastro.ch",
+    "telephone": "+41-79-261-33-31",
+    "priceRange": "CHF 100 - CHF 150",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zwinglistrasse 37",
+      "addressLocality": "Zürich",
+      "postalCode": "8004",
+      "addressCountry": "CH"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": reviews.length
+    },
+    "review": reviews.map(r => ({
+      "@type": "Review",
+      "author": { "@type": "Person", "name": r.nom },
+      "reviewBody": r.explication,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": r.rating,
+        "bestRating": "5"
+      },
+      "itemReviewed": {
+        "@type": "LocalBusiness",
+        "name": "IndischeAstro – Vedische Astrologie Zürich"
+      }
+    }))
+  };
 
   // Utiliser les données statiques si Supabase ne retourne rien
   const displayServices = services.length > 0 ? services : staticServices;
@@ -181,213 +243,353 @@ const staticServices = [
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Vedische & Indische Astrologie Beratung Zürich | Partner Horoskop & Karma Analyse Schweiz</title>
-        <meta 
-          name="description" 
-          content="Professionelle Vedische Astrologie Beratung in Zürich & Schweiz. Lösungen für Partner Horoskop, karmische Blockaden, Chakra Energie Arbeit, Familien Aufstellung, Lebensberatung. Kostenlose Erstberatung. Telefonische & Online Beratung verfügbar." 
-        />
-        <meta 
-          name="keywords" 
-          content="Indische Astrologie Beratung, Vedische Astrologie, Astrologie Beratung, Lebensberatung, Zukunftsberatung, Partner Horoskop, Partner Horoskop Analyse, Geberts Horoskop, Schicksal, Karma, Chakra Energie Arbeit, Heilbehandlung, Kundalini Energie, Marma Punkent, Sexuelle Blockaden, Karmische Blockaden, Sexuelle Unlust, Familie Trennung, Magie, Schwarze Magie, Familien Aufstellung, karmische Beziehung, Unfähigkeit loszulassen, Emotionale Abhängigkeit, karmische Blockaden lösen, Schweiz, Swiss, Zürich, Switzerland, Sternzeichen, Sonne, Mond, Aszendent, Stier, Steinbock, Zwillinge, Skorpion, Löwe, Jungfrau, Waage, Schütze, Wassermann, Fisch, Jahreshoroskop, Monatshoroskop, Vedische Astrologie Ausbildung, telefonische Beratung, Fernberatung, Online Beratung, Telefonberatung" 
-        />
-        <meta name="author" content="Suthakar Parameswaran" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="language" content="DE" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="geo.region" content="CH-ZH" />
-        <meta name="geo.placename" content="Zürich" />
-        <meta name="geo.position" content="47.374448;8.531434" />
-        <meta name="ICBM" content="47.374448, 8.531434" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Vedische & Indische Astrologie Beratung Zürich | Partner Horoskop & Karma Analyse" />
-        <meta property="og:description" content="Professionelle Vedische Astrologie Beratung in Zürich. Lösungen für Partner Horoskop, karmische Blockaden, Chakra Energie Arbeit & mehr. Telefonische & Online Beratung." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.indischeastro.ch" />
-        <meta property="og:image" content="https://www.indischeastro.ch/image/og-image.jpg" />
-        <meta property="og:site_name" content="IndischeAstro - Vedische Astrologie Zürich" />
-        <meta property="og:locale" content="de_CH" />
-        <meta property="og:latitude" content="47.374448" />
-        <meta property="og:longitude" content="8.531434" />
-        <meta property="og:street-address" content="Zwinglistrasse 37" />
-        <meta property="og:locality" content="Zürich" />
-        <meta property="og:postal-code" content="8004" />
-        <meta property="og:country-name" content="Switzerland" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vedische Astrologie Beratung Zürich | Partner Horoskop & Karma" />
-        <meta name="twitter:description" content="Professionelle Vedische Astrologie Beratung. Partner Horoskop, Karma Analyse & spirituelle Heilung. Telefonische Beratung verfügbar." />
-        <meta name="twitter:image" content="https://www.indischeastro.ch/image/twitter-image.jpg" />
-        <meta name="twitter:label1" content="Standort" />
-        <meta name="twitter:data1" content="Zürich, Schweiz" />
-        <meta name="twitter:label2" content="Services" />
-        <meta name="twitter:data2" content="Astrologie, Energiearbeit, Heilung" />
-        
-        {/* Canonical */}
-        <link rel="canonical" href="https://www.indischeastro.ch" />
-        
-        {/* Alternates */}
-        <link rel="alternate" hrefLang="de-ch" href="https://www.indischeastro.ch" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.indischeastro.ch" />
-        
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "@id": "https://www.indischeastro.ch#service",
-              "name": "IndischeAstro - Vedische Astrologie Beratung",
-              "description": "Professionelle Vedische und Indische Astrologie Beratung in Zürich mit Schwerpunkt auf Partner Horoskop, Karma Analyse und spiritueller Heilung.",
-              "url": "https://www.indischeastro.ch",
-              "telephone": "+41-76-123-45-67",
-              "email": "info@indischeastro.ch",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Zwinglistrasse 37",
-                "addressLocality": "Zürich",
-                "postalCode": "8004",
-                "addressCountry": "CH",
-                "addressRegion": "ZH"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "47.374448",
-                "longitude": "8.531434"
-              },
-              "openingHours": [
-                "Mo-Fr 14:00-20:00"
-              ],
-              "openingHoursSpecification": [
-                {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                  "opens": "14:00",
-                  "closes": "20:00"
-                }
-              ],
-              "serviceType": [
-                "Vedische Astrologie",
-                "Indische Astrologie",
-                "Partner Horoskop",
-                "Karma Beratung",
-                "Chakra Heilung",
-                "Energiearbeit",
-                "Familien Aufstellung",
-                "Lebensberatung",
-                "Zukunftsberatung",
-                "Karmische Blockaden Lösung",
-                "Telefonische Beratung",
-                "Online Beratung"
-              ],
-              "areaServed": {
-                "@type": "GeoCircle",
-                "geoMidpoint": {
-                  "@type": "GeoCoordinates",
-                  "latitude": "47.374448",
-                  "longitude": "8.531434"
-                },
-                "geoRadius": "50000"
-              },
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Vedische Astrologie Services",
-                "itemListElement": staticServices.map(service => ({
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": service.schemaType,
-                    "name": service.nom,
-                    "description": service.description
-                  },
-                  "price": service.price_presentiel !== "0" ? service.price_presentiel : "0",
-                  "priceCurrency": "CHF"
-                }))
-              },
-              "provider": {
-                "@type": "Person",
-                "name": "Suthakar Parameswaran",
-                "jobTitle": "Vedischer Astrologe und Heiler",
-                "description": "Experte für Vedische Astrologie, Karma Analyse und spirituelle Heilung mit über 30 Jahren Erfahrung.",
-                "knowsAbout": [
-                  "Vedische Astrologie",
-                  "Indische Astrologie", 
-                  "Karma Analyse",
-                  "Chakra Heilung",
-                  "Energiearbeit",
-                  "Partner Horoskop",
-                  "Familien Aufstellung",
-                  "Lebensberatung",
-                  "Jyotish",
-                  "Reiki",
-                  "Kundalini Energie"
-                ],
-                "hasCredential": [
-                  "Jothida Vibooshan",
-                  "Reiki Grand-Master",
-                  "Vedische Astrologie Ausbildung"
-                ]
-              },
-              "sameAs": [
-                "https://www.instagram.com/cittarastro/",
-                "https://www.youtube.com/@1000suthakar",
-                "https://www.facebook.com/"
-              ]
-            })
-          }}
-        />
+<Head>
+  {/* Structured Data - LocalBusiness CORRIGÉ */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "IndischeAstro - Vedische Astrologie Zürich",
+        "image": [
+          "https://www.indischeastro.ch/image/header/image.jpg",
+          "https://www.indischeastro.ch/image/profile_home/image.png"
+        ],
+        "description": "Professionelle Vedische Astrologie Beratung in Zürich. Partner Horoskop, Karma Analyse, Chakra Heilung und spirituelle Energiearbeit.",
+        "url": "https://www.indischeastro.ch",
+        "telephone": "+41-79-261-33-31",
+        "priceRange": "CHF 100 - CHF 150",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zwinglistrasse 37",
+          "addressLocality": "Zürich",
+          "postalCode": "8004",
+          "addressCountry": "CH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 47.374448,
+          "longitude": 8.531434
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "14:00",
+            "closes": "20:00"
+          }
+        ],
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 47.374448,
+            "longitude": 8.531434
+          },
+          "geoRadius": "50000"
+        },
+        "sameAs": [
+          "https://www.instagram.com/cittarastro/",
+          "https://www.youtube.com/@1000suthakar",
+          "https://www.facebook.com/"
+        ]
+      })
+    }}
+  />
 
-        {/* Additional LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
+  {/* Structured Data - ProfessionalService CORRIGÉ */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://www.indischeastro.ch#service",
+        "name": "IndischeAstro - Vedische Astrologie Beratung",
+        "image": [
+          "https://www.indischeastro.ch/image/header/image.jpg"
+        ],
+        "description": "Professionelle Vedische und Indische Astrologie Beratung in Zürich mit Schwerpunkt auf Partner Horoskop, Karma Analyse und spiritueller Heilung.",
+        "url": "https://www.indischeastro.ch",
+        "telephone": "+41-79-261-33-31",
+        "email": "info@indischeastro.ch",
+        "priceRange": "CHF 100 - CHF 150",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zwinglistrasse 37",
+          "addressLocality": "Zürich",
+          "postalCode": "8004",
+          "addressCountry": "CH",
+          "addressRegion": "ZH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "47.374448",
+          "longitude": "8.531434"
+        },
+        "openingHours": [
+          "Mo-Fr 14:00-20:00"
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "14:00",
+            "closes": "20:00"
+          }
+        ],
+        "serviceType": [
+          "Vedische Astrologie",
+          "Indische Astrologie",
+          "Partner Horoskop",
+          "Karma Beratung",
+          "Chakra Heilung",
+          "Energiearbeit",
+          "Familien Aufstellung",
+          "Lebensberatung",
+          "Zukunftsberatung",
+          "Karmische Blockaden Lösung",
+          "Telefonische Beratung",
+          "Online Beratung"
+        ],
+        "areaServed": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "47.374448",
+            "longitude": "8.531434"
+          },
+          "geoRadius": "50000"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Vedische Astrologie Services",
+          "itemListElement": staticServices.map(service => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": service.schemaType,
+              "name": service.nom,
+              "description": service.description
+            },
+            "price": service.price_presentiel !== "0" ? service.price_presentiel : "0",
+            "priceCurrency": "CHF"
+          }))
+        },
+        "provider": {
+          "@type": "Person",
+          "name": "Suthakar Parameswaran",
+          "jobTitle": "Vedischer Astrologe und Heiler",
+          "description": "Experte für Vedische Astrologie, Karma Analyse und spirituelle Heilung mit über 30 Jahren Erfahrung.",
+          "knowsAbout": [
+            "Vedische Astrologie",
+            "Indische Astrologie", 
+            "Karma Analyse",
+            "Chakra Heilung",
+            "Energiearbeit",
+            "Partner Horoskop",
+            "Familien Aufstellung",
+            "Lebensberatung",
+            "Jyotish",
+            "Reiki",
+            "Kundalini Energie"
+          ],
+          "hasCredential": [
+            "Jothida Vibooshan",
+            "Reiki Grand-Master",
+            "Vedische Astrologie Ausbildung"
+          ]
+        },
+        "sameAs": [
+          "https://www.instagram.com/cittarastro/",
+          "https://www.youtube.com/@1000suthakar",
+          "https://www.facebook.com/"
+        ]
+      })
+    }}
+  />
+
+  {/* Structured Data - Reviews avec AggregateRating CORRIGÉ */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "IndischeAstro – Vedische Astrologie Zürich",
+        "image": [
+          "https://www.indischeastro.ch/image/header/image.jpg",
+          "https://www.indischeastro.ch/image/profile_home/image.png"
+        ],
+        "url": "https://www.indischeastro.ch",
+        "telephone": "+41-79-261-33-31",
+        "priceRange": "CHF 100 - CHF 150",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zwinglistrasse 37",
+          "addressLocality": "Zürich",
+          "postalCode": "8004",
+          "addressCountry": "CH"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "4",
+          "bestRating": "5"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {"@type": "Person", "name": "Maria Schmidt"},
+            "reviewBody": "Eine außergewöhnliche Beratung! Suthakar hat mir geholfen, meine beruflichen Blockaden zu lösen. Sehr empfehlenswert!",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "itemReviewed": {
               "@type": "LocalBusiness",
-              "name": "IndischeAstro - Vedische Astrologie",
-              "image": "https://www.indischeastro.ch/image/og-image.jpg",
-              "@id": "https://www.indischeastro.ch#localbusiness",
-              "url": "https://www.indischeastro.ch",
-              "telephone": "+41-76-123-45-67",
-              "priceRange": "CHF 100 - CHF 150",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Zwinglistrasse 37",
-                "addressLocality": "Zürich",
-                "postalCode": "8004",
-                "addressCountry": "CH"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 47.374448,
-                "longitude": 8.531434
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday"
-                ],
-                "opens": "09:00",
-                "closes": "18:00"
-              },
-              "sameAs": [
-                "https://www.instagram.com/cittarastro/",
-                "https://www.youtube.com/@1000suthakar"
-              ]
-            })
-          }}
-        />
-      </Head>
+              "name": "IndischeAstro – Vedische Astrologie Zürich"
+            }
+          },
+          {
+            "@type": "Review",
+            "author": {"@type": "Person", "name": "Thomas Weber"},
+            "reviewBody": "Die vedische Astrologie-Beratung war lebensverändernd. Präzise Analysen und praktische Ratschläge. Vielen Dank!",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4",
+              "bestRating": "5"
+            },
+            "itemReviewed": {
+              "@type": "LocalBusiness", 
+              "name": "IndischeAstro – Vedische Astrologie Zürich"
+            }
+          },
+          {
+            "@type": "Review",
+            "author": {"@type": "Person", "name": "Sarah Müller"},
+            "reviewBody": "Professionell und einfühlsam. Die Partnerhoroskop-Analyse hat mir neue Perspektiven in meiner Beziehung eröffnet.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "itemReviewed": {
+              "@type": "LocalBusiness",
+              "name": "IndischeAstro – Vedische Astrologie Zürich"
+            }
+          },
+          {
+            "@type": "Review",
+            "author": {"@type": "Person", "name": "Laura Chen"},
+            "reviewBody": "Exzellenter Service! Die karmische Blockaden-Lösung hat mir geholfen, alte Muster zu durchbrechen. Sehr dankbar!",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5", 
+              "bestRating": "5"
+            },
+            "itemReviewed": {
+              "@type": "LocalBusiness",
+              "name": "IndischeAstro – Vedische Astrologie Zürich"
+            }
+          }
+        ]
+      })
+    }}
+  />
+
+  {/* Structured Data - Individual Review CORRIGÉ (pour surcharger les reviews problématiques) */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "name": "Kundenbewertung - Vedische Astrologie Zürich",
+        "author": {
+          "@type": "Person",
+          "name": "Maria Schmidt"
+        },
+        "reviewBody": "Eine außergewöhnliche Beratung! Suthakar hat mir geholfen, meine beruflichen Blockaden zu lösen. Sehr empfehlenswert!",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "itemReviewed": {
+          "@type": "LocalBusiness",
+          "name": "IndischeAstro - Vedische Astrologie Zürich",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Zwinglistrasse 37",
+            "addressLocality": "Zürich", 
+            "postalCode": "8004",
+            "addressCountry": "CH"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "IndischeAstro"
+        }
+      })
+    }}
+  />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedische & Indische Astrologie Beratung Zürich | Partner Horoskop & Karma Analyse Schweiz</title>
+  <meta 
+    name="description" 
+    content="Professionelle Vedische Astrologie Beratung in Zürich & Schweiz. Lösungen für Partner Horoskop, karmische Blockaden, Chakra Energie Arbeit, Familien Aufstellung, Lebensberatung. Kostenlose Erstberatung. Telefonische & Online Beratung verfügbar." 
+  />
+  <meta 
+    name="keywords" 
+    content="Indische Astrologie Beratung, Vedische Astrologie, Astrologie Beratung, Lebensberatung, Zukunftsberatung, Partner Horoskop, Partner Horoskop Analyse, Geberts Horoskop, Schicksal, Karma, Chakra Energie Arbeit, Heilbehandlung, Kundalini Energie, Marma Punkent, Sexuelle Blockaden, Karmische Blockaden, Sexuelle Unlust, Familie Trennung, Magie, Schwarze Magie, Familien Aufstellung, karmische Beziehung, Unfähigkeit loszulassen, Emotionale Abhängigkeit, karmische Blockaden lösen, Schweiz, Swiss, Zürich, Switzerland, Sternzeichen, Sonne, Mond, Aszendent, Stier, Steinbock, Zwillinge, Skorpion, Löwe, Jungfrau, Waage, Schütze, Wassermann, Fisch, Jahreshoroskop, Monatshoroskop, Vedische Astrologie Ausbildung, telefonische Beratung, Fernberatung, Online Beratung, Telefonberatung" 
+  />
+  <meta name="author" content="Suthakar Parameswaran" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="language" content="DE" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="geo.region" content="CH-ZH" />
+  <meta name="geo.placename" content="Zürich" />
+  <meta name="geo.position" content="47.374448;8.531434" />
+  <meta name="ICBM" content="47.374448, 8.531434" />
+  
+  {/* Open Graph */}
+  <meta property="og:title" content="Vedische & Indische Astrologie Beratung Zürich | Partner Horoskop & Karma Analyse" />
+  <meta property="og:description" content="Professionelle Vedische Astrologie Beratung in Zürich. Lösungen für Partner Horoskop, karmische Blockaden, Chakra Energie Arbeit & mehr. Telefonische & Online Beratung." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.indischeastro.ch" />
+  <meta property="og:image" content="https://www.indischeastro.ch/image/og-image.jpg" />
+  <meta property="og:site_name" content="IndischeAstro - Vedische Astrologie Zürich" />
+  <meta property="og:locale" content="de_CH" />
+  <meta property="og:latitude" content="47.374448" />
+  <meta property="og:longitude" content="8.531434" />
+  <meta property="og:street-address" content="Zwinglistrasse 37" />
+  <meta property="og:locality" content="Zürich" />
+  <meta property="og:postal-code" content="8004" />
+  <meta property="og:country-name" content="Switzerland" />
+  
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vedische Astrologie Beratung Zürich | Partner Horoskop & Karma" />
+  <meta name="twitter:description" content="Professionelle Vedische Astrologie Beratung. Partner Horoskop, Karma Analyse & spirituelle Heilung. Telefonische Beratung verfügbar." />
+  <meta name="twitter:image" content="https://www.indischeastro.ch/image/twitter-image.jpg" />
+  <meta name="twitter:label1" content="Standort" />
+  <meta name="twitter:data1" content="Zürich, Schweiz" />
+  <meta name="twitter:label2" content="Services" />
+  <meta name="twitter:data2" content="Astrologie, Energiearbeit, Heilung" />
+  
+  {/* Canonical */}
+  <link rel="canonical" href="https://www.indischeastro.ch" />
+  
+  {/* Alternates */}
+  <link rel="alternate" hrefLang="de-ch" href="https://www.indischeastro.ch" />
+  <link rel="alternate" hrefLang="x-default" href="https://www.indischeastro.ch" />
+</Head>
       
       <main className="flex flex-col h-auto w-full" itemScope itemType="https://schema.org/WebPage">
-        {/* Hero Section avec contenu SEO optimisé */}
+        {/* Le reste de votre code reste exactement le même */}
         <section aria-label="Vedische Astrologie Beratung in Zürich - Professionelle Lebensberatung und Partner Horoskop Analyse" itemScope itemType="https://schema.org/Service">
           <Carousel setApi={setApi}>
             <CarouselContent>
@@ -492,7 +694,7 @@ const staticServices = [
                           className="cursor-pointer px-6 py-3 md:px-8 md:py-4 font-semibold text-white bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] hover:from-red-600 hover:to-red-700 rounded-lg md:rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full sm:w-auto text-sm md:text-base"
                           itemProp="mainEntityOfPage"
                         >
-                          Kostenlose Erstberatung
+                          Mehr Informationen
                         </button>
                         <button
                           onClick={() => window.location.href = '/ServicePrice'}
@@ -505,7 +707,7 @@ const staticServices = [
                       </div>
                       
                       <p className="text-amber-200 text-xs md:text-sm mt-3 md:mt-4 text-center">
-                        ✅ Garantierte Qualität in allen Beratungsformaten - Persönlich, Telefonisch & Online
+                        ✅ Garantierte Qualität in allen Beratungsformats - Persönlich, Telefonisch & Online
                       </p>
                     </div>
                   </div>
@@ -641,7 +843,7 @@ const staticServices = [
         >
           <div className="flex flex-col items-center pl-9 pr-6 max-w-screen-lg">
             <h2 className="flex justify-center text-3xl text-[#ff6e54] p-5 font-bold">
-              Über <span itemProp="name"> Suthakar Parameswaran</span>
+               <span itemProp="name"> Suthakar Parameswaran</span>
             </h2>
             <p itemProp="description" className="text-white text-lg leading-relaxed mb-6">
               <strong itemProp="jobTitle">Suthakar Parameswaran</strong> ist ein renommierter Experte für 

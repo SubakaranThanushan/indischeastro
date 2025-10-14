@@ -8,6 +8,8 @@ import Head from 'next/head';
 
 // Remplace par le chemin vers ta photo
 import SuthakarPhoto from "@/public/image/ilustration/image.png";
+// Ajoute le logo de Schweiz 5
+import Schweiz5Logo from "@/public/image/logos/schweiz5-logo.png"; // Crée ce fichier dans ton dossier public
 
 // Données structurées JSON-LD pour le SEO
 const personSchema = {
@@ -79,7 +81,12 @@ const metaKeywords = [
   
   // Medien und Anerkennung
   "TV Experte Astrologie", "Schweiz 5 TV Astrologe", "Doctor of Letters Social Service",
-  "University of New Jerusalem", "Auszeichnungen Vedische Astrologie"
+  "University of New Jerusalem", "Auszeichnungen Vedische Astrologie",
+  
+  // NEUF: Mots-clés TV et médias
+  "TV Sender Schweiz 5", "Schweiz 5 Fernsehen", "TV Auftritte Astrologie",
+  "Medienpräsenz Astrologe", "TV Experte Vedische Astrologie", "Schweiz 5 Sendungen",
+  "Fernseh Astrologe Schweiz", "TV Berater Astrologie"
 ];
 
 export default function UberMich() {
@@ -101,10 +108,10 @@ export default function UberMich() {
   return (
     <>
       <Head>
-        <title>Suthakar Parameswaran - Vedischer Astrologe & Spiritueller Berater | 30+ Jahre Erfahrung</title>
+        <title>Suthakar Parameswaran - Vedischer Astrologe & TV-Experte Schweiz 5 | 30+ Jahre Erfahrung</title>
         <meta 
           name="description" 
-          content="Suthakar Parameswaran - Vedischer Astrologe mit 30+ Jahren Erfahrung. Jothida Thilagam Meister, Reiki Grand Master & spiritueller Berater in Zürich. Kostenlose Erstberatung." 
+          content="Suthakar Parameswaran - Vedischer Astrologe mit 30+ Jahren Erfahrung und TV-Experte bei Schweiz 5. Jothida Thilagam Meister, Reiki Grand Master & spiritueller Berater in Zürich." 
         />
         <meta name="keywords" content={metaKeywords.join(", ")} />
         <meta name="author" content="Suthakar Parameswaran" />
@@ -113,8 +120,8 @@ export default function UberMich() {
         <link rel="canonical" href="https://indischeastro.ch/ubermich" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Suthakar Parameswaran - Vedischer Astrologe & Spiritueller Berater | Zürich" />
-        <meta property="og:description" content="Vedischer Astrologe mit 30+ Jahren Erfahrung. Jothida Thilagam Meister, Reiki Grand Master & Experte für Karma-Analyse in Zürich." />
+        <meta property="og:title" content="Suthakar Parameswaran - Vedischer Astrologe & TV-Experte Schweiz 5 | Zürich" />
+        <meta property="og:description" content="Vedischer Astrologe mit 30+ Jahren Erfahrung und TV-Experte bei Schweiz 5. Jothida Thilagam Meister, Reiki Grand Master & Experte für Karma-Analyse in Zürich." />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://indischeastro.ch/ubermich" />
         <meta property="og:locale" content="de_CH" />
@@ -122,8 +129,8 @@ export default function UberMich() {
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Suthakar Parameswaran - Vedischer Astrologe | Zürich" />
-        <meta name="twitter:description" content="Vedischer Astrologe mit 30+ Jahren Erfahrung. Jothida Thilagam Meister & spiritueller Berater in Zürich." />
+        <meta name="twitter:title" content="Suthakar Parameswaran - Vedischer Astrologe & TV-Experte | Zürich" />
+        <meta name="twitter:description" content="Vedischer Astrologe mit 30+ Jahren Erfahrung und TV-Experte bei Schweiz 5. Jothida Thilagam Meister & spiritueller Berater in Zürich." />
         
         {/* Structured Data */}
         <script
@@ -175,7 +182,6 @@ export default function UberMich() {
 
         {/* Header Hero Section avec Parallax */}
         <section className="relative py-20 bg-gradient-to-br from-purple-900 via-[#260C56] to-purple-800 text-white overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/cosmic-pattern.svg')] opacity-10 animate-move-slow"></div>
           <div className="absolute inset-0">
             <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl animate-float"></div>
             <div className="absolute top-20 right-20 w-24 h-24 bg-pink-500/15 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
@@ -198,14 +204,25 @@ export default function UberMich() {
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-purple-200 mb-8 font-light">
-                  Vedischer Astrologe & spiritueller Berater mit 30+ Jahren Erfahrung
+                  Vedischer Astrologe & TV-Experte mit 30+ Jahren Erfahrung
                 </p>
                 
                 <p className="text-lg text-purple-100 max-w-2xl leading-relaxed">
                   <strong className="text-amber-300">Meister der Vedischen Astrologie (Jothida Thilagam)</strong> und 
-                  erfahrener spiritueller Berater in Zürich. Seit 1991 begleite ich Menschen auf ihrem 
-                  Weg zu innerer Klarheit und Lebenserfüllung durch uraltes vedisches Wissen.
+                  erfahrener spiritueller Berater in Zürich. <strong>TV-Experte bei Schweiz 5</strong> für Vedische Astrologie.
+                  Seit 1991 begleite ich Menschen auf ihrem Weg zu innerer Klarheit und Lebenserfüllung durch uraltes vedisches Wissen.
                 </p>
+
+                {/* TV Badge */}
+                <div className="flex items-center gap-3 mt-6 bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 max-w-md">
+                  <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm">TV</span>
+                  </div>
+                  <div>
+                    <p className="text-amber-300 font-semibold">TV-Experte bei Schweiz 5</p>
+                    <p className="text-purple-200 text-sm">Regelmäßige Auftritte in TV-Sendungen</p>
+                  </div>
+                </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
                   <Link 
@@ -213,15 +230,15 @@ export default function UberMich() {
                     className="group bg-gradient-to-r from-[#ff6e54] to-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg"
                   >
                     <span className="flex items-center gap-2">
-                      Kostenlose Vedische Astrologie Erstberatung
+                      Mehr Informationen
                       <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </span>
                   </Link>
                   <Link 
-                    href="#qualifications"
+                    href="#tv-appearances"
                     className="group bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
                   >
-                    Meine Qualifikationen & Ausbildungen
+                    Meine TV-Auftritte
                   </Link>
                 </div>
               </div>
@@ -233,7 +250,7 @@ export default function UberMich() {
                     <div className="w-80 h-80 md:w-96 md:h-96 relative">
                       <Image
                         src={SuthakarPhoto}
-                        alt="Suthakar Parameswaran - Vedischer Astrologe und spiritueller Berater in Zürich mit über 30 Jahren Erfahrung in Vedischer Astrologie und Jyotish"
+                        alt="Suthakar Parameswaran - Vedischer Astrologe und TV-Experte bei Schweiz 5 mit über 30 Jahren Erfahrung in Vedischer Astrologie und Jyotish"
                         fill
                         className="rounded-2xl object-cover p-2"
                         priority
@@ -246,6 +263,13 @@ export default function UberMich() {
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                         <span className="font-bold">Vedische Astrologie seit 1991</span>
+                      </div>
+                    </div>
+
+                    {/* TV Badge */}
+                    <div className="absolute -top-4 -left-4 bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-2xl transform group-hover:scale-110 transition-transform">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold">TV-Experte Schweiz 5</span>
                       </div>
                     </div>
                   </div>
@@ -274,6 +298,221 @@ export default function UberMich() {
             </div>
           </div>
         </section>
+
+        {/* NOUVELLE SECTION : TV Auftritte Schweiz 5 */}
+<section id="tv-appearances" className="py-20 bg-gradient-to-br from-red-50 via-white to-blue-50">
+  <div className="container mx-auto px-4">
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 border border-red-200 shadow-lg mb-6">
+          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+          <span className="text-red-600 font-semibold">📺 TV-Experte Schweiz 5 - Seit 2009</span>
+        </div>
+        
+        <h1 className="text-4xl md:text-5xl font-bold text-[#260C56] mb-6">
+          TV-Experte bei <span className="text-red-600">Schweiz 5</span> seit 2009
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Als erster Vedischer Astrologe im Schweizer Fernsehen startete ich 2009 meine TV-Karriere bei Schweiz 5. 
+          Seitdem teile ich regelmäßig mein Wissen über Vedische Astrologie und Jyotish mit einem breiten Publikum.
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
+        {/* Logo und Hauptinformationen */}
+        <div className="bg-white rounded-3xl shadow-2xl p-8 border border-red-100 transform hover:-translate-y-2 transition-all duration-300">
+          <div className="flex flex-col items-center text-center">
+            {/* Logo Schweiz 5 */}
+            <div className="w-48 h-24 mb-6 relative bg-white rounded-xl p-4 shadow-lg border border-red-200">
+              <div className="flex items-center justify-center h-full">
+                <span className="text-2xl font-bold text-red-600">SCHWEIZ 5</span>
+              </div>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-[#260C56] mb-4">
+              Meine TV-Emissionen bei Schweiz 5
+            </h2>
+            
+            {/* Émission 2009 en évidence */}
+            <div className="w-full mb-6">
+              <div className="bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl p-6 text-white text-center">
+                <div className="text-3xl mb-2">🎬</div>
+                <h3 className="text-xl font-bold mb-2">Start der TV-Karriere 2009</h3>
+                <p className="text-sm opacity-90">
+                  Erste TV-Emission als Vedischer Astrologe im Schweizer Fernsehen
+                </p>
+              </div>
+            </div>
+            
+            <div className="space-y-4 text-left w-full">
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white text-xs">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">Pionier der Vedischen Astrologie im TV</h4>
+                  <p className="text-gray-600 text-sm">Erster Vedischer Astrologe im Schweizer Fernsehen seit 2009</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white text-xs">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">Regelmäßige TV-Auftritte</h4>
+                  <p className="text-gray-600 text-sm">Experte für Vedische Astrologie in verschiedenen Sendungen bei Schweiz 5</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white text-xs">✓</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800">Wissenschaftliche Astrologie</h4>
+                  <p className="text-gray-600 text-sm">Vermittlung von Vedischer Astrologie als ernstzunehmende Wissenschaft seit 2009</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* TV Sendungen und Themen */}
+        <div className="space-y-6">
+          <div className="bg-gradient-to-br from-red-500 to-pink-500 rounded-3xl p-8 text-white shadow-2xl">
+            <h2 className="text-2xl font-bold mb-6">Themen in meinen TV-Emissionen</h2>
+            <div className="grid gap-4">
+              {tvTopics.map((topic, index) => (
+                <div key={index} className="flex items-center gap-3 bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                  <span className="text-xl">{topic.emoji}</span>
+                  <span className="font-semibold">{topic.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* TV Expert Badge avec année 2009 */}
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 text-center">
+            <div className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span className="text-white text-2xl">🎬</span>
+            </div>
+            <h3 className="font-bold text-gray-800 text-lg mb-2">TV-Experte seit 2009</h3>
+            <p className="text-gray-600 text-sm mb-3">
+              Pionier der Vedischen Astrologie im Schweizer Fernsehen
+            </p>
+            <div className="bg-red-100 text-red-600 text-sm font-semibold px-3 py-1 rounded-full inline-block">
+              Schweiz 5 TV Sender
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Timeline détaillée avec émission 2009 */}
+      <div className="mt-16 bg-white rounded-3xl shadow-2xl p-8 border border-gray-200">
+        <h2 className="text-3xl font-bold text-[#260C56] mb-8 text-center">
+          Meine TV-Karriere bei Schweiz 5 im Überblick
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="text-center group hover:scale-105 transition-transform duration-300">
+            <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <span className="text-white text-2xl">🎬</span>
+            </div>
+            <div className="text-sm font-semibold text-red-600 mb-2">2009</div>
+            <h3 className="font-bold text-gray-800 mb-2">Erste TV-Emission</h3>
+            <p className="text-gray-600 text-sm">
+              Start meiner TV-Karriere als Vedischer Astrologe bei Schweiz 5
+            </p>
+            <div className="mt-3 bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-full">
+              Pionierarbeit
+            </div>
+          </div>
+          
+          <div className="text-center group hover:scale-105 transition-transform duration-300">
+            <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <span className="text-white text-2xl">📡</span>
+            </div>
+            <div className="text-sm font-semibold text-red-600 mb-2">2010-2015</div>
+            <h3 className="font-bold text-gray-800 mb-2">Regelmäßige Sendungen</h3>
+            <p className="text-gray-600 text-sm">
+              Experte in verschiedenen TV-Formaten bei Schweiz 5
+            </p>
+            <div className="mt-3 bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-full">
+              Etablierter Experte
+            </div>
+          </div>
+          
+          <div className="text-center group hover:scale-105 transition-transform duration-300">
+            <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <span className="text-white text-2xl">🏆</span>
+            </div>
+            <div className="text-sm font-semibold text-red-600 mb-2">Heute</div>
+            <h3 className="font-bold text-gray-800 mb-2">Anerkannter TV-Experte</h3>
+            <p className="text-gray-600 text-sm">
+              Etablierter Astrologie-Experte im Schweizer Fernsehen
+            </p>
+            <div className="mt-3 bg-red-50 text-red-600 text-xs font-medium px-2 py-1 rounded-full">
+              Medienpräsenz
+            </div>
+          </div>
+        </div>
+        
+        {/* Section SEO optimisée pour 2009 */}
+        <div className="mt-12 bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-6 border border-red-200">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-red-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+              <span className="text-white text-xl">⭐</span>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-[#260C56] mb-2">
+                Vedische Astrologie im Schweizer Fernsehen seit 2009
+              </h3>
+              <p className="text-gray-700">
+                Als <strong>erster Vedischer Astrologe im Schweizer TV</strong> startete ich 2009 meine Medienkarriere 
+                bei <strong>Schweiz 5</strong>. Meine TV-Emissionen machen die uralte Weisheit des Jyotish 
+                einem breiten Publikum zugänglich und zeigen die praktische Anwendung der Vedischen Astrologie 
+                im modernen Leben.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="bg-white text-red-600 text-sm font-medium px-3 py-1 rounded-full border border-red-200">
+                  TV-Experte seit 2009
+                </span>
+                <span className="bg-white text-red-600 text-sm font-medium px-3 py-1 rounded-full border border-red-200">
+                  Schweiz 5 TV Sender
+                </span>
+                <span className="bg-white text-red-600 text-sm font-medium px-3 py-1 rounded-full border border-red-200">
+                  Vedische Astrologie im Fernsehen
+                </span>
+                <span className="bg-white text-red-600 text-sm font-medium px-3 py-1 rounded-full border border-red-200">
+                  Erste TV-Emission 2009
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call-to-Action pour référencement */}
+      <div className="mt-12 text-center">
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 inline-block">
+          <h3 className="text-lg font-bold text-[#260C56] mb-2">
+            🎬 TV-Experte für Vedische Astrologie
+          </h3>
+          <p className="text-gray-600 text-sm mb-4">
+            Seit meiner ersten TV-Emission 2009 bei Schweiz 5 teile ich Vedische Astrologie mit Schweizer Haushalten
+          </p>
+          <Link 
+            href="/contact"
+            className="bg-red-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-600 transition-colors inline-flex items-center gap-2"
+          >
+            Kontakt aufnehmen
+            <span>→</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Spirituelle Berufung avec Animation OPTIMISÉE */}
         <section className="py-20 relative">
@@ -454,7 +693,6 @@ export default function UberMich() {
         {/* Final CTA Section OPTIMISÉE */}
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-[#260C56] via-purple-800 to-purple-900"></div>
-          <div className="absolute inset-0 bg-[url('/images/stars-pattern.svg')] opacity-10 animate-move-slow"></div>
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
@@ -462,7 +700,7 @@ export default function UberMich() {
                 Starten Sie Ihre <span className="text-amber-300">Vedische Astrologie Reise</span>
               </h2>
               <p className="text-xl text-purple-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Lassen Sie sich von meiner 30-jährigen Erfahrung als Vedischer Astrologe leiten 
+                Lassen Sie sich von meiner 30-jährigen Erfahrung als Vedischer Astrologe und TV-Experte leiten 
                 und entdecken Sie neue Perspektiven für Ihr Leben durch uraltes Jyotish-Wissen.
               </p>
               
@@ -471,7 +709,7 @@ export default function UberMich() {
                   href="/contact"
                   className="group bg-gradient-to-r from-[#ff6e54] to-orange-500 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg flex items-center gap-3"
                 >
-                  <span>Kostenlose Vedische Astrologie Beratung</span>
+                  <span>Mehr Informationen</span>
                   <span className="group-hover:translate-x-2 transition-transform">✨</span>
                 </Link>
                 
@@ -594,3 +832,34 @@ const timelineData = {
     }
   ]
 };
+
+// NOUVELLES DONNÉES POUR LA SECTION TV
+const tvTopics = [
+  { emoji: '⭐', title: 'Vedische Astrologie Grundlagen' },
+  { emoji: '💑', title: 'Partnerschaft & Beziehungen' },
+  { emoji: '🌌', title: 'Karma & Schicksalsanalyse' },
+  { emoji: '🔮', title: 'Zukunftsprognosen' },
+  { emoji: '💼', title: 'Beruf & Karriere' },
+  { emoji: '❤️', title: 'Gesundheit & Wohlbefinden' }
+];
+
+const mediaTimeline = [
+  {
+    year: '2009',
+    title: 'Erste TV-Auftritte',
+    description: 'Beginn der Medienpräsenz als Vedische Astrologie Experte',
+    emoji: '🎬'
+  },
+  {
+    year: '2012-2015',
+    title: 'Regelmäßige Sendungen',
+    description: 'Experte in verschiedenen Formaten bei Schweiz 5',
+    emoji: '📡'
+  },
+  {
+    year: 'Heute',
+    title: 'Etablierter TV-Experte',
+    description: 'Anerkannter Astrologie-Experte im Schweizer Fernsehen',
+    emoji: '🏆'
+  }
+];

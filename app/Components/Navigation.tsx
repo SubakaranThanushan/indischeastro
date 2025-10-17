@@ -51,6 +51,17 @@ function Navigation() {
               HOME
             </Link>
           </li>
+
+          <li itemProp="name">
+            <Link 
+              href="/Selbsttests" 
+              title="Über Suthakar Parameswaran - Vedischer Astrologe, Jothida Vibooshan, Reiki Grand-Master, Heiler in Zürich Schweiz"
+              onClick={() => setVisible(false)}
+              itemProp="url"
+            >
+             Kostenlose Selbsttests
+            </Link>
+          </li>
           
           <li itemProp="name">
             <Link 

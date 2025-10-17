@@ -8,6 +8,18 @@ function AutoScrollingComponent() {
   const [isPaused, setIsPaused] = useState(false);
   const [isScrollingRight, setIsScrollingRight] = useState(true);
 
+  // Couleurs pour chaque commentaire
+  const cardColors = [
+    { bg: "bg-gradient-to-br from-blue-50 to-blue-100", border: "border-blue-200", accent: "#3b82f6" },
+    { bg: "bg-gradient-to-br from-purple-50 to-purple-100", border: "border-purple-200", accent: "#8b5cf6" },
+    { bg: "bg-gradient-to-br from-pink-50 to-pink-100", border: "border-pink-200", accent: "#ec4899" },
+    { bg: "bg-gradient-to-br from-green-50 to-green-100", border: "border-green-200", accent: "#10b981" },
+    { bg: "bg-gradient-to-br from-yellow-50 to-yellow-100", border: "border-yellow-200", accent: "#f59e0b" },
+    { bg: "bg-gradient-to-br from-indigo-50 to-indigo-100", border: "border-indigo-200", accent: "#6366f1" },
+    { bg: "bg-gradient-to-br from-red-50 to-red-100", border: "border-red-200", accent: "#ef4444" },
+    { bg: "bg-gradient-to-br from-teal-50 to-teal-100", border: "border-teal-200", accent: "#14b8a6" }
+  ];
+
   // Données en dur pour les commentaires
   const comment = [
     {
@@ -178,63 +190,74 @@ function AutoScrollingComponent() {
         >
           {/* Conteneur principal avec display inline-flex pour l'alignement horizontal */}
           <div className="inline-flex gap-8 py-4">
-            {comment.map((review, index) => (
-              <div 
-                role="listitem" 
-                key={review.id}
-                className="inline-flex flex-shrink-0 w-80 md:w-96 transform transition-all duration-300 hover:scale-105"
-                style={{
-                  animationDelay: `${index * 0.1}s`
-                }}
-              >
-                {/* Enhanced Card Design */}
-                <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden group w-full">
-                  {/* Card Header */}
-                  <div className="p-6 pb-4">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <div className="w-12 h-12 bg-gradient-to-br from-[#ff6e54] to-[#ff8e54] rounded-full flex items-center justify-center text-white font-semibold text-lg">
-                            {review.nom.split(' ').map(n => n[0]).join('')}
+            {comment.map((review, index) => {
+              const colorSet = cardColors[index % cardColors.length];
+              return (
+                <div 
+                  role="listitem" 
+                  key={review.id}
+                  className="inline-flex flex-shrink-0 w-80 md:w-96 transform transition-all duration-300 hover:scale-105"
+                  style={{
+                    animationDelay: `${index * 0.1}s`
+                  }}
+                >
+                  {/* Enhanced Card Design avec couleur dynamique */}
+                  <div className={`rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group w-full ${colorSet.bg} border ${colorSet.border}`}>
+                    {/* Card Header */}
+                    <div className="p-6 pb-4">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="relative">
+                            <div 
+                              className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-lg"
+                              style={{ backgroundColor: colorSet.accent }}
+                            >
+                              {review.nom.split(' ').map(n => n[0]).join('')}
+                            </div>
+                            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                              <FaGoogle className="w-2 h-2 text-white" />
+                            </div>
                           </div>
-                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                            <FaGoogle className="w-2 h-2 text-white" />
+                          <div>
+                            <h3 className="font-bold text-gray-800 text-lg">{review.nom}</h3>
+                            <p className="text-gray-500 text-sm">{review.date}</p>
                           </div>
                         </div>
-                        <div>
-                          <h3 className="font-bold text-gray-800 text-lg">{review.nom}</h3>
-                          <p className="text-gray-500 text-sm">{review.date}</p>
-                        </div>
+                        <FaQuoteLeft 
+                          className="w-6 h-6 transition-colors" 
+                          style={{ 
+                            color: `${colorSet.accent}20`,
+                          }}
+                        />
                       </div>
-                      <FaQuoteLeft className="w-6 h-6 text-[#ff6e54]/20 group-hover:text-[#ff6e54]/40 transition-colors" />
+                      
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <StarRating rating={review.rating} />
+                      </div>
                     </div>
-                    
-                    {/* Star Rating */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <StarRating rating={review.rating} />
+
+                    {/* Card Body */}
+                    <div className="px-6 pb-6">
+                      <p className="text-gray-700 leading-relaxed text-lg whitespace-normal line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
+                        {review.explication}
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Card Body */}
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-700 leading-relaxed text-lg whitespace-normal line-clamp-4 group-hover:line-clamp-none transition-all duration-300">
-                      {review.explication}
-                    </p>
-                  </div>
-
-                  {/* Card Footer */}
-                  <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">Verifizierte Bewertung</span>
-                      <div className="flex items-center gap-1 text-[#4285F4]">
-                        <FaGoogle className="w-4 h-4" />
-                        <span className="text-sm font-medium">Google</span>
+                    {/* Card Footer */}
+                    <div className="px-6 py-4 border-t border-gray-200/50">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500">Verifizierte Bewertung</span>
+                        <div className="flex items-center gap-1 text-[#4285F4]">
+                          <FaGoogle className="w-4 h-4" />
+                          <span className="text-sm font-medium">Google</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

@@ -390,3 +390,234 @@ details[open] > summary::after {
 .hover\:shadow-3xl:hover {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
+/* Animations pour le premier slide */
+@keyframes rotate-mandala {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.1); }
+}
+
+@keyframes rotate-mandala-reverse {
+  from { transform: rotate(360deg) scale(1.1); }
+  to { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes divine-light {
+  0%, 100% { opacity: 0.3; transform: translateY(-10px); }
+  50% { opacity: 0.6; transform: translateY(0); }
+}
+
+@keyframes soul-particles {
+  0%, 100% { 
+    opacity: 0; 
+    transform: translateY(0) translateX(0) scale(0.5); 
+  }
+  25% { 
+    opacity: 0.8; 
+    transform: translateY(-40px) translateX(20px) scale(1.2); 
+  }
+  50% { 
+    opacity: 0.4; 
+    transform: translateY(-20px) translateX(-30px) scale(0.8); 
+  }
+  75% { 
+    opacity: 0.9; 
+    transform: translateY(-60px) translateX(10px) scale(1.1); 
+  }
+}
+
+@keyframes hologram-float {
+  0%, 100% { 
+    opacity: 0.05; 
+    transform: translateY(0) rotate(0deg) scale(1); 
+  }
+  33% { 
+    opacity: 0.15; 
+    transform: translateY(-30px) rotate(120deg) scale(1.3); 
+  }
+  66% { 
+    opacity: 0.08; 
+    transform: translateY(-15px) rotate(240deg) scale(0.9); 
+  }
+}
+
+@keyframes karmic-vortex {
+  0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+  50% { transform: rotate(180deg) scale(1.2); opacity: 0.6; }
+  100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+}
+
+@keyframes consciousness-wave {
+  0% { transform: translateX(-100%) scaleX(0.5); opacity: 0; }
+  50% { transform: translateX(0) scaleX(1); opacity: 0.4; }
+  100% { transform: translateX(100%) scaleX(0.5); opacity: 0; }
+}
+
+@keyframes sacred-rain {
+  0% { transform: translateY(-100px) scaleY(0.3); opacity: 0; }
+  50% { transform: translateY(0) scaleY(1); opacity: 0.6; }
+  100% { transform: translateY(100px) scaleY(0.3); opacity: 0; }
+}
+
+@keyframes pulse-halo {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.1); }
+}
+
+@keyframes title-glow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+@keyframes text-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.8; 
+    transform: scale(1); 
+    box-shadow: 0 0 20px currentColor;
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.1); 
+    box-shadow: 0 0 40px currentColor;
+  }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+/* Animations pour le deuxième slide */
+@keyframes galaxy-rotate {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.05); }
+}
+
+@keyframes galaxy-rotate-reverse {
+  from { transform: rotate(360deg) scale(1.05); }
+  to { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes consciousness-stars {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  25% { opacity: 1; transform: scale(2); }
+  50% { opacity: 0.3; transform: scale(1.5); }
+  75% { opacity: 0.8; transform: scale(1.8); }
+}
+
+@keyframes dimensional-portal {
+  0% { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 0.1;
+    border-color: rgba(192, 132, 252, 0.1);
+  }
+  50% { 
+    transform: scale(1.3) rotate(180deg); 
+    opacity: 0.3;
+    border-color: rgba(167, 139, 250, 0.2);
+  }
+  100% { 
+    transform: scale(1) rotate(360deg); 
+    opacity: 0.1;
+    border-color: rgba(192, 132, 252, 0.1);
+  }
+}
+
+@keyframes healing-energy {
+  0%, 100% { opacity: 0.2; transform: translateY(10px); }
+  50% { opacity: 0.5; transform: translateY(0); }
+}
+
+@keyframes alchemy-float {
+  0%, 100% { 
+    opacity: 0.06; 
+    transform: translateY(0) rotate(0deg) scale(1); 
+  }
+  25% { 
+    opacity: 0.12; 
+    transform: translateY(-40px) rotate(90deg) scale(1.4); 
+  }
+  75% { 
+    opacity: 0.08; 
+    transform: translateY(-20px) rotate(270deg) scale(0.8); 
+  }
+}
+
+@keyframes wisdom-rays {
+  0% { opacity: 0; transform: rotate(var(--rotation)) scaleY(0); }
+  50% { opacity: 0.4; transform: rotate(var(--rotation)) scaleY(1); }
+  100% { opacity: 0; transform: rotate(var(--rotation)) scaleY(0); }
+}
+
+@keyframes spiritual-nebula {
+  0%, 100% { 
+    opacity: 0.1; 
+    transform: scale(1) rotate(0deg); 
+    filter: blur(20px);
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: scale(1.2) rotate(180deg); 
+    filter: blur(30px);
+  }
+}
+
+@keyframes aura-pulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.1); }
+}
+
+@keyframes title-glow-purple {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+}
+
+@keyframes text-float-gentle {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-3px); opacity: 0.9; }
+}
+
+@keyframes pulse-sacred {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg); 
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+  25% { 
+    transform: scale(1.1) rotate(5deg); 
+    filter: drop-shadow(0 0 20px currentColor);
+  }
+  75% { 
+    transform: scale(0.95) rotate(-5deg); 
+    filter: drop-shadow(0 0 15px currentColor);
+  }
+}
+
+@keyframes shine-slow {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+/* Classes d'animation */
+.animate-rotate-mandala {
+  animation: rotate-mandala 30s linear infinite;
+}
+
+.animate-rotate-mandala-reverse {
+  animation: rotate-mandala-reverse 35s linear infinite;
+}
+
+.animate-divine-light {
+  animation: divine-light 12s ease-in-out infinite;
+}
+
+.animate-soul-particles {
+  animation: soul-particles 20s ease-in-out infinite;
+}
+
+.animate-hologram-float {
+  animation: hologram-float 25s ease-in-out;
+}

@@ -590,245 +590,361 @@ export default function Home() {
       
       <main className="flex flex-col h-auto w-full" itemScope itemType="https://schema.org/WebPage">
         {/* Le reste de votre code reste exactement le même */}
-        <section aria-label="Vedische Astrologie Beratung in Zürich - Professionelle Lebensberatung und Partner Horoskop Analyse" itemScope itemType="https://schema.org/Service">
-          <Carousel setApi={setApi}>
-            <CarouselContent>
-              {/* PREMIER SLIDE - VEDISCHE ASTROLOGIE */}
-              <CarouselItem>
-                <div className="grid md:grid-cols-2 min-h-[600px] relative overflow-hidden bg-amber-600">
-                  {/* Background animations */}
-                  <div className="absolute inset-0 bg-amber-600">
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-0 left-0 w-full h-1 bg-amber-300/50 animate-slide-lines"></div>
-                      <div className="absolute top-10 left-0 w-full h-1 bg-amber-200/40 animate-slide-lines" style={{animationDelay: '1s'}}></div>
-                      <div className="absolute top-20 left-0 w-full h-1 bg-amber-300/30 animate-slide-lines" style={{animationDelay: '2s'}}></div>
-                      <div className="absolute top-32 left-0 w-full h-1 bg-amber-200/50 animate-slide-lines" style={{animationDelay: '3s'}}></div>
-                    </div>
+<section aria-label="Vedische Astrologie Beratung in Zürich - Professionelle Lebensberatung und Partner Horoskop Analyse" itemScope itemType="https://schema.org/Service">
+  <Carousel setApi={setApi}>
+    <CarouselContent>
+{/* PREMIER SLIDE - VEDISCHE ASTROLOGIE */}
+<CarouselItem>
+  <div className="flex flex-col md:grid md:grid-cols-2 h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] relative overflow-hidden bg-gradient-to-br from-amber-700 via-orange-900 to-purple-900">
+        <div className="absolute inset-0">
+      {/* Mandala cosmique rotatif */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="w-96 h-96 border-4 border-amber-300/10 rounded-full animate-rotate-mandala"></div>
+        <div className="w-80 h-80 border-2 border-orange-200/15 rounded-full animate-rotate-mandala-reverse" style={{animationDuration: '40s'}}></div>
+        <div className="w-64 h-64 border-3 border-yellow-100/20 rounded-full animate-rotate-mandala" style={{animationDuration: '35s'}}></div>
+      </div>
 
-                    <div className="absolute inset-0 flex justify-between items-end px-10">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="w-4 bg-amber-300/30 rounded-t-lg animate-pulse-bars"
-                          style={{
-                            animationDelay: `${i * 0.5}s`,
-                            height: `${20 + (i * 8)}%`
-                          }}
-                        ></div>
-                      ))}
-                    </div>
+      {/* Énergie divine descendante */}
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-yellow-200/5 via-orange-300/3 to-transparent animate-divine-light"></div>
 
-                    <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-amber-500/30 to-transparent animate-wave-move"></div>
+      {/* Particules d'âme */}
+      {[...Array(25)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-3 h-3 bg-gradient-to-r from-yellow-200 to-amber-300 rounded-full animate-soul-particles"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${i * 0.6}s`,
+            animationDuration: `${15 + Math.random() * 20}s`
+          }}
+        ></div>
+      ))}
 
-                    <div className="absolute top-1/4 left-1/4 w-32 h-2 bg-amber-200/40 rounded-full animate-float-diagonal"></div>
-                    <div className="absolute top-3/4 right-1/3 w-24 h-1 bg-amber-300/50 rounded-full animate-float-diagonal" style={{animationDelay: '2s'}}></div>
-                    <div className="absolute top-1/2 left-1/2 w-16 h-3 bg-amber-100/30 rounded-full animate-float-diagonal" style={{animationDelay: '4s'}}></div>
-                  </div>
+      {/* Symboles sacrés holographiques */}
+      <div className="absolute top-20 left-20 text-amber-300/10 text-6xl animate-hologram-float">🕉</div>
+      <div className="absolute bottom-32 right-24 text-orange-200/8 text-5xl animate-hologram-float" style={{animationDelay: '8s'}}>☯</div>
+      <div className="absolute top-40 right-40 text-yellow-100/12 text-4xl animate-hologram-float" style={{animationDelay: '15s'}}>𓁶</div>
+      <div className="absolute bottom-40 left-32 text-amber-200/6 text-7xl animate-hologram-float" style={{animationDelay: '22s'}}>✡</div>
 
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  
-                  {/* Image Column */}
-                  <div className="flex justify-center items-center p-4 md:p-8 relative z-10">
-                    <div className="relative w-full max-w-md h-[400px] md:h-[500px]" itemProp="image">
-                      <Image
-                        src={Profil}
-                        alt="Suthakar Parameswaran - Vedischer Astrologe und Experte für Partner Horoskop Analyse, Karma Beratung und Vedische Astrologie in Zürich, Schweiz"
-                        fill
-                        className="rounded-lg transition-all duration-300 hover:grayscale-0 object-cover shadow-2xl hover:scale-105"
-                        priority
-                        itemProp="image"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Content Column */}
-                  <div className="flex flex-col justify-center p-6 md:p-8 text-white relative z-10">
-                    <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
-                      <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mb-4">
-                        <div className="bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
-                          <span className="font-semibold text-sm md:text-base">🏠 Persönliche Beratung in Zürich: 150 CHF</span>
-                        </div>
-                        <div className="bg-white/20 backdrop-blur-sm px-3 py-2 md:px-4 md:py-2 rounded-full border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105">
-                          <span className="font-semibold text-sm md:text-base">📞 Telefonische & Online Beratung: 100 CHF</span>
-                        </div>
-                      </div>
+      {/* Vortex d'énergie karmique */}
+      <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-to-r from-transparent via-amber-400/5 to-transparent rounded-full animate-karmic-vortex"></div>
+      <div className="absolute bottom-1/3 left-1/4 w-32 h-32 bg-gradient-to-r from-transparent via-orange-300/8 to-transparent rounded-full animate-karmic-vortex" style={{animationDelay: '5s'}}></div>
 
-                      <h1 className="text-2xl md:text-4xl font-bold leading-tight" itemProp="name">
-                        Vedische Astrologie & Indische Astrologie Beratung
-                        <span className="block text-amber-200 mt-1 md:mt-2 text-xl md:text-3xl">in Zürich mit Suthakar Parameswaran</span>
-                      </h1>
-                      
-                      <h2 className="text-lg md:text-2xl font-bold text-amber-100" itemProp="description">
-                        Professionelle Lebensberatung, Zukunftsberatung und spirituelle Heilung
-                      </h2>
+      {/* Ondes de conscience */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-full h-1 bg-gradient-to-r from-transparent via-amber-300/20 to-transparent animate-consciousness-wave"></div>
+        <div className="w-full h-1 bg-gradient-to-r from-transparent via-orange-200/15 to-transparent animate-consciousness-wave" style={{animationDelay: '3s'}}></div>
+        <div className="w-full h-1 bg-gradient-to-r from-transparent via-yellow-100/10 to-transparent animate-consciousness-wave" style={{animationDelay: '6s'}}></div>
+      </div>
 
-                      <div className="bg-white/10 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/20 w-full max-w-md hover:bg-white/15 transition-all duration-300">
-                        <h3 className="text-base md:text-lg font-semibold mb-3 text-amber-100">Ihre Vorteile:</h3>
-                        <div className="space-y-3 text-left">
-                          <div className="flex items-center gap-3">
-                            <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 animate-pulse">
-                              <span className="text-white text-xs md:text-sm">⭐</span>
-                            </div>
-                            <div className="flex-1">
-                              <p className="font-semibold text-sm md:text-base">Partner Horoskop Analyse</p>
-                              <p className="text-xs md:text-sm text-amber-100">Tiefe Einblicke in Beziehungsdynamiken & karmische Beziehungen</p>
-                            </div>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 animate-pulse" style={{animationDelay: '1s'}}>
-                              <span className="text-white text-xs md:text-sm">🔮</span>
-                            </div>
-                            <div className="flex-1">
-                              <p className="font-semibold text-sm md:text-base">Karmische Blockaden lösen</p>
-                              <p className="text-xs md:text-sm text-amber-100">Befreiung von emotionalen Lasten & Sexuelle Blockaden</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+      {/* Pluie de lumière sacrée */}
+      <div className="absolute inset-0">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-20 bg-gradient-to-b from-transparent via-yellow-200/30 to-transparent animate-sacred-rain"
+            style={{
+              left: `${10 + i * 8}%`,
+              animationDelay: `${i * 0.4}s`,
+              animationDuration: `${4 + Math.random() * 3}s`
+            }}
+          ></div>
+        ))}
+      </div>
+    </div>
 
-                      <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center mt-4 w-full max-w-md">
-                        <button
-                          onClick={() => window.location.href = '/contact'}
-                          type="button"
-                          aria-label="Jetzt Termin für Vedische Astrologie Beratung in Zürich vereinbaren - Persönlich, Telefonisch oder Online"
-                          className="cursor-pointer px-6 py-3 md:px-8 md:py-4 font-semibold text-white bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] hover:from-red-600 hover:to-red-700 rounded-lg md:rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full sm:w-auto text-sm md:text-base"
-                          itemProp="mainEntityOfPage"
-                        >
-                          Mehr Informationen
-                        </button>
-                        <button
-                          onClick={() => window.location.href = '/ServicePrice'}
-                          type="button"
-                          aria-label="Alle Dienstleistungen für Vedische Astrologie, Partner Horoskop und Karma Beratung ansehen"
-                          className="cursor-pointer px-4 py-2 md:px-6 md:py-3 font-medium text-white border-2 border-white/50 hover:border-white rounded-lg text-center transition-all duration-300 hover:bg-white/10 w-full sm:w-auto text-sm md:text-base"
-                        >
-                          Dienstleistungen entdecken
-                        </button>
-                      </div>
-                      
-                      <p className="text-amber-200 text-xs md:text-sm mt-3 md:mt-4 text-center">
-                        ✅ Garantierte Qualität in allen Beratungsformats - Persönlich, Telefonisch & Online
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
+    {/* Voile mystique */}
+    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-amber-600/10"></div>
+    
+    {/* Image Column avec effet sacré */}
+    <div className="flex justify-center items-center p-4 md:p-8 relative z-10 order-1 md:order-1">
+      <div className="relative w-full max-w-md h-[300px] md:h-[400px]" itemProp="image">
+        {/* Halo sacré autour de l'image */}
+        <div className="absolute -inset-4 bg-gradient-to-r from-amber-400/10 to-orange-300/5 rounded-full animate-pulse-halo blur-xl"></div>
+        <div className="absolute -inset-2 bg-gradient-to-r from-yellow-200/8 to-amber-300/3 rounded-full animate-pulse-halo blur-lg" style={{animationDelay: '2s'}}></div>
+        
+        <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-amber-300/20 shadow-2xl">
+          <Image
+            src={Profil}
+            alt="Suthakar Parameswaran - Vedischer Astrologe und Experte für Partner Horoskop Analyse, Karma Beratung und Vedische Astrologie in Zürich, Schweiz"
+            fill
+            className="object-cover transition-all duration-500 hover:scale-110"
+            priority
+            itemProp="image"
+          />
+          {/* Overlay sacré */}
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-purple-600/3"></div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Content Column avec énergie textuelle */}
+    <div className="flex flex-col justify-center p-6 md:p-8 text-white relative z-10 order-2 md:order-2">
+      <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
+        {/* Badges énergétiques */}
+        <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mb-4">
+          <div className="bg-gradient-to-r from-amber-500/30 to-orange-500/20 backdrop-blur-lg px-4 py-3 rounded-2xl border border-amber-300/30 hover:border-amber-200/50 transition-all duration-500 hover:scale-105 shadow-lg">
+            <span className="font-semibold text-sm md:text-base text-amber-100">🏠 Persönliche Beratung in Zürich: 150 CHF</span>
+          </div>
+          <div className="bg-gradient-to-r from-purple-500/25 to-pink-500/15 backdrop-blur-lg px-4 py-3 rounded-2xl border border-purple-300/25 hover:border-purple-200/40 transition-all duration-500 hover:scale-105 shadow-lg">
+            <span className="font-semibold text-sm md:text-base text-purple-100">📞 Telefonische & Online Beratung: 100 CHF</span>
+          </div>
+        </div>
 
-              {/* DEUXIÈME SLIDE - SPIRITUELLE HEILUNG */}
-              <CarouselItem>
-                <div className="grid md:grid-cols-2 min-h-[600px] relative overflow-hidden bg-purple-700">
-                  {/* Background animations */}
-                  <div className="absolute inset-0 bg-purple-700">
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-0 left-0 w-full h-1 bg-purple-300/50 animate-slide-lines"></div>
-                      <div className="absolute top-12 left-0 w-full h-1 bg-purple-200/40 animate-slide-lines" style={{animationDelay: '1.5s'}}></div>
-                      <div className="absolute top-24 left-0 w-full h-1 bg-purple-300/30 animate-slide-lines" style={{animationDelay: '3s'}}></div>
-                      <div className="absolute top-36 left-0 w-full h-1 bg-purple-200/50 animate-slide-lines" style={{animationDelay: '4.5s'}}></div>
-                    </div>
+        {/* Titre avec effet de lumière divine */}
+        <div className="relative">
+          <div className="absolute -inset-4 bg-gradient-to-r from-amber-400/10 to-transparent rounded-full blur-lg animate-title-glow"></div>
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight relative" itemProp="name">
+            <span className="bg-gradient-to-r from-amber-200 via-yellow-100 to-orange-200 bg-clip-text text-transparent">
+              Vedische Astrologie
+            </span>
+            <span className="block text-amber-100 mt-2 text-xl md:text-4xl animate-text-float">
+              in Zürich mit Suthakar Parameswaran
+            </span>
+          </h1>
+        </div>
+        
+        <h2 className="text-lg md:text-2xl font-bold text-amber-100 bg-amber-900/20 px-6 py-3 rounded-2xl border border-amber-400/10 backdrop-blur-sm" itemProp="description">
+          Professionelle Lebensberatung, Zukunftsberatung und spirituelle Heilung
+        </h2>
 
-                    <div className="absolute inset-0 flex justify-around items-end px-8">
-                      {[...Array(10)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="w-3 bg-purple-300/40 rounded-t-lg animate-pulse-bars"
-                          style={{
-                            animationDelay: `${i * 0.3}s`,
-                            height: `${15 + (i * 7)}%`
-                          }}
-                        ></div>
-                      ))}
-                    </div>
+        {/* Carte des avantages avec énergie */}
+        <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-white/20 w-full max-w-md hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-2xl">
+          <h3 className="text-lg md:text-xl font-semibold mb-4 text-amber-100 text-center">Ihre Vorteile:</h3>
+          <div className="space-y-4 text-left">
+            <div className="flex items-center gap-4 p-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-600/5 hover:from-green-500/20 transition-all duration-300">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0 animate-pulse-glow">
+                <span className="text-white text-lg">⭐</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-base md:text-lg">Partner Horoskop Analyse</p>
+                <p className="text-sm text-amber-100/80">Tiefe Einblicke in Beziehungsdynamiken & karmische Beziehungen</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-indigo-600/5 hover:from-blue-500/20 transition-all duration-300">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center flex-shrink-0 animate-pulse-glow" style={{animationDelay: '1s'}}>
+                <span className="text-white text-lg">🔮</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-base md:text-lg">Karmische Blockaden lösen</p>
+                <p className="text-sm text-amber-100/80">Befreiung von emotionalen Lasten & Sexuelle Blockaden</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                    <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-purple-500/40 to-transparent animate-wave-move" style={{animationDelay: '1s'}}></div>
+        {/* Boutons d'action sacrés */}
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-center mt-6 w-full max-w-md">
+          <button
+            onClick={() => window.location.href = '/contact'}
+            type="button"
+            aria-label="Jetzt Termin für Vedische Astrologie Beratung in Zürich vereinbaren - Persönlich, Telefonisch oder Online"
+            className="cursor-pointer px-8 py-4 md:px-10 md:py-5 font-bold text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-2xl text-center transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-110 w-full sm:w-auto text-base md:text-lg relative overflow-hidden"
+            itemProp="mainEntityOfPage"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"></div>
+            Mehr Informationen
+          </button>
+          <button
+            onClick={() => window.location.href = '/ServicePrice'}
+            type="button"
+            aria-label="Alle Dienstleistungen für Vedische Astrologie, Partner Horoskop und Karma Beratung ansehen"
+            className="cursor-pointer px-6 py-3 md:px-8 md:py-4 font-semibold text-white border-2 border-amber-300/50 hover:border-amber-200 rounded-2xl text-center transition-all duration-500 hover:bg-amber-500/10 w-full sm:w-auto text-sm md:text-base hover:scale-105"
+          >
+            Dienstleistungen entdecken
+          </button>
+        </div>
+        
+        <p className="text-amber-200/90 text-sm md:text-base mt-4 text-center bg-amber-900/20 px-4 py-2 rounded-full border border-amber-400/10">
+          ✅ Garantierte Qualität in allen Beratungsformats - Persönlich, Telefonisch & Online
+        </p>
+      </div>
+    </div>
+  </div>
+</CarouselItem>
 
-                    <div className="absolute top-1/3 right-1/4 w-28 h-2 bg-purple-200/50 rounded-full animate-float-diagonal"></div>
-                    <div className="absolute top-2/3 left-1/4 w-20 h-1 bg-purple-300/60 rounded-full animate-float-diagonal" style={{animationDelay: '3s'}}></div>
-                    <div className="absolute top-1/4 right-1/2 w-12 h-3 bg-purple-100/40 rounded-full animate-float-diagonal" style={{animationDelay: '6s'}}></div>
-                  </div>
+{/* DEUXIÈME SLIDE - SPIRITUELLE HEILUNG INTENSE */}
+<CarouselItem>
+  <div className="flex flex-col md:grid md:grid-cols-2 h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] relative overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">    {/* Univers spirituel */}
+    <div className="absolute inset-0">
+      {/* Galaxie spirituelle */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="w-[600px] h-[600px] border-2 border-purple-400/5 rounded-full animate-galaxy-rotate"></div>
+        <div className="w-[500px] h-[500px] border-3 border-indigo-300/8 rounded-full animate-galaxy-rotate-reverse" style={{animationDuration: '80s'}}></div>
+        <div className="w-[400px] h-[400px] border border-blue-200/10 rounded-full animate-galaxy-rotate" style={{animationDuration: '60s'}}></div>
+      </div>
 
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  
-                  {/* Image Column */}
-                  <div className="flex justify-center items-center p-4 md:p-8 relative z-10">
-                    <div className="relative w-full max-w-md h-[400px] md:h-[500px]">
-                      <Image
-                        src={World}
-                        alt="Vedische Astrologie und spirituelle Heilung in der Schweiz - Professionelle Beratung für Zürich, Bern, Luzern, Basel und ganz Europa"
-                        fill
-                        className="rounded-lg transition-all duration-300 hover:grayscale-0 object-cover shadow-2xl hover:scale-105"
-                        priority
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Content Column */}
-                  <div className="flex flex-col justify-center p-6 md:p-8 text-white relative z-10">
-                    <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
-                      <div className="bg-gradient-to-r from-green-500 to-emerald-600 px-4 py-2 md:px-6 md:py-3 rounded-full shadow-lg hover:scale-105 transition-all duration-300">
-                        <span className="font-bold text-white text-sm md:text-base">✨ Spezialist für karmische Beziehungen & Familien Aufstellung</span>
-                      </div>
+      {/* Étoiles de conscience */}
+      {[...Array(50)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-1 h-1 bg-white rounded-full animate-consciousness-stars"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${i * 0.3}s`,
+            animationDuration: `${2 + Math.random() * 4}s`
+          }}
+        ></div>
+      ))}
 
-                      <h1 className="text-2xl md:text-4xl font-bold leading-tight">
-                        Spirituelle Heilung & Energiearbeit
-                        <span className="block text-purple-200 mt-1 md:mt-2 text-xl md:text-3xl">Für Zürich, Schweiz und Europa</span>
-                      </h1>
-                      
-                      <h2 className="text-lg md:text-2xl font-bold text-purple-100">
-                        Lösungen für emotionale Blockaden, Sexuelle Unlust und Lebenskrisen
-                      </h2>
+      {/* Portails dimensionnels */}
+      <div className="absolute top-20 left-20 w-32 h-32 border-2 border-purple-400/10 rounded-full animate-dimensional-portal"></div>
+      <div className="absolute bottom-32 right-32 w-24 h-24 border-2 border-indigo-300/15 rounded-full animate-dimensional-portal" style={{animationDelay: '7s'}}></div>
+      <div className="absolute top-40 right-40 w-28 h-28 border-2 border-blue-200/12 rounded-full animate-dimensional-portal" style={{animationDelay: '14s'}}></div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full max-w-2xl">
-                        <div className="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                          <div className="text-xl md:text-2xl mb-2 animate-pulse">💞</div>
-                          <h4 className="font-semibold mb-2 text-sm md:text-base">Beziehungsprobleme & Partner Horoskop</h4>
-                          <p className="text-xs md:text-sm text-purple-100">Familien Aufstellung & karmische Beziehungen</p>
-                          <ul className="text-xs text-purple-200 mt-2 space-y-1">
-                            <li>• Emotionale Abhängigkeit</li>
-                            <li>• Karmische Beziehungen</li>
-                            <li>• Familie Trennung & Loslassen</li>
-                            <li>• Sexuelle Blockaden</li>
-                          </ul>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                          <div className="text-xl md:text-2xl mb-2 animate-pulse" style={{animationDelay: '0.5s'}}>⚡</div>
-                          <h4 className="font-semibold mb-2 text-sm md:text-base">Energie & Heilung</h4>
-                          <p className="text-xs md:text-sm text-purple-100">Ganzheitliche Therapieansätze</p>
-                          <ul className="text-xs text-purple-200 mt-2 space-y-1">
-                            <li>• Chakra Reinigung & Energiearbeit</li>
-                            <li>• Karmische Blockaden lösen</li>
-                            <li>• Kundalini Energie & Marma Punkent</li>
-                            <li>• Spiritualität & Wachstum</li>
-                          </ul>
-                        </div>
-                      </div>
+      {/* Énergie de guérison */}
+      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-purple-500/15 via-indigo-400/10 to-transparent animate-healing-energy"></div>
 
-                      <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center mt-4 w-full max-w-md">
-                        <button
-                          onClick={() => window.location.href = '/contact'}
-                          type="button"
-                          aria-label="Jetzt Beratungstermin für spirituelle Heilung und Vedische Astrologie vereinbaren - Telefonische Beratung verfügbar"
-                          className="cursor-pointer px-6 py-3 md:px-8 md:py-4 font-semibold text-white bg-gradient-to-r from-[#ff6e54] to-[#ff8e54] hover:from-red-600 hover:to-red-700 rounded-lg md:rounded-xl text-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 w-full sm:w-auto text-sm md:text-base"
-                        >
-                          📞 Telefonische Beratung buchen
-                        </button>
-                        <div className="text-center hover:scale-105 transition-all duration-300">
-                          <p className="text-purple-200 text-sm md:text-base">📞 +41 79 261 33 31</p>
-                          <p className="text-purple-200 text-xs md:text-sm">Mo-Fr: 14:00-20:00 Uhr</p>
-                        </div>
-                      </div>
+      {/* Symboles alchimiques */}
+      <div className="absolute top-16 right-24 text-purple-300/8 text-8xl animate-alchemy-float">☤</div>
+      <div className="absolute bottom-40 left-28 text-indigo-200/6 text-7xl animate-alchemy-float" style={{animationDelay: '12s'}}>⚗</div>
+      <div className="absolute top-52 left-52 text-blue-100/9 text-6xl animate-alchemy-float" style={{animationDelay: '24s'}}>♾</div>
 
-                      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 w-full max-w-md hover:bg-white/10 transition-all duration-300">
-                        <p className="text-purple-200 text-xs md:text-sm text-center">
-                          🎯 <strong>Erfolg versprochen:</strong> Über 30 Jahre Erfahrung in Vedischer Astrologie, Karma Analyse und Familien Aufstellung
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            </CarouselContent>
-          </Carousel>
-        </section>
+      {/* Rayons de sagesse */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-40 bg-gradient-to-b from-transparent via-purple-300/20 to-transparent animate-wisdom-rays"
+            style={{
+              transform: `rotate(${i * 30}deg)`,
+              animationDelay: `${i * 0.5}s`
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* Nebuleuse spirituelle */}
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-to-r from-purple-500/3 via-pink-500/2 to-transparent rounded-full animate-spiritual-nebula"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-56 h-56 bg-gradient-to-r from-transparent via-indigo-400/4 to-blue-500/3 rounded-full animate-spiritual-nebula" style={{animationDelay: '8s'}}></div>
+    </div>
+
+    {/* Voile mystique */}
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/15 via-transparent to-purple-800/10"></div>
+    
+    {/* Image Column avec aura spirituelle */}
+    <div className="flex justify-center items-center p-4 md:p-8 relative z-10 order-1 md:order-1">
+      <div className="relative w-full max-w-md h-[300px] md:h-[400px]">
+        {/* Aura spirituelle */}
+        <div className="absolute -inset-6 bg-gradient-to-r from-purple-500/10 to-indigo-400/5 rounded-full animate-aura-pulse blur-2xl"></div>
+        <div className="absolute -inset-4 bg-gradient-to-r from-blue-400/8 to-purple-300/3 rounded-full animate-aura-pulse blur-xl" style={{animationDelay: '3s'}}></div>
+        
+        <div className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-purple-300/25 shadow-3xl">
+          <Image
+            src={World}
+            alt="Vedische Astrologie und spirituelle Heilung in der Schweiz - Professionelle Beratung für Zürich, Bern, Luzern, Basel und ganz Europa"
+            fill
+            className="object-cover transition-all duration-500 hover:scale-110"
+            priority
+          />
+          {/* Overlay cosmique */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/8 to-blue-400/4"></div>
+        </div>
+      </div>
+    </div>
+    
+    {/* Content Column avec vibration élevée */}
+    <div className="flex flex-col justify-center p-6 md:p-8 text-white relative z-10 order-2 md:order-2">
+      <div className="flex flex-col justify-center items-center text-center gap-4 md:gap-6">
+        <div className="bg-gradient-to-r from-emerald-500 to-teal-600 px-6 py-4 rounded-3xl shadow-2xl hover:scale-110 transition-all duration-500 backdrop-blur-lg">
+          <span className="font-bold text-white text-lg md:text-xl">✨ Spezialist für karmische Beziehungen & Familien Aufstellung</span>
+        </div>
+
+        <div className="relative">
+          <div className="absolute -inset-6 bg-gradient-to-r from-purple-500/10 to-transparent rounded-full blur-xl animate-title-glow-purple"></div>
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight relative">
+            <span className="bg-gradient-to-r from-purple-200 via-violet-100 to-indigo-200 bg-clip-text text-transparent">
+              Spirituelle Heilung
+            </span>
+            <span className="block text-purple-100 mt-2 text-xl md:text-4xl animate-text-float-gentle">
+              Für Zürich, Schweiz und Europa
+            </span>
+          </h1>
+        </div>
+        
+        <h2 className="text-lg md:text-2xl font-bold text-purple-100 bg-purple-900/25 px-8 py-4 rounded-3xl border border-purple-400/15 backdrop-blur-lg">
+          Lösungen für emotionale Blockaden, Sexuelle Unlust und Lebenskrisen
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full max-w-2xl">
+          <div className="bg-gradient-to-br from-white/8 to-white/12 backdrop-blur-xl rounded-2xl p-5 border border-white/25 hover:border-white/40 transition-all duration-500 hover:scale-105 shadow-xl">
+            <div className="text-3xl mb-3 animate-pulse-sacred">💞</div>
+            <h4 className="font-semibold mb-3 text-base md:text-lg">Beziehungsprobleme & Partner Horoskop</h4>
+            <p className="text-sm text-purple-100/80 mb-3">Familien Aufstellung & karmische Beziehungen</p>
+            <ul className="text-xs text-purple-200/70 space-y-2">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                Emotionale Abhängigkeit
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                Karmische Beziehungen
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                Familie Trennung & Loslassen
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                Sexuelle Blockaden
+              </li>
+            </ul>
+          </div>
+          <div className="bg-gradient-to-br from-white/8 to-white/12 backdrop-blur-xl rounded-2xl p-5 border border-white/25 hover:border-white/40 transition-all duration-500 hover:scale-105 shadow-xl">
+            <div className="text-3xl mb-3 animate-pulse-sacred" style={{animationDelay: '0.7s'}}>⚡</div>
+            <h4 className="font-semibold mb-3 text-base md:text-lg">Energie & Heilung</h4>
+            <p className="text-sm text-purple-100/80 mb-3">Ganzheitliche Therapieansätze</p>
+            <ul className="text-xs text-purple-200/70 space-y-2">
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
+                Chakra Reinigung & Energiearbeit
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                Karmische Blockaden lösen
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                Kundalini Energie & Marma Punkent
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                Spiritualität & Wachstum
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-center mt-6 w-full max-w-md">
+          <button
+            onClick={() => window.location.href = '/contact'}
+            type="button"
+            aria-label="Jetzt Beratungstermin für spirituelle Heilung und Vedische Astrologie vereinbaren - Telefonische Beratung verfügbar"
+            className="cursor-pointer px-8 py-4 md:px-10 md:py-5 font-bold text-white bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 rounded-2xl text-center transition-all duration-500 shadow-2xl hover:shadow-3xl hover:scale-110 w-full sm:w-auto text-base md:text-lg relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shine-slow"></div>
+            📞 Telefonische Beratung buchen
+          </button>
+          <div className="text-center hover:scale-105 transition-all duration-500 bg-white/5 backdrop-blur-lg px-6 py-4 rounded-2xl border border-white/20">
+            <p className="text-purple-100 text-lg md:text-xl font-semibold">📞 +41 79 261 33 31</p>
+            <p className="text-purple-200/80 text-sm md:text-base">Mo-Fr: 14:00-20:00 Uhr</p>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-white/5 to-white/8 backdrop-blur-xl rounded-2xl p-4 border border-white/20 w-full max-w-md hover:bg-white/10 transition-all duration-500">
+          <p className="text-purple-200 text-sm md:text-base text-center">
+            🎯 <strong>Erfolg versprochen:</strong> Über 30 Jahre Erfahrung in Vedischer Astrologie, Karma Analyse und Familien Aufstellung
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</CarouselItem>
+    </CarouselContent>
+  </Carousel>
+</section>
         
         {/* Notification de contact */}
         <ContacteNotif />
@@ -890,6 +1006,209 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
+<section className="py-16 bg-gradient-to-br from-amber-50 to-orange-100 relative overflow-hidden">
+  {/* Dekorative Hintergrundelemente */}
+
+  <div className="absolute inset-0">
+    <div className="absolute top-10 left-10 w-20 h-20 bg-amber-200/30 rounded-full blur-xl"></div>
+    <div className="absolute bottom-20 right-20 w-32 h-32 bg-orange-200/20 rounded-full blur-2xl"></div>
+    <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-red-200/25 rounded-full blur-lg"></div>
+  </div>
+
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+        🔍 <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Kostenlose Automatische Tests</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        Entdecken Sie Ihre Energieblockaden und analysieren Sie Ihre Beziehung in nur wenigen Minuten
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8 items-center">
+      {/* Linke Spalte - Verfügbare Tests */}
+      <div className="space-y-6">
+        {/* Chakra Test */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-amber-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+              🌟
+            </div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Chakra Energie Test</h3>
+              <p className="text-gray-600 mb-4">
+                Analysieren Sie das Gleichgewicht Ihrer 7 Hauptenergiezentren und identifizieren Sie Ihre Blockaden
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span className="text-sm text-gray-700">Bewertung aller 7 Chakren</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span className="text-sm text-gray-700">Persönlicher Sofort-Bericht</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+                  <span className="text-sm text-gray-700">Tipps zum Ausgleich</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Beziehungstest */}
+        <div className="bg-white rounded-2xl p-6 shadow-lg border border-amber-100 hover:shadow-xl transition-all duration-300 group hover:scale-105">
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl group-hover:scale-110 transition-transform duration-300">
+              💑
+            </div>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Beziehungs Analyse</h3>
+              <p className="text-gray-600 mb-4">
+                Bewerten Sie die Dynamik Ihrer Partnerschaft und entdecken Sie karmische Potenziale
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span className="text-sm text-gray-700">Energie-Kompatibilität</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span className="text-sm text-gray-700">Karmische Dynamik</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+                  <span className="text-sm text-gray-700">Verbesserungsbereiche</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Rechte Spalte - Wie es funktioniert */}
+      <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-8 text-white shadow-2xl">
+        <h3 className="text-2xl font-bold mb-6 text-center">Wie funktioniert es?</h3>
+        
+        <div className="space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+              1️⃣
+            </div>
+            <div>
+              <h4 className="font-semibold text-lg">Beantworten Sie die Fragen</h4>
+              <p className="text-amber-100">Einfach und intuitiv - maximal 5 Minuten</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+              2️⃣
+            </div>
+            <div>
+              <h4 className="font-semibold text-lg">Automatische Analyse</h4>
+              <p className="text-amber-100">Unser System berechnet Ihre Ergebnisse</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+              3️⃣
+            </div>
+            <div>
+              <h4 className="font-semibold text-lg">Detaillierter Bericht</h4>
+              <p className="text-amber-100">Erhalten Sie Ihre persönliche Analyse</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 space-y-4">
+          <button
+            onClick={() => window.location.href = '/Selbsttests'}
+            className="w-full bg-white text-amber-600 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg"
+          >
+            🚀 Meine Kostenlosen Tests Starten
+          </button>
+          
+          <div className="bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm">
+            <p className="text-amber-100 text-sm">
+              ⚡ <strong>Sofortige Ergebnisse</strong> • 🔒 <strong>100% vertraulich</strong> • 🎯 <strong>Personalisierte</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Vorteile */}
+    <div className="mt-16 grid md:grid-cols-4 gap-6">
+      <div className="text-center">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <span className="text-2xl">📊</span>
+        </div>
+        <h4 className="font-semibold text-gray-800">Tiefgehende Analyse</h4>
+        <p className="text-gray-600 text-sm">Detaillierte Auswertung Ihrer Energien</p>
+      </div>
+      
+      <div className="text-center">
+        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <span className="text-2xl">⚡</span>
+        </div>
+        <h4 className="font-semibold text-gray-800">Schnelle Ergebnisse</h4>
+        <p className="text-gray-600 text-sm">Nur wenige Minuten benötigt</p>
+      </div>
+      
+      <div className="text-center">
+        <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <span className="text-2xl">🔒</span>
+        </div>
+        <h4 className="font-semibold text-gray-800">Vertraulich</h4>
+        <p className="text-gray-600 text-sm">Ihre Daten sind geschützt</p>
+      </div>
+      
+      <div className="text-center">
+        <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <span className="text-2xl">🎁</span>
+        </div>
+        <h4 className="font-semibold text-gray-800">100% Kostenlos</h4>
+        <p className="text-gray-600 text-sm">Keine Verpflichtungen erforderlich</p>
+      </div>
+    </div>
+
+    {/* Erfahrungsberichte */}
+    <div className="mt-16 text-center">
+      <h3 className="text-2xl font-bold text-gray-800 mb-8">Was unsere Nutzer sagen</h3>
+      <div className="grid md:grid-cols-3 gap-6">
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+          <div className="text-amber-400 text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+          <p className="text-gray-600 italic mb-4">
+            "Der Chakra-Test hat mir Blockaden aufgezeigt, von denen ich nichts ahnte. Sehr präzise!"
+          </p>
+          <p className="text-gray-500 text-sm">- Thomas, 34 Jahre</p>
+        </div>
+
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+          <div className="text-amber-400 text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+          <p className="text-gray-600 italic mb-4">
+            "Die Beziehungsanalyse hat meine Partnerschaft gerettet. Wir verstehen endlich unsere Dynamiken."
+          </p>
+          <p className="text-gray-500 text-sm">- Sophie, 29 Jahre</p>
+        </div>
+
+        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+          <div className="text-amber-400 text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+          <p className="text-gray-600 italic mb-4">
+            "Einfach, schnell und unglaublich treffend. Ich empfehle es allen!"
+          </p>
+          <p className="text-gray-500 text-sm">- Marc, 41 Jahre</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Section Services avec contenu SEO enrichi */}
         <section id="services" className="flex flex-col items-center w-full py-16 bg-gradient-to-br from-gray-50 to-white" itemScope itemType="https://schema.org/Service">

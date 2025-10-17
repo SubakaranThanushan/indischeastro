@@ -60,7 +60,7 @@ function AutoScrollingComponent() {
         aria-label="Liste der Tierkreiszeichen"
         className="w-full overflow-x-scroll whitespace-nowrap"
       >
-        <div className="inline-block space-x-20">
+        <div className="inline-block space-x-1">
           <Image
             className="inline-block"
             src={aquarius}
